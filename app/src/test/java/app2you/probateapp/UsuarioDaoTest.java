@@ -12,7 +12,7 @@ public class UsuarioDaoTest {
 
     @Before
     public void init() {
-        dao = new UsuarioDao();
+        dao = UsuarioDao.getInstance();
     }
 
     @Test
