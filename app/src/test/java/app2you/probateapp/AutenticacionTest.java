@@ -1,9 +1,11 @@
-package app2you.probateapp.controladores;
+package app2you.probateapp;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import app2you.probateapp.controladores.Autenticacion;
+import app2you.probateapp.entidades.Curso;
 import app2you.probateapp.entidades.Usuario;
 import app2you.probateapp.repositorios.UsuarioDao;
 
@@ -33,7 +35,7 @@ public class AutenticacionTest {
 
     @Test
     public void registroValido() throws Exception {
-        Usuario nuevoUsuario = new Usuario(null, "Jose", "Perez", "josepe", "123");
+        Usuario nuevoUsuario = new Usuario(null, "Jose", "Perez", "josepe", "123", null);
         auth.registro(nuevoUsuario);
         Assert.assertNotNull(auth.login("josepe", "123"));
     }

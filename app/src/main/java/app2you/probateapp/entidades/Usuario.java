@@ -1,31 +1,27 @@
 package app2you.probateapp.entidades;
 
-import java.util.UUID;
-
 public class Usuario {
-    private String id;
+    private Integer id;
     private String nombre;
     private String apellido;
     private String usuario;
     private String contrasena;
+    private Curso curso;
 
-    public Usuario(String id, String nombre, String apellido, String usuario, String contrasena) {
-        if (id == null)  {
-            this.id = UUID.randomUUID().toString();
-        } else {
-            this.id = id;
-        }
+    public Usuario(Integer id, String nombre, String apellido, String usuario, String contrasena, Curso curso) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.usuario = usuario;
         this.contrasena = contrasena;
+        this.curso = curso;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -59,5 +55,13 @@ public class Usuario {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 }

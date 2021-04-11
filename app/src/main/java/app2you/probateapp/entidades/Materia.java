@@ -5,7 +5,7 @@ import java.util.List;
 public class Materia {
     private String nombre;
     private String imagen;
-    private List<Tema> temas;
+    private  List<Tema> temas;
 
     public Materia(String nombre, String imagen, List<Tema> temas) {
         this.nombre = nombre;
