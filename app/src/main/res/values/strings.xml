@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ProbateApp</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Inicie sesión o regístrese</string>
+    <string name="action_sign_in_short">Inicie Sesión</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="mensaje_de_bienvenida">¡¡¡Bienvenido!!!</string>
+    <string name="boton_inicial_de_ingreso">Ingresa aquí</string>
+    <string name="boton_inicial_de_salida">Ups! Me voy!</string>
+    <string name="usuario">Usuario (mail)</string>
 </resources>
