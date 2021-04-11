@@ -13,8 +13,8 @@ public class TriviaTest {
     Tema tema;
 
     @Before
-    public void init() {
-        Usuario usr = new UsuarioDao().login("alexis", "123");
+    public void init() throws  Exception{
+        Usuario usr = new Autenticacion().login("alexis", "123");
         tema = usr.getCurso().getMaterias().get(0).getTemas().get(0);
     }
 
