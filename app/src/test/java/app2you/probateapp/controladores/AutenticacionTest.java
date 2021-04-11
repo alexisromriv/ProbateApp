@@ -1,4 +1,4 @@
-package app2you.probateapp;
+package app2you.probateapp.controladores;
 
 import org.junit.Assert;
 import org.junit.Before;

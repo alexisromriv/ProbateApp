@@ -26,4 +26,14 @@ public class Pregunta {
     public void setRespuestas(List<Respuesta> respuestas) {
         this.respuestas = respuestas;
     }
+
+    public Respuesta respuestaCorrecta() {
+        for (Respuesta resp : this.getRespuestas()) {
+            if (resp.isCorrecta()) {
+                return resp;
+            }
+        }
+        return null;
+    }
 }
+
