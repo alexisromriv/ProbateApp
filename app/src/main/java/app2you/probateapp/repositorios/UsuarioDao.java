@@ -8,7 +8,17 @@ import app2you.probateapp.entidades.Usuario;
 public class UsuarioDao {
     private List<Usuario> usuarios;
 
-    public UsuarioDao() {
+    private static UsuarioDao instance;
+
+    public static UsuarioDao getInstance() {
+        if (instance == null) {
+            instance = new UsuarioDao();
+        }
+        return instance;
+    }
+
+
+    private UsuarioDao() {
         usuarios = new ArrayList<>();
         registrar(new Usuario(null,"Alexis", "Romero", "alexis", "123"));
     }
@@ -25,7 +35,6 @@ public class UsuarioDao {
     }
 
     public Usuario registrar(Usuario usuario) {
-        usuario.setId(usuarios.size() + 1);
         usuarios.add(usuario);
         return usuario;
     }
