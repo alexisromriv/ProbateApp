@@ -1,14 +1,18 @@
 package app2you.probateapp.entidades;
 
+import java.util.List;
+
 public class Curso {
     private int id;
     private String nombre;
     private Instituto instituto;
+    private List<Materia> materias;
 
-    public Curso(int id, String nombre, Instituto instituto) {
+    public Curso(int id, String nombre, Instituto instituto, List<Materia> materias) {
         this.id = id;
         this.nombre = nombre;
         this.instituto = instituto;
+        this.materias = materias;
     }
 
     public int getId() {
@@ -33,5 +37,13 @@ public class Curso {
 
     public void setInstituto(Instituto instituto) {
         this.instituto = instituto;
+    }
+
+    public List<Materia> getMaterias() {
+        return materias;
+    }
+
+    public void setMaterias(List<Materia> materias) {
+        this.materias = materias;
     }
 }

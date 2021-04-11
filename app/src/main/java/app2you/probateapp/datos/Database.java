@@ -34,11 +34,11 @@ public class Database {
 
     private Database() {
         cargarInstitutos();
-        cargarCursos();
         cargarRespuestas();
         cargarPreguntas();
         cargarTemas();
         cargarMaterias();
+        cargarCursos();
         cargarUsuarios();
     }
 
@@ -47,9 +47,9 @@ public class Database {
     }
 
     private void cargarCursos() {
-        cursos.add(new Curso(1, "Curso 1", institutos.get(0)));
-        cursos.add(new Curso(2, "Curso 2", institutos.get(0)));
-        cursos.add(new Curso(3, "Curso 3", institutos.get(0)));
+        List<Materia> materias1 = new ArrayList<>();
+        materias1.add(materias.get(0));
+        cursos.add(new Curso(1, "Curso 1", institutos.get(0), materias1));
     }
 
     private  void cargarTemas() {
