@@ -13,4 +13,13 @@
     <string name="boton_inicial_de_ingreso">Ingresa aquí</string>
     <string name="boton_inicial_de_salida">Ups! Me voy!</string>
     <string name="usuario">Usuario (mail)</string>
+    <string name="registro">Registro</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="email">Email</string>
+    <string name="instituto">Instituto</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="telefono">Telefono</string>
+    <string name="repetirContraseña">Repetir Contraseña</string>
+    <string name="botonRegistro">ENVIAR</string>
 </resources>
