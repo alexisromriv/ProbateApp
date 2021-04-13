@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f3f3f3"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".TriviaActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Filósofos griegos"
+        android:id="@+id/tvTema"
+        android:textSize="16dp"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¿Quién postuló  'Yo solo se que no sé nada' ?"
+        android:textColor="#000000"
+        android:id="@+id/tvPregunta"
+        android:textSize="24dp"></TextView>
+
+    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        card_view:cardCornerRadius="4dp">
+
+        <TextView
+            android:id="@+id/tvRespuesta1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:text="Platón"
+            android:textSize="24dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        card_view:cardCornerRadius="4dp">
+
+        <TextView
+            android:id="@+id/tvRespuesta2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:text="Arquímedes"
+            android:textSize="24dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        card_view:cardCornerRadius="4dp">
+
+        <TextView
+            android:id="@+id/tvRespuesta3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:text="Sócrates"
+            android:textSize="24dp" />
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

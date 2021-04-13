@@ -55,20 +55,22 @@ public class Database {
     private  void cargarTemas() {
         List<Pregunta> pregutas1 = new ArrayList<>();
         pregutas1.add(preguntas.get(0));
-        pregutas1.add(preguntas.get(1));
-        temas.add(new Tema("Tema 1", pregutas1));
+        for (int i = 1; i < 20; i++) {
+            pregutas1.add(preguntas.get(i));
+        }
+        temas.add(new Tema("Filósofos Griegos", pregutas1));
     }
 
     private void cargarMaterias() {
         List<Tema> temas1 = new ArrayList<>();
         temas1.add(temas.get(0));
-        materias.add(new Materia("Materia 1", "1.jpg", temas1));
+        materias.add(new Materia("Imperio Macedonio", "1.jpg", temas1));
     }
 
     private void cargarRespuestas() {
-        respuestas.add(new Respuesta("Respuesta 1", "1", true));
-        respuestas.add(new Respuesta("Respuesta 2", "2", false));
-        respuestas.add(new Respuesta("Respuesta 3", "3", false));
+        respuestas.add(new Respuesta("Aristóteles", "Aristóteles", true));
+        respuestas.add(new Respuesta("Demóstenes", "Demóstenes", false));
+        respuestas.add(new Respuesta("Sócrates", "Sócrates", false));
         respuestas.add(new Respuesta("Respuesta 4", "4", true));
         respuestas.add(new Respuesta("Respuesta 5", "5", false));
         respuestas.add(new Respuesta("Respuesta 6", "6", false));
@@ -79,13 +81,16 @@ public class Database {
         respuestas1.add(respuestas.get(0));
         respuestas1.add(respuestas.get(1));
         respuestas1.add(respuestas.get(2));
-        preguntas.add(new Pregunta("Pregunta 1", respuestas1));
+        preguntas.add(new Pregunta("Quien participó en la educación y formación académica de Alejandro Magno", respuestas1));
 
-        List<Respuesta> respuestas2 = new ArrayList<>();
-        respuestas2.add(respuestas.get(0));
-        respuestas2.add(respuestas.get(1));
-        respuestas2.add(respuestas.get(2));
-        preguntas.add(new Pregunta("Pregunta 2", respuestas2));
+
+        for (int i = 1; i < 20 ; i++) {
+            List<Respuesta> respuestasLoop = new ArrayList<>();
+            respuestasLoop.add(respuestas.get(0));
+            respuestasLoop.add(respuestas.get(1));
+            respuestasLoop.add(respuestas.get(2));
+            preguntas.add(new Pregunta("Pregunta " + i, respuestasLoop));
+        }
     }
 
     private void cargarUsuarios() {
