@@ -22,4 +22,6 @@
     <string name="telefono">Telefono</string>
     <string name="repetirContraseña">Repetir Contraseña</string>
     <string name="botonRegistro">ENVIAR</string>
+    <string name="hola_nombre">Hola Luisa!</string>
+    <string name="texto">Mis Materias</string>
 </resources>
