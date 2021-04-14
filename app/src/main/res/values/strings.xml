@@ -25,4 +25,18 @@
     <string name="hola_nombre">Hola Luisa!</string>
     <string name="texto">Mis Materias</string>
     <string name="todo">TODO</string>
+
+    <string-array name="institutos">
+        <item>Instituto</item>
+        <item>Instituto_12</item>
+        <item>Instituto_H</item>
+
+    </string-array>
+
+    <string-array name="cursos">
+        <item>Curso</item>
+        <item>Cultura Griega</item>
+        <item>Cultura Persa</item>
+
+    </string-array>
 </resources>
