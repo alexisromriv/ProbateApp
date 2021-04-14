@@ -7,33 +7,11 @@
     tools:context=".MainActivity">
 
 
-    <EditText
-        android:id="@+id/editTextTextBienvenida"
-        android:layout_width="369dp"
-        android:layout_height="83dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="40dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/mensaje_de_bienvenida"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonIngreso"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        tools:visibility="visible" />
-
     <Button
         android:id="@+id/buttonIngreso"
         android:layout_width="0dp"
         android:layout_height="69dp"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="98dp"
         android:onClick="sendMessage"
@@ -43,7 +21,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextBienvenida"
         tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -58,13 +35,28 @@
         android:layout_width="wrap_content"
         android:layout_height="301dp"
         android:layout_marginTop="51dp"
-        android:layout_marginBottom="52dp"
         android:contentDescription="@string/todo"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextBienvenida"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_probaate" />
+
+    <TextView
+        android:id="@+id/textViewBienvenida"
+        android:layout_width="384dp"
+        android:layout_height="123dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="61dp"
+        android:text="@string/mensaje_de_bienvenida"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonIngreso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
