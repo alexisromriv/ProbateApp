@@ -1,8 +1,9 @@
 package app2you.probateapp.entidades;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Materia {
+public class Materia implements Serializable {
     private String nombre;
     private String imagen;
     private  List<Tema> temas;

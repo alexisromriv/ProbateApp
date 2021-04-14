@@ -23,7 +23,8 @@
         <activity android:name=".Registro" />
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".TriviaActivity">
+        <activity android:name=".TriviaActivity"></activity>
+        <activity android:name=".SeleccionTemaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

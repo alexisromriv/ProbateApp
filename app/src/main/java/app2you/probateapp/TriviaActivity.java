@@ -51,8 +51,8 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
 
         try {
-            Usuario usr = new Autenticacion().login("alexis", "123");
-            tema = usr.getCurso().getMaterias().get(0).getTemas().get(0);
+            Intent intent = getIntent();
+            tema = (Tema)intent.getSerializableExtra("tema");
 
             trivia = new Trivia(tema);
             init();

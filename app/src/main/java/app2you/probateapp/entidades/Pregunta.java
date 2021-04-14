@@ -1,8 +1,9 @@
 package app2you.probateapp.entidades;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Pregunta {
+public class Pregunta implements Serializable {
     private String titulo;
     private List<Respuesta> respuestas;
 
