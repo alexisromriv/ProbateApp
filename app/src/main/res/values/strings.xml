@@ -24,4 +24,5 @@
     <string name="botonRegistro">ENVIAR</string>
     <string name="hola_nombre">Hola Luisa!</string>
     <string name="texto">Mis Materias</string>
+    <string name="todo">TODO</string>
 </resources>
