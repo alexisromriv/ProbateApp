@@ -3,6 +3,7 @@ package app2you.probateapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -34,6 +35,12 @@ public class Principal extends AppCompatActivity {
         ListView listamaterias = (ListView) findViewById(R.id.listamaterias);
         listamaterias.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nombreMaterias));
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_opciones, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
 }

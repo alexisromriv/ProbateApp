@@ -25,6 +25,9 @@
     <string name="hola_nombre">Hola Luisa!</string>
     <string name="texto">Mis Materias</string>
     <string name="todo">TODO</string>
+    <string name="estadiscticas">Estadísticas</string>
+    <string name="perfil">Mi Perfil</string>
+    <string name="salir">Salir</string>
 
     <string-array name="institutos">
         <item>Instituto</item>
