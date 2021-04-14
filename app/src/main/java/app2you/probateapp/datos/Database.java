@@ -59,11 +59,17 @@ public class Database {
             pregutas1.add(preguntas.get(i));
         }
         temas.add(new Tema("Filósofos Griegos", pregutas1));
+        temas.add(new Tema("Alejandro Magno", pregutas1));
+        temas.add(new Tema("Necesitamos más temas", pregutas1));
+        temas.add(new Tema("No se que inventar", pregutas1));
     }
 
     private void cargarMaterias() {
         List<Tema> temas1 = new ArrayList<>();
         temas1.add(temas.get(0));
+        temas1.add(temas.get(1));
+        temas1.add(temas.get(2));
+        temas1.add(temas.get(3));
         materias.add(new Materia("Imperio Macedonio", "1.jpg", temas1));
     }
 
