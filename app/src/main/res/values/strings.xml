@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ProbateApp</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login">Usuario (email)</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Inicie sesión o regístrese</string>
