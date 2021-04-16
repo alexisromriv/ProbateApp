@@ -42,4 +42,8 @@
         <item>Cultura Persa</item>
 
     </string-array>
+    <string name="trivia">TRIVIA</string>
+    <string name="examen">EXÁMEN</string>
+    <string name="_1er_a_o">1er. año</string>
+    <string name="cultura_griega">Cultura Griega</string>
 </resources>

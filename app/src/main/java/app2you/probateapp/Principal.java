@@ -9,12 +9,13 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import app2you.probateapp.entidades.Materia;
 import app2you.probateapp.entidades.Materias;
 
 public class Principal extends AppCompatActivity {
 
     ArrayList<Materias> mismateriasl;
-
+   // ArrayList<Materia> listamateria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +23,13 @@ public class Principal extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mismateriasl = new ArrayList<Materias>();
-        mismateriasl.add(new Materias("Cultura Griega", "1er. año"));
+        mismateriasl.add(new Materias("CulturaGriega", "1er. año"));
         mismateriasl.add(new Materias("Cultura Persa", "1er. año"));
         mismateriasl.add(new Materias("Macedonia", "1er. año"));
+
+       // listamateria = new ArrayList<Materia>();
+     //listamateria.add(new Materia("Cultura Griega", "Pertenon", this, ));
+
 
         ArrayList<String> nombreMaterias = new ArrayList<>();
 

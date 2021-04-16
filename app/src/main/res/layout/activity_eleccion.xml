@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Eleccion">
+
+    <TextView
+        android:id="@+id/textMateria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/cultura_griega"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textGrado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageMateria" />
+
+    <ImageView
+        android:id="@+id/imageMateria"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="?attr/colorControlHighlight"
+        app:layout_constraintBottom_toTopOf="@+id/textMateria"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/partenon"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/textGrado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_1er_a_o"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/triviabutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textMateria" />
+
+    <Button
+        android:id="@+id/triviabutton"
+        android:layout_width="250dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="40dp"
+        android:onClick="sendpage"
+        android:text="@string/trivia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGrado" />
+
+    <Button
+        android:id="@+id/examenbutton"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/boton"
+        android:text="@string/examen"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/triviabutton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
