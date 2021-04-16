@@ -42,4 +42,7 @@
         <item>Cultura Persa</item>
 
     </string-array>
+    <string name="Ingresar">Ingresar</string>
+    <string name="Olvidodecontraseña">¿Olvidaste tu contraseña?</string>
+    <string name="Registrousuario">¿Nuevo por aquí? Click para registrarse</string>
 </resources>

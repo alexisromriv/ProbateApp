@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Simplelogin">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="364dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_probaate" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="302dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="@string/email"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="@string/contraseña"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/buttoningresar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+
+    <Button
+        android:id="@+id/buttoningresar"
+        android:layout_width="373dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/Ingresar"
+        app:layout_constraintBottom_toTopOf="@+id/textViewolvidocontrasena"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+    <TextView
+        android:id="@+id/textViewolvidocontrasena"
+        android:layout_width="365dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/Olvidodecontraseña"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/buttonregistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttoningresar" />
+
+    <Button
+        android:id="@+id/buttonregistro"
+        android:layout_width="352dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="19dp"
+        android:text="@string/Registrousuario"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewolvidocontrasena" />
+</androidx.constraintlayout.widget.ConstraintLayout>
