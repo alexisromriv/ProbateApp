@@ -1,6 +1,9 @@
 package app2you.probateapp.entidades;
 
-public class Materias {    private String textMateria;
+import java.io.Serializable;
+
+public class Materias implements Serializable {
+    private String textMateria;
     private String textGrado;
 
     public String getTextMateria() {

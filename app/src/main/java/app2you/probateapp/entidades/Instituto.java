@@ -1,8 +1,9 @@
 package app2you.probateapp.entidades;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Instituto {
+public class Instituto implements Serializable {
     private Integer id;
     private String nombre;
 

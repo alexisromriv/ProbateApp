@@ -1,14 +1,17 @@
 package app2you.probateapp.entidades;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Pregunta {
+public class Pregunta implements Serializable {
     private String titulo;
     private List<Respuesta> respuestas;
+    private Tema tema;
 
-    public Pregunta(String titulo, List<Respuesta> respuestas) {
+    public Pregunta(String titulo, List<Respuesta> respuestas, Tema tema) {
         this.titulo = titulo;
         this.respuestas = respuestas;
+        this.tema = tema;
     }
 
     public String getTitulo() {
@@ -25,6 +28,14 @@ public class Pregunta {
 
     public void setRespuestas(List<Respuesta> respuestas) {
         this.respuestas = respuestas;
+    }
+
+    public Tema getTema() {
+        return tema;
+    }
+
+    public void setTema(Tema tema) {
+        this.tema = tema;
     }
 
     public Respuesta respuestaCorrecta() {
