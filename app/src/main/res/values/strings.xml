@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ProbateApp</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login">Usuario (email)</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Inicie sesión o regístrese</string>
@@ -24,4 +24,22 @@
     <string name="botonRegistro">ENVIAR</string>
     <string name="hola_nombre">Hola Luisa!</string>
     <string name="texto">Mis Materias</string>
+    <string name="todo">TODO</string>
+    <string name="estadiscticas">Estadísticas</string>
+    <string name="perfil">Mi Perfil</string>
+    <string name="salir">Salir</string>
+
+    <string-array name="institutos">
+        <item>Instituto</item>
+        <item>Instituto_12</item>
+        <item>Instituto_H</item>
+
+    </string-array>
+
+    <string-array name="cursos">
+        <item>Curso</item>
+        <item>Cultura Griega</item>
+        <item>Cultura Persa</item>
+
+    </string-array>
 </resources>
