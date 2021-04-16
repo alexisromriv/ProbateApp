@@ -58,10 +58,30 @@ public class Database {
         for (int i = 0; i < 20; i++) {
             pregutas1.add(preguntas.get(i));
         }
-        temas.add(new Tema("Filósofos Griegos", pregutas1));
+        //temas.add(new Tema("Filósofos Griegos", pregutas1));
+        //temas.add(new Tema("Alejandro Magno", pregutas1));
+        //temas.add(new Tema("Necesitamos más temas", pregutas1));
+        //temas.add(new Tema("No se que inventar", pregutas1));
+        temas.add(new Tema("Inicio de Sumeria", pregutas1));
+        temas.add(new Tema("Fin de Sumeria", pregutas1));
+        temas.add(new Tema("Comienzo del Imperio romano", pregutas1));
+        temas.add(new Tema("Situación del imperio romano", pregutas1));
+        temas.add(new Tema("Caída del imperio romano", pregutas1));
+        temas.add(new Tema("Tutankamon", pregutas1));
+        temas.add(new Tema("Nefertiti", pregutas1));
+        temas.add(new Tema("Romulo y Remo", pregutas1));
         temas.add(new Tema("Alejandro Magno", pregutas1));
-        temas.add(new Tema("Necesitamos más temas", pregutas1));
-        temas.add(new Tema("No se que inventar", pregutas1));
+        temas.add(new Tema("Constantino el grande", pregutas1));
+        temas.add(new Tema("Caligula", pregutas1));
+        temas.add(new Tema("Alejandro Magno", pregutas1));
+        temas.add(new Tema("filósofos Griegos", pregutas1));
+        temas.add(new Tema("conquista Europea", pregutas1));
+        temas.add(new Tema("armamento romano", pregutas1));
+        temas.add(new Tema("Mitología y Cultura Romana", pregutas1));
+        temas.add(new Tema("Percia Vs. Grecia", pregutas1));
+        temas.add(new Tema("Geografía antigua", pregutas1));
+        temas.add(new Tema("Filósofos Griegos", pregutas1));
+        temas.add(new Tema("Estados Antiguos", pregutas1));
 
         for (int i = 0; i < 5; i++) {
             preguntas.get(i).setTema(temas.get(0));
@@ -84,7 +104,17 @@ public class Database {
         temas1.add(temas.get(1));
         temas1.add(temas.get(2));
         temas1.add(temas.get(3));
-        materias.add(new Materia("Imperio Macedonio", "1.jpg", temas1));
+        //materias.add(new Materia("Imperio Macedonio", "1.jpg", temas1));
+        materias.add(new Materia("Sumeria","0", temas1));
+        materias.add(new Materia("Imperio Egipcio","0", temas1));
+        materias.add(new Materia("Imperio Romano","0", temas1));
+        materias.add(new Materia("Matera","0", temas1));
+        materias.add(new Materia("Termo","0", temas1));
+        materias.add(new Materia("Bombilla","0", temas1));
+        materias.add(new Materia("Macedonio","Alejandro-Magno--644x362.jpg", temas1));
+        materias.add(new Materia("Imperio Persa","42ac50930e30898f1faa16d46b2bbc09.jpg", temas1));
+        materias.add(new Materia("Cultura Griega","250px-Parthenon_from_west.jpg", temas1));
+
     }
 
     private void cargarRespuestas() {
