@@ -7,11 +7,19 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
+    <TextView
+        android:id="@+id/tvTemaExamen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="¿Cuanto es 1 + 1?"
+        android:textSize="16dp" />
+
     <TextView
         android:id="@+id/tvPreguntaExmen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="¿Cuanto es 1 + 1?"
         android:textSize="24dp" />
 

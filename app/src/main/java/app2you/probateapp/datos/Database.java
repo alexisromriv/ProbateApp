@@ -54,14 +54,28 @@ public class Database {
 
     private  void cargarTemas() {
         List<Pregunta> pregutas1 = new ArrayList<>();
-        pregutas1.add(preguntas.get(0));
-        for (int i = 1; i < 20; i++) {
+
+        for (int i = 0; i < 20; i++) {
             pregutas1.add(preguntas.get(i));
         }
         temas.add(new Tema("Filósofos Griegos", pregutas1));
         temas.add(new Tema("Alejandro Magno", pregutas1));
         temas.add(new Tema("Necesitamos más temas", pregutas1));
         temas.add(new Tema("No se que inventar", pregutas1));
+
+        for (int i = 0; i < 5; i++) {
+            preguntas.get(i).setTema(temas.get(0));
+        }
+        for (int i = 5; i < 11; i++) {
+            preguntas.get(i).setTema(temas.get(1));
+        }
+        for (int i = 11; i < 16; i++) {
+            preguntas.get(i).setTema(temas.get(2));
+        }
+        for (int i = 16; i < 20; i++) {
+            preguntas.get(i).setTema(temas.get(3));
+        }
+
     }
 
     private void cargarMaterias() {
@@ -87,7 +101,7 @@ public class Database {
         respuestas1.add(respuestas.get(0));
         respuestas1.add(respuestas.get(1));
         respuestas1.add(respuestas.get(2));
-        preguntas.add(new Pregunta("Quien participó en la educación y formación académica de Alejandro Magno", respuestas1));
+        preguntas.add(new Pregunta("Quien participó en la educación y formación académica de Alejandro Magno", respuestas1, null));
 
 
         for (int i = 1; i < 20 ; i++) {
@@ -95,7 +109,7 @@ public class Database {
             respuestasLoop.add(respuestas.get(0));
             respuestasLoop.add(respuestas.get(1));
             respuestasLoop.add(respuestas.get(2));
-            preguntas.add(new Pregunta("Pregunta " + i, respuestasLoop));
+            preguntas.add(new Pregunta("Pregunta " + i, respuestasLoop, null));
         }
     }
 
