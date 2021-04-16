@@ -88,23 +88,22 @@ public class ExamenActivity extends AppCompatActivity  {
     }
 
     public void siguiente(View view) {
-        if (rbRespuestaExamen1.isChecked()) {
-            respuestas.get(preguntaIndex).setRespuestaSeleccionada(respuestas.get(preguntaIndex).getPregunta().getRespuestas().get(0));
-        }
-        if (rbRespuestaExamen2.isChecked()) {
-            respuestas.get(preguntaIndex).setRespuestaSeleccionada(respuestas.get(preguntaIndex).getPregunta().getRespuestas().get(1));
-        }
-        if (rbRespuestaExamen3.isChecked()) {
-            respuestas.get(preguntaIndex).setRespuestaSeleccionada(respuestas.get(preguntaIndex).getPregunta().getRespuestas().get(2));
-        }
+        seleccionarRespuesta();
         if (preguntaIndex < materia.getTemas().get(temaIndex).getPreguntas().size()) {
             preguntaIndex++;
             setPregunta();
         }
-
     }
 
     public void anterior(View view) {
+        seleccionarRespuesta();
+        if (preguntaIndex > 0) {
+            preguntaIndex--;
+            setPregunta();
+        }
+    }
+
+    private void seleccionarRespuesta(){
         if (rbRespuestaExamen1.isChecked()) {
             respuestas.get(preguntaIndex).setRespuestaSeleccionada(respuestas.get(preguntaIndex).getPregunta().getRespuestas().get(0));
         }
@@ -114,11 +113,6 @@ public class ExamenActivity extends AppCompatActivity  {
         if (rbRespuestaExamen3.isChecked()) {
             respuestas.get(preguntaIndex).setRespuestaSeleccionada(respuestas.get(preguntaIndex).getPregunta().getRespuestas().get(2));
         }
-        if (preguntaIndex > 0) {
-            preguntaIndex--;
-            setPregunta();
-        }
-
     }
 
 
