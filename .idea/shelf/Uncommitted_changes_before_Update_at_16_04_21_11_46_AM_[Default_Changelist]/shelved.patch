@@ -1,0 +1,197 @@
+Index: app/src/main/java/app2you/probateapp/Principal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package app2you.probateapp;\n\nimport androidx.appcompat.app.AppCompatActivity;\n\nimport android.os.Bundle;\nimport android.view.Menu;\nimport android.widget.ArrayAdapter;\nimport android.widget.ListView;\n\nimport java.util.ArrayList;\n\nimport app2you.probateapp.entidades.Materias;\n\npublic class Principal extends AppCompatActivity {\n\n    ArrayList<Materias> mismateriasl;\n\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_main);\n\n        mismateriasl = new ArrayList<Materias>();\n        mismateriasl.add(new Materias(\"Cultura Griega\", \"1er. año\"));\n        mismateriasl.add(new Materias(\"Cultura Persa\", \"1er. año\"));\n        mismateriasl.add(new Materias(\"Macedonia\", \"1er. año\"));\n\n        ArrayList<String> nombreMaterias = new ArrayList<>();\n\n        for (Materias mismaterias:mismateriasl){\n            nombreMaterias.add(mismaterias.getTextMateria());\n        }\n\n        ListView listamaterias = (ListView) findViewById(R.id.listamaterias);\n        listamaterias.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nombreMaterias));\n\n    }\n\n    @Override\n    public boolean onCreateOptionsMenu(Menu menu) {\n        getMenuInflater().inflate(R.menu.menu_opciones, menu);\n        return super.onCreateOptionsMenu(menu);\n    }\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/app2you/probateapp/Principal.java	(revision f6a37670846e0b96101d50378d16b94e9d570487)
++++ app/src/main/java/app2you/probateapp/Principal.java	(date 1618583810000)
+@@ -9,12 +9,13 @@
+ 
+ import java.util.ArrayList;
+ 
++import app2you.probateapp.entidades.Materia;
+ import app2you.probateapp.entidades.Materias;
+ 
+ public class Principal extends AppCompatActivity {
+ 
+     ArrayList<Materias> mismateriasl;
+-
++   // ArrayList<Materia> listamateria;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+@@ -22,10 +23,14 @@
+         setContentView(R.layout.activity_main);
+ 
+         mismateriasl = new ArrayList<Materias>();
+-        mismateriasl.add(new Materias("Cultura Griega", "1er. año"));
++        mismateriasl.add(new Materias("CulturaGriega", "1er. año"));
+         mismateriasl.add(new Materias("Cultura Persa", "1er. año"));
+         mismateriasl.add(new Materias("Macedonia", "1er. año"));
+ 
++       // listamateria = new ArrayList<Materia>();
++      //listamateria.add(new Materia("Cultura Griega", "Pertenon", this, ));
++
++
+         ArrayList<String> nombreMaterias = new ArrayList<>();
+ 
+         for (Materias mismaterias:mismateriasl){
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\n    <string name=\"app_name\">ProbateApp</string>\n    <string name=\"title_activity_login\">Usuario (email)</string>\n    <string name=\"prompt_email\">Email</string>\n    <string name=\"prompt_password\">Password</string>\n    <string name=\"action_sign_in\">Inicie sesión o regístrese</string>\n    <string name=\"action_sign_in_short\">Inicie Sesión</string>\n    <string name=\"welcome\">\"Welcome !\"</string>\n    <string name=\"invalid_username\">Not a valid username</string>\n    <string name=\"invalid_password\">Password must be >5 characters</string>\n    <string name=\"login_failed\">\"Login failed\"</string>\n    <string name=\"mensaje_de_bienvenida\">¡¡¡Bienvenido!!!</string>\n    <string name=\"boton_inicial_de_ingreso\">Ingresa aquí</string>\n    <string name=\"boton_inicial_de_salida\">Ups! Me voy!</string>\n    <string name=\"usuario\">Usuario (mail)</string>\n    <string name=\"registro\">Registro</string>\n    <string name=\"nombre\">Nombre</string>\n    <string name=\"apellido\">Apellido</string>\n    <string name=\"email\">Email</string>\n    <string name=\"instituto\">Instituto</string>\n    <string name=\"contraseña\">Contraseña</string>\n    <string name=\"telefono\">Telefono</string>\n    <string name=\"repetirContraseña\">Repetir Contraseña</string>\n    <string name=\"botonRegistro\">ENVIAR</string>\n    <string name=\"hola_nombre\">Hola Luisa!</string>\n    <string name=\"texto\">Mis Materias</string>\n    <string name=\"todo\">TODO</string>\n    <string name=\"estadiscticas\">Estadísticas</string>\n    <string name=\"perfil\">Mi Perfil</string>\n    <string name=\"salir\">Salir</string>\n\n    <string-array name=\"institutos\">\n        <item>Instituto</item>\n        <item>Instituto_12</item>\n        <item>Instituto_H</item>\n\n    </string-array>\n\n    <string-array name=\"cursos\">\n        <item>Curso</item>\n        <item>Cultura Griega</item>\n        <item>Cultura Persa</item>\n\n    </string-array>\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision f6a37670846e0b96101d50378d16b94e9d570487)
++++ app/src/main/res/values/strings.xml	(date 1618584236000)
+@@ -42,4 +42,8 @@
+         <item>Cultura Persa</item>
+ 
+     </string-array>
++    <string name="trivia">TRIVIA</string>
++    <string name="examen">EXÁMEN</string>
++    <string name="_1er_a_o">1er. año</string>
++    <string name="cultura_griega">Cultura Griega</string>
+ </resources>
+\ No newline at end of file
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n    <color name=\"colorPrimary\">#6200EE</color>\n    <color name=\"colorPrimaryDark\">#3700B3</color>\n    <color name=\"colorAccent\">#03DAC5</color>\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/colors.xml	(revision f6a37670846e0b96101d50378d16b94e9d570487)
++++ app/src/main/res/values/colors.xml	(date 1618584214000)
+@@ -3,4 +3,6 @@
+     <color name="colorPrimary">#6200EE</color>
+     <color name="colorPrimaryDark">#3700B3</color>
+     <color name="colorAccent">#03DAC5</color>
++    <color name="boton">#2196F3</color>
++
+ </resources>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_eleccion.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_eleccion.xml	(date 1618584366000)
++++ app/src/main/res/layout/activity_eleccion.xml	(date 1618584366000)
+@@ -0,0 +1,70 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".MainActivity">
++
++    <TextView
++        android:id="@+id/textMateria"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="16dp"
++        android:text="@string/cultura_griega"
++        android:textSize="30sp"
++        app:layout_constraintBottom_toTopOf="@+id/textGrado"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.5"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/imageMateria" />
++
++    <ImageView
++        android:id="@+id/imageMateria"
++        android:layout_width="70dp"
++        android:layout_height="70dp"
++        android:layout_marginTop="52dp"
++        android:backgroundTint="?attr/colorControlHighlight"
++        app:layout_constraintBottom_toTopOf="@+id/textMateria"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.5"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:srcCompat="@drawable/partenon"
++        android:contentDescription="TODO" />
++
++    <TextView
++        android:id="@+id/textGrado"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="@string/_1er_a_o"
++        android:textSize="18sp"
++        app:layout_constraintBottom_toTopOf="@+id/button"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.5"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/textMateria" />
++
++    <Button
++        android:id="@+id/button"
++        android:layout_width="250dp"
++        android:layout_height="82dp"
++        android:layout_marginTop="40dp"
++        android:text="@string/trivia"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/textGrado" />
++
++    <Button
++        android:id="@+id/button2"
++        android:layout_width="250dp"
++        android:layout_height="80dp"
++        android:layout_marginTop="24dp"
++        android:backgroundTint="@color/boton"
++        android:text="@string/examen"
++        android:textColor="@color/colorPrimaryDark"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/button" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/app2you/probateapp/Eleccion.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/app2you/probateapp/Eleccion.java	(date 1618583799000)
++++ app/src/main/java/app2you/probateapp/Eleccion.java	(date 1618583799000)
+@@ -0,0 +1,14 @@
++package app2you.probateapp;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++public class Eleccion extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_eleccion);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"app2you.probateapp\">\n\n    <application\n        android:allowBackup=\"true\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/AppTheme\">\n        <activity android:name=\".Principal\"/>\n        <activity\n            android:name=\".ui.login.LoginActivity\"\n            android:parentActivityName=\".MainActivity\">\n\n            <!-- The meta-data tag is required if you support API level 15 and lower -->\n            <meta-data\n                android:name=\"android.support.PARENT_ACTIVITY\"\n                android:label=\"@string/title_activity_login\"\n                android:value=\".MainActivity\" />\n        </activity>\n        <activity android:name=\".Registro\" />\n        <activity android:name=\".MainActivity\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision f6a37670846e0b96101d50378d16b94e9d570487)
++++ app/src/main/AndroidManifest.xml	(date 1618583799000)
+@@ -9,7 +9,8 @@
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+         android:theme="@style/AppTheme">
+-        <activity android:name=".Principal"/>
++        <activity android:name=".Eleccion"></activity>
++        <activity android:name=".Principal" />
+         <activity
+             android:name=".ui.login.LoginActivity"
+             android:parentActivityName=".MainActivity">

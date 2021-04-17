@@ -20,8 +20,8 @@ public class Simplelogin extends AppCompatActivity {
             public void onClick(View v) {
                 // Intent intent = new Intent(v.getContext(), LoginActivity.class);
                 //Intent intent = new Intent(v.getContext(), LoginActivity.class);
-                Intent intent = new Intent(v.getContext(), Principal.class);
-                startActivityForResult(intent, 0);
+                Intent intent1 = new Intent(v.getContext(), Principal.class);
+                startActivityForResult(intent1, 0);
             }
 
         });
