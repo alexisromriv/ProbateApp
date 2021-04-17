@@ -20,5 +20,10 @@ public class Eleccion extends AppCompatActivity {
         startActivity(intent);
 
     }
+    public void sendexam (View view) {
+        // Do something in response to button click
+        Intent intent = new Intent(this, ExamenActivity.class);
+        startActivity(intent);
 
+    }
 }
