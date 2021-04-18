@@ -24,22 +24,12 @@ public class Principal extends AppCompatActivity {
 
     ArrayList<Materias> mismateriasl;
     List<Materia> misMateriasPosta;
-   // ArrayList<Materia> listamateria;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
-
-//        mismateriasl = new ArrayList<Materias>();
-//        mismateriasl.add(new Materias("Cultura Griega", "1er. año"));
-//        mismateriasl.add(new Materias("Cultura Persa", "1er. año"));
-//        mismateriasl.add(new Materias("Macedonia", "1er. año"));
-
-       // listamateria = new ArrayList<Materia>();
-     //listamateria.add(new Materia("Cultura Griega", "Pertenon", this, ));
-
-
 
 
         ArrayList<String> nombreMaterias = new ArrayList<>();
@@ -52,10 +42,6 @@ public class Principal extends AppCompatActivity {
             e.printStackTrace();
         }
         misMateriasPosta = usr.getCurso().getMaterias();
-
-//        for (Materias mismaterias:mismateriasl){
-//            nombreMaterias.add(mismaterias.getTextMateria());
-//        }
 
 
         for (Materia unaMateria:misMateriasPosta){

@@ -50,7 +50,7 @@ public class Database {
         List<Materia> materias1 = new ArrayList<>();
         materias1.add(materias.get(0));
         materias1.add(materias.get(1));
-        materias1.add(materias.get(2));
+        materias1.add(materias.get(8));
 
         cursos.add(new Curso(1, "Curso 1", institutos.get(0), materias1));
     }
@@ -105,15 +105,15 @@ public class Database {
         temas1.add(temas.get(2));
         temas1.add(temas.get(3));
         //materias.add(new Materia("Imperio Macedonio", "1.jpg", temas1));
-        materias.add(new Materia("Sumeria","0", temas1));
-        materias.add(new Materia("Imperio Egipcio","0", temas1));
+        materias.add(new Materia("Sumeria","sumeria", temas1));
+        materias.add(new Materia("Imperio Egipcio","egipcio", temas1));
         materias.add(new Materia("Imperio Romano","0", temas1));
         materias.add(new Materia("Matera","0", temas1));
         materias.add(new Materia("Termo","0", temas1));
         materias.add(new Materia("Bombilla","0", temas1));
         materias.add(new Materia("Macedonio","Alejandro-Magno--644x362.jpg", temas1));
         materias.add(new Materia("Imperio Persa","42ac50930e30898f1faa16d46b2bbc09.jpg", temas1));
-        materias.add(new Materia("Cultura Griega","250px-Parthenon_from_west.jpg", temas1));
+        materias.add(new Materia("Cultura Griega","partenon", temas1));
     }
 
     private void cargarRespuestas() {

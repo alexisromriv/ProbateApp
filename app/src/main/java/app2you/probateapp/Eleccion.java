@@ -35,10 +35,11 @@ public class Eleccion extends AppCompatActivity {
 
         TextView tvNombre = findViewById(R.id.textMateria);
         ImageView ivMateria = findViewById(R.id.imageMateria);
-//obtener controles visuales usar el findbyuviewid
 
         tvNombre.setText(estaMateria.getNombre());
-       // ivMateria.setImageResource(R.drawable.estaMateria.getImagen());
+
+        int id = getResources().getIdentifier(estaMateria.getImagen(), "drawable", getPackageName());
+        ivMateria.setImageResource(id);
 
 
 
