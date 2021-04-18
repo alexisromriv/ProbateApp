@@ -55,13 +55,10 @@ public class Database {
     private  void cargarTemas() {
         List<Pregunta> pregutas1 = new ArrayList<>();
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 41; i++) {
             pregutas1.add(preguntas.get(i));
         }
-        //temas.add(new Tema("Filósofos Griegos", pregutas1));
-        //temas.add(new Tema("Alejandro Magno", pregutas1));
-        //temas.add(new Tema("Necesitamos más temas", pregutas1));
-        //temas.add(new Tema("No se que inventar", pregutas1));
+
         temas.add(new Tema("Inicio de Sumeria", pregutas1));
         temas.add(new Tema("Fin de Sumeria", pregutas1));
         temas.add(new Tema("Comienzo del Imperio romano", pregutas1));
@@ -84,7 +81,7 @@ public class Database {
         temas.add(new Tema("Estados Antiguos", pregutas1));
 
         for (int i = 0; i < 5; i++) {
-            preguntas.get(i).setTema(temas.get(0));
+            preguntas.get(i).setTema(temas.get(0)); //Inicio de Sumeria
         }
         for (int i = 5; i < 11; i++) {
             preguntas.get(i).setTema(temas.get(1));
@@ -114,16 +111,9 @@ public class Database {
         materias.add(new Materia("Macedonio","Alejandro-Magno--644x362.jpg", temas1));
         materias.add(new Materia("Imperio Persa","42ac50930e30898f1faa16d46b2bbc09.jpg", temas1));
         materias.add(new Materia("Cultura Griega","250px-Parthenon_from_west.jpg", temas1));
-
     }
 
     private void cargarRespuestas() {
-       // respuestas.add(new Respuesta("Aristóteles", "Aristóteles", true));
-       // respuestas.add(new Respuesta("Demóstenes", "Demóstenes", false));
-       // respuestas.add(new Respuesta("Sócrates", "Sócrates", false));
-       // respuestas.add(new Respuesta("Respuesta 4", "4", true));
-       // respuestas.add(new Respuesta("Respuesta 5", "5", false));
-       // respuestas.add(new Respuesta("Respuesta 6", "6", false));
         respuestas.add(new Respuesta("Aristóteles","Aristóteles",false));
         respuestas.add(new Respuesta("Demóstenes","Demóstenes",true));
         respuestas.add(new Respuesta("Sócrates","Sócrates",false));
@@ -261,9 +251,20 @@ public class Database {
         respuestas1.add(respuestas.get(0));
         respuestas1.add(respuestas.get(1));
         respuestas1.add(respuestas.get(2));
+
+        List<Respuesta> respuestas2 = new ArrayList<>();
+        respuestas2.add(respuestas.get(3));
+        respuestas2.add(respuestas.get(4));
+        respuestas2.add(respuestas.get(5));
+
+        List<Respuesta> respuestas3 = new ArrayList<>();
+        respuestas3.add(respuestas.get(6));
+        respuestas3.add(respuestas.get(7));
+        respuestas3.add(respuestas.get(8));
+
         preguntas.add(new Pregunta("Quien participó en la educación y formación académica de Alejandro Magno", respuestas1, null));
-        preguntas.add(new Pregunta("Quien fue alumno de Platón", respuestas1,  null));
-        preguntas.add(new Pregunta("Emperador Romano que hizo construir un muro en las islas británicas", respuestas1, null));
+        preguntas.add(new Pregunta("Quien fue alumno de Platón", respuestas2,  null));
+        preguntas.add(new Pregunta("Emperador Romano que hizo construir un muro en las islas británicas", respuestas3, null));
         preguntas.add(new Pregunta("Nombre de la espada que utilizaban los legionarios", respuestas1, null));
         preguntas.add(new Pregunta("Nombre del Dios de la Salud representado por una serpiente", respuestas1, null));
         preguntas.add(new Pregunta("Capital del Imperio Persa destruída por Alejandro Magno", respuestas1, null));
