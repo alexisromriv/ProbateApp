@@ -13,7 +13,6 @@
         android:layout_marginTop="16dp"
         android:text="@string/cultura_griega"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/textGrado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,28 +32,17 @@
         app:srcCompat="@drawable/partenon"
         android:contentDescription="TODO" />
 
-    <TextView
-        android:id="@+id/textGrado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/_1er_a_o"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/triviabutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMateria" />
-
     <Button
         android:id="@+id/triviabutton"
         android:layout_width="250dp"
         android:layout_height="82dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="85dp"
         android:onClick="sendpage"
         android:text="@string/trivia"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textGrado" />
+        app:layout_constraintTop_toBottomOf="@+id/textMateria" />
 
     <Button
         android:id="@+id/examenbutton"

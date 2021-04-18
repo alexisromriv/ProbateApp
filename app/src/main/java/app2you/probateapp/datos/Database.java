@@ -49,6 +49,9 @@ public class Database {
     private void cargarCursos() {
         List<Materia> materias1 = new ArrayList<>();
         materias1.add(materias.get(0));
+        materias1.add(materias.get(1));
+        materias1.add(materias.get(2));
+
         cursos.add(new Curso(1, "Curso 1", institutos.get(0), materias1));
     }
 

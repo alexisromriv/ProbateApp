@@ -11,29 +11,27 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/miperfil" />
+        app:srcCompat="@drawable/perfilnuevo" />
 
     <TextView
         android:id="@+id/hola"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:text="@string/hola_nombre"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/texto"
+        android:id="@+id/textomateria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/texto"
         android:textSize="18sp"
@@ -41,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ListView
-        android:id="@+id/listamaterias"
+        android:id="@+id/listvmaterias"
         android:layout_width="339dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -50,5 +48,5 @@
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texto" />
+        app:layout_constraintTop_toBottomOf="@+id/textomateria" />
 </androidx.constraintlayout.widget.ConstraintLayout>

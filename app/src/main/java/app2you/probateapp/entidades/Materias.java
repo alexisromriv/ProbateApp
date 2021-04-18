@@ -6,6 +6,7 @@ public class Materias implements Serializable {
     private String textMateria;
     private String textGrado;
 
+
     public String getTextMateria() {
         return textMateria;
     }

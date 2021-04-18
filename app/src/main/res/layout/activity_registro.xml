@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="sendpage"
     tools:context=".Registro">
 
 
@@ -30,7 +31,8 @@
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/editTelefono"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner3"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/editNombre"
@@ -58,7 +60,8 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/spinner2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/editNombre"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/editContraseña"
@@ -108,6 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@color/colorPrimaryDark"
+        android:onClick="sendpage"
         android:shadowColor="@color/colorPrimary"
         android:text="@string/botonRegistro"
         android:textColor="@android:color/darker_gray"
