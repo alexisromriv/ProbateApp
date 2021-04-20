@@ -15,6 +15,7 @@ import app2you.probateapp.entidades.Usuario;
 public class Eleccion extends AppCompatActivity {
 
     int posicionparametro;
+    private Materia estaMateria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,7 @@ public class Eleccion extends AppCompatActivity {
         setContentView(R.layout.activity_eleccion);
 
         Bundle parametro = getIntent().getExtras();
-        posicionparametro = parametro.getInt("PosMateria") ;
+        posicionparametro = parametro.getInt("PosMateria");
 
 
         Usuario usr = null;
@@ -31,7 +32,7 @@ public class Eleccion extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Materia estaMateria = usr.getCurso().getMaterias().get(posicionparametro);
+        estaMateria = usr.getCurso().getMaterias().get(posicionparametro);
 
         TextView tvNombre = findViewById(R.id.textMateria);
         ImageView ivMateria = findViewById(R.id.imageMateria);
@@ -42,20 +43,21 @@ public class Eleccion extends AppCompatActivity {
         ivMateria.setImageResource(id);
 
 
-
     }
 
-    public void sendpage (View view) {
+    public void sendpage(View view) {
         // Do something in response to button click
         Intent intent = new Intent(this, SeleccionTemaActivity.class);
-        intent.putExtra("PosMateria",posicionparametro);
+        intent.putExtra("PosMateria", posicionparametro);
+        intent.putExtra("materia", estaMateria);
         startActivity(intent);
-
     }
-    public void sendexam (View view) {
+
+    public void sendexam(View view) {
         // Do something in response to button click
         Intent intent = new Intent(this, ExamenActivity.class);
-        intent.putExtra("PosMateria",posicionparametro);
+        intent.putExtra("PosMateria", posicionparametro);
+        intent.putExtra("materia", estaMateria);
         startActivity(intent);
 
     }
