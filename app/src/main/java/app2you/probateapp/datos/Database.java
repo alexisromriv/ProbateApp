@@ -34,7 +34,6 @@ public class Database {
 
     private Database() {
         cargarInstitutos();
-        cargarRespuestas();
         cargarPreguntas();
         cargarTemas();
         cargarMaterias();
@@ -123,13 +122,6 @@ public class Database {
         materias.add(new Materia("Cultura Griega","partenon", temas1));
     }
 
-    private void cargarRespuestas() {
-
-        //respuestas.add(new Respuesta("Pella","Pella",false));
-        //respuestas.add(new Respuesta("Atenas","Atenas",true));
-        //respuestas.add(new Respuesta("Mieza","Mieza",false));
-
-    }
 
     private void cargarPreguntas() {
         List<Respuesta> respuestas1 = new ArrayList<>();
