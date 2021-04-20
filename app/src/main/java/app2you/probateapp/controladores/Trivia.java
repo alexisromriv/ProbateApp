@@ -31,14 +31,29 @@ public class Trivia {
         return respuesta.isCorrecta();
     }
 
+    //obsoleto
     public boolean responder(String respuesta) {
         String[] palabras = respuesta.split(" ");
+        //Encontrar palabra clave, luego comprobar si es la correcta, sino respuesta inválida
         for (String p:palabras) {
-            if (p.equals(preguntaActual.respuestaCorrecta().getPalabraClave())){
+            if (p.toLowerCase().equals(preguntaActual.respuestaCorrecta().getPalabraClave().toLowerCase())){
                 return true;
             }
         }
         return  false;
+    }
+
+    public Respuesta obtenerRespuestaPorVoz(String texto) {
+        String[] palabras = texto.split(" ");
+
+        for (String p:palabras) {
+            for (Respuesta r: preguntaActual.getRespuestas()) {
+                if (p.toLowerCase().equals(r.getPalabraClave().toLowerCase())){
+                    return r;
+                }
+            }
+        }
+        return  null;
     }
 
 

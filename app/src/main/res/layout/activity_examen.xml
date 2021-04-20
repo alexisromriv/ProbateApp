@@ -9,6 +9,13 @@
 
 
     <TextView
+        android:id="@+id/tvMateriaExamen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="16dp" />
+
+    <TextView
         android:id="@+id/tvTemaExamen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

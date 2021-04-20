@@ -1,5 +1,6 @@
 package app2you.probateapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
@@ -7,6 +8,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +32,7 @@ public class ExamenActivity extends AppCompatActivity  {
     int temaIndex = 0;
 
     private TextView tvPregunta;
+    private TextView tvMateriaExamen;
     private TextView tvTema;
     private RadioGroup rgRespuestasExamen;
     private RadioButton rbRespuestaExamen1;
@@ -42,15 +46,17 @@ public class ExamenActivity extends AppCompatActivity  {
 
         tvPregunta = findViewById(R.id.tvPreguntaExmen);
         tvTema = findViewById(R.id.tvTemaExamen);
+        tvMateriaExamen = (TextView) findViewById(R.id.tvMateriaExamen);
         rgRespuestasExamen = (RadioGroup) findViewById(R.id.rgRespuestasExamen);
         rbRespuestaExamen1 = (RadioButton) findViewById(R.id.rbRespuestaExamen1);
         rbRespuestaExamen2 = (RadioButton) findViewById(R.id.rbRespuestaExamen2);
         rbRespuestaExamen3 = (RadioButton) findViewById(R.id.rbRespuestaExamen3);
 
         try {
-            Usuario usr = new Autenticacion().login("alexis", "123");
-            materia = usr.getCurso().getMaterias().get(0);
+            Intent intent = getIntent();
 
+            materia = (Materia) intent.getSerializableExtra("materia");
+            tvMateriaExamen.setText(materia.getNombre());
             respuestas = new ArrayList<>();
             for (Tema t : materia.getTemas()) {
                 for (Pregunta p : t.getPreguntas()) {
@@ -68,6 +74,7 @@ public class ExamenActivity extends AppCompatActivity  {
 
         Pregunta p = respuestas.get(preguntaIndex).getPregunta();
         tvPregunta.setText(p.getTitulo());
+
 
         rbRespuestaExamen1.setText(p.getRespuestas().get(0).getTitulo());
         rbRespuestaExamen2.setText(p.getRespuestas().get(1).getTitulo());
