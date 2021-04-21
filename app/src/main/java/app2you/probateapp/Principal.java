@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app2you.probateapp.controladores.Autenticacion;
+import app2you.probateapp.datos.Database;
 import app2you.probateapp.entidades.Materia;
 import app2you.probateapp.entidades.Materias;
 import app2you.probateapp.entidades.Usuario;
@@ -24,7 +25,7 @@ public class Principal extends AppCompatActivity {
 
     ArrayList<Materias> mismateriasl;
     List<Materia> misMateriasPosta;
-    //int idparametro;
+    int idparametro;
 
 
     @Override
@@ -33,19 +34,19 @@ public class Principal extends AppCompatActivity {
         setContentView(R.layout.activity_principal);
 
 
-        //Bundle parametro = getIntent().getExtras();
-        //idparametro = parametro.getInt("posUsuario") ;
+        Bundle parametro = getIntent().getExtras();
+        idparametro = parametro.getInt("posUsuario") ;
+        Usuario usr = null;
+        ArrayList<Usuario> lisUsuario = (ArrayList<Usuario>) Database.getInstance().getUsuarios();
 
+            for(Usuario usu : lisUsuario) {
+                if(usu.getId() == idparametro) {
+                    usr = usu;
+                }
+            }
 
         ArrayList<String> nombreMaterias = new ArrayList<>();
 
-
-        Usuario usr = null;
-        try {
-            usr = new Autenticacion().login("alexis", "123");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         misMateriasPosta = usr.getCurso().getMaterias();
 
 
