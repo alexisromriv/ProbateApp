@@ -172,7 +172,7 @@ public class Database {
         respuestas13.add(new Respuesta("Franchutes","Franchutes",false));
 
         List<Respuesta> respuestas14 = new ArrayList<>();
-        respuestas14.add(new Respuesta("Edad de la Inocencia","Inocencia",true));
+        respuestas14.add(new Respuesta("Edad de la Inocencia","Inocencia",false));
         respuestas14.add(new Respuesta("Periodo Nulo","Nulo",false));
         respuestas14.add(new Respuesta("Edad Oscura","Oscura",true));
 
@@ -232,18 +232,18 @@ public class Database {
         respuestas25.add(new Respuesta("PERIECOS","PERIECOS",false));
 
         List<Respuesta> respuestas26 = new ArrayList<>();
-        respuestas26.add(new Respuesta("UN PUERTO","PUERTO",true));
+        respuestas26.add(new Respuesta("UN PUERTO","PUERTO",false));
         respuestas26.add(new Respuesta("Una montaña","montaña",false));
         respuestas26.add(new Respuesta("Un ágora","ágora",true));
 
         List<Respuesta> respuestas27 = new ArrayList<>();
         respuestas27.add(new Respuesta("Solón","Solón",false));
         respuestas27.add(new Respuesta("Licurgo","Licurgo",false));
-        respuestas27.add(new Respuesta("Demóstenes","Demóstenes",false));
+        respuestas27.add(new Respuesta("Demóstenes","Demóstenes",true));
 
         List<Respuesta> respuestas28 = new ArrayList<>();
         respuestas28.add(new Respuesta("la ciencia","ciencia",true));
-        respuestas28.add(new Respuesta("la filosofía","filosofía",true));
+        respuestas28.add(new Respuesta("la filosofía","filosofía",false));
         respuestas28.add(new Respuesta("ambas","ambas",false));
 
         List<Respuesta> respuestas29 = new ArrayList<>();
@@ -252,7 +252,7 @@ public class Database {
         respuestas29.add(new Respuesta("los pitagóricos","pitagóricos",false));
 
         List<Respuesta> respuestas30 = new ArrayList<>();
-        respuestas30.add(new Respuesta("la ciencia debe referirse a lo universal","universal",false));
+        respuestas30.add(new Respuesta("la ciencia debe referirse a lo universal","universal",true));
         respuestas30.add(new Respuesta("no es posible la ciencia","no",false));
         respuestas30.add(new Respuesta("el -nomos- descansa en la voluntad de los dioses","nomos",false));
 
@@ -288,11 +288,11 @@ public class Database {
 
         List<Respuesta> respuestas37 = new ArrayList<>();
         respuestas37.add(new Respuesta("Jenófanes de Colofón","Jenófanes",false));
-        respuestas37.add(new Respuesta("Tales de Mileto","Tales",false));
+        respuestas37.add(new Respuesta("Tales de Mileto","Tales",true));
         respuestas37.add(new Respuesta("Parménides","Parménides",false));
 
         List<Respuesta> respuestas38 = new ArrayList<>();
-        respuestas38.add(new Respuesta("Imperio Acadio","Acadio",true));
+        respuestas38.add(new Respuesta("Imperio Acadio","Acadio",false));
         respuestas38.add(new Respuesta("Sumeria","Sumeria",true));
         respuestas38.add(new Respuesta("Imperio Persa","Persa",false));
 
