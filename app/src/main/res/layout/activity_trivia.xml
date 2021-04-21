@@ -82,8 +82,16 @@
         android:layout_height="wrap_content"
         android:text="Escuchar"
         android:onClick="Escuchar">
-
     </Button>
+
+    <Button
+        android:id="@+id/btnModoOral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activar modo oral"
+        android:onClick="cambiarModo">
+    </Button>
+
 
 
 </LinearLayout>

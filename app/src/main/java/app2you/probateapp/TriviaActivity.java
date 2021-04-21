@@ -41,6 +41,8 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     private TextView acertTextView;
 
 
+    private boolean modoOral = false;
+
     private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
 
 
@@ -240,6 +242,12 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
             Toast.makeText(this, "Tu dispositivo no soporta reconocimiento de voz", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+
+    public void CambiarModo(View view) {
+        modoOral = !modoOral;
+        
     }
 
     @Override
