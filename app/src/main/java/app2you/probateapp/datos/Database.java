@@ -62,45 +62,27 @@ public class Database {
     }
 
     private  void cargarTemas() {
-        List<Pregunta> preguntas1 = new ArrayList<>();
 
-        for (int i = 0; i < 41; i++) {
-            preguntas1.add(preguntas.get(i));
-        }
-
-        temas.add(new Tema("Inicio de Sumeria", preguntas1));
-        temas.add(new Tema("Fin de Sumeria", preguntas1));
-        temas.add(new Tema("Comienzo del Imperio romano", preguntas1));
-        temas.add(new Tema("Situación del imperio romano", preguntas1));
-        temas.add(new Tema("Caída del imperio romano", preguntas1));
-        temas.add(new Tema("Tutankamon", preguntas1));
-        temas.add(new Tema("Nefertiti", preguntas1));
-        temas.add(new Tema("Romulo y Remo", preguntas1));
-        temas.add(new Tema("Alejandro Magno", preguntas1));
-        temas.add(new Tema("Constantino el grande", preguntas1));
-        temas.add(new Tema("Caligula", preguntas1));
-        temas.add(new Tema("Alejandro Magno", preguntas1));
-        temas.add(new Tema("filósofos Griegos", preguntas1));
-        temas.add(new Tema("conquista Europea", preguntas1));
-        temas.add(new Tema("armamento romano", preguntas1));
-        temas.add(new Tema("Mitología y Cultura Romana", preguntas1));
-        temas.add(new Tema("Percia Vs. Grecia", preguntas1));
-        temas.add(new Tema("Geografía antigua", preguntas1));
-        temas.add(new Tema("Filósofos Griegos", preguntas1));
-        temas.add(new Tema("Estados Antiguos", preguntas1));
-
-        for (int i = 0; i < 5; i++) {
-            preguntas.get(i).setTema(temas.get(0)); //Inicio de Sumeria
-        }
-        for (int i = 5; i < 11; i++) {
-            preguntas.get(i).setTema(temas.get(1));
-        }
-        for (int i = 11; i < 16; i++) {
-            preguntas.get(i).setTema(temas.get(2));
-        }
-        for (int i = 16; i < 20; i++) {
-            preguntas.get(i).setTema(temas.get(3));
-        }
+        temas.add(new Tema("Inicio de Sumeria", preguntas));
+        temas.add(new Tema("Fin de Sumeria", preguntas));
+        temas.add(new Tema("Comienzo del Imperio romano", preguntas));
+        temas.add(new Tema("Situación del imperio romano", preguntas));
+        temas.add(new Tema("Caída del imperio romano", preguntas));
+        temas.add(new Tema("Tutankamon", preguntas));
+        temas.add(new Tema("Nefertiti", preguntas));
+        temas.add(new Tema("Romulo y Remo", preguntas));
+        temas.add(new Tema("Alejandro Magno", preguntas));
+        temas.add(new Tema("Constantino el grande", preguntas));
+        temas.add(new Tema("Caligula", preguntas));
+        temas.add(new Tema("Alejandro Magno", preguntas));
+        temas.add(new Tema("filósofos Griegos", preguntas));
+        temas.add(new Tema("conquista Europea", preguntas));
+        temas.add(new Tema("armamento romano", preguntas));
+        temas.add(new Tema("Mitología y Cultura Romana", preguntas));
+        temas.add(new Tema("Percia Vs. Grecia", preguntas));
+        temas.add(new Tema("Geografía antigua", preguntas));
+        temas.add(new Tema("Filósofos Griegos", preguntas));
+        temas.add(new Tema("Estados Antiguos", preguntas));
 
     }
 
@@ -380,43 +362,12 @@ public class Database {
         preguntas.add(new Pregunta("¿En qué ciudad gobernó Hammurabi?", respuestas41, null));
         preguntas.add(new Pregunta("¿Cuál fue la capital del Imperio Acadio?", respuestas42, null));
 
-        for (int i = 1; i < 20 ; i++) {
-            List<Respuesta> respuestasLoop = new ArrayList<>();
-            respuestasLoop.add(respuestas.get(0));
-            respuestasLoop.add(respuestas.get(1));
-            respuestasLoop.add(respuestas.get(2));
-            preguntas.add(new Pregunta("Pregunta " + i, respuestasLoop, null));
-        }
     }
 
     private void cargarUsuarios() {
         usuarios.add(new Usuario(1, "Alexis", "Romero", "alexis", "123", cursos.get(0)));
         usuarios.add(new Usuario(2, "Gabriel", "Ithurralde", "gabriel", "123", cursos.get(0)));
         usuarios.add(new Usuario(3, "Pabla", "Agorio", "pabla", "123", cursos.get(0)));
-    }
-
-    public List<Instituto> getInstitutos() {
-        return institutos;
-    }
-
-    public List<Curso> getCursos() {
-        return cursos;
-    }
-
-    public List<Materia> getMaterias() {
-        return materias;
-    }
-
-    public List<Tema> getTemas() {
-        return temas;
-    }
-
-    public List<Respuesta> getRespuestas() {
-        return respuestas;
-    }
-
-    public List<Pregunta> getPreguntas() {
-        return preguntas;
     }
 
     public List<Usuario> getUsuarios() {

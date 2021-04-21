@@ -41,9 +41,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     private TextView acertTextView;
 
 
-    private static final int RECOGNIZE_SPEECH_ACTIVITY=1;
-
-
+    private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
 
 
     @Override
@@ -63,9 +61,10 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
         ttsManager = new TTSManager();
         ttsManager.init(this);
 
+
         try {
             Intent intent = getIntent();
-            tema = (Tema)intent.getSerializableExtra("tema");
+            tema = (Tema) intent.getSerializableExtra("tema");
 
             trivia = new Trivia(tema);
             init();
@@ -83,26 +82,45 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
         tvRespuesta1.setBackgroundColor(Color.parseColor("#ffffff"));
         tvRespuesta2.setBackgroundColor(Color.parseColor("#ffffff"));
         tvRespuesta3.setBackgroundColor(Color.parseColor("#ffffff"));
-        tvRespuesta1.setText(pregunta.getRespuestas().get(0).getTitulo() + "(" + pregunta.getRespuestas().get(0).getPalabraClave() +") " + pregunta.getRespuestas().get(0).isCorrecta());
-        tvRespuesta2.setText(pregunta.getRespuestas().get(1).getTitulo()+ "(" + pregunta.getRespuestas().get(1).getPalabraClave() +") "  + pregunta.getRespuestas().get(1).isCorrecta());
-        tvRespuesta3.setText(pregunta.getRespuestas().get(2).getTitulo()+ "(" + pregunta.getRespuestas().get(2).getPalabraClave() +") "  + pregunta.getRespuestas().get(2).isCorrecta());
+        tvRespuesta1.setText(pregunta.getRespuestas().get(0).getTitulo() + "(" + pregunta.getRespuestas().get(0).getPalabraClave() + ") " + pregunta.getRespuestas().get(0).isCorrecta());
+        tvRespuesta2.setText(pregunta.getRespuestas().get(1).getTitulo() + "(" + pregunta.getRespuestas().get(1).getPalabraClave() + ") " + pregunta.getRespuestas().get(1).isCorrecta());
+        tvRespuesta3.setText(pregunta.getRespuestas().get(2).getTitulo() + "(" + pregunta.getRespuestas().get(2).getPalabraClave() + ") " + pregunta.getRespuestas().get(2).isCorrecta());
         tvRespuesta1.setAlpha(1);
         tvRespuesta2.setAlpha(1);
         tvRespuesta3.setAlpha(1);
-        if (pregunta.getRespuestas().get(0).isCorrecta()){
+        if (pregunta.getRespuestas().get(0).isCorrecta()) {
             acertTextView = tvRespuesta1;
         }
-        if (pregunta.getRespuestas().get(1).isCorrecta()){
+        if (pregunta.getRespuestas().get(1).isCorrecta()) {
             acertTextView = tvRespuesta2;
         }
-        if (pregunta.getRespuestas().get(2).isCorrecta()){
+        if (pregunta.getRespuestas().get(2).isCorrecta()) {
             acertTextView = tvRespuesta3;
         }
+
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                ttsManager.initQueue(pregunta.getTitulo());
+                ttsManager.addQueue(pregunta.getRespuestas().get(0).getTitulo());
+                ttsManager.addQueue(pregunta.getRespuestas().get(1).getTitulo());
+                ttsManager.addQueue(pregunta.getRespuestas().get(2).getTitulo());
+            }
+        }, 1000);
+
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 Escuchar(null);
             }
-        }, 6000);
+        }, calcularTiempoLectura());
+
+    }
+
+    private int calcularTiempoLectura() {
+        return
+                (pregunta.getTitulo().length() +
+                pregunta.getRespuestas().get(0).getTitulo().length() +
+                pregunta.getRespuestas().get(1).getTitulo().length() +
+                pregunta.getRespuestas().get(2).getTitulo().length()) * 110;
     }
 
 
@@ -131,7 +149,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
         acertTextView.setBackgroundColor(Color.parseColor("#28A744"));
 
-        if (trivia.responder(respuestaSeleccionada) ) {
+        if (trivia.responder(respuestaSeleccionada)) {
             Toast.makeText(this, "correcta", Toast.LENGTH_SHORT).show();
         } else {
             v.setBackgroundColor(Color.parseColor("#D43341"));
@@ -146,7 +164,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
         }, 3000);
     }
 
-    private void responder(Respuesta respuesta){
+    private void responder(Respuesta respuesta) {
         tvRespuesta1.setAlpha(.5f);
         tvRespuesta2.setAlpha(.5f);
         tvRespuesta3.setAlpha(.5f);
@@ -164,7 +182,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
         acertTextView.setBackgroundColor(Color.parseColor("#28A744"));
 
-        if (trivia.responder(respuesta) ) {
+        if (trivia.responder(respuesta)) {
             Toast.makeText(this, "correcta", Toast.LENGTH_SHORT).show();
         } else {
             if (pregunta.getRespuestas().get(0).getPalabraClave() == respuesta.getPalabraClave()) {
@@ -190,9 +208,9 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
+        switch (requestCode) {
             case RECOGNIZE_SPEECH_ACTIVITY:
-                if(resultCode == RESULT_OK && null != data) {
+                if (resultCode == RESULT_OK && null != data) {
                     ArrayList<String> speech = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     String strSpeech2Text = speech.get(0);
                     Toast.makeText(this, strSpeech2Text, Toast.LENGTH_SHORT).show();
@@ -201,7 +219,6 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
                         Toast.makeText(this, "Respuesta no reconocida", Toast.LENGTH_SHORT).show();
                     } else {
                         responder(respuesta);
-                        //Toast.makeText(this, trivia.responder(respuesta) ? "correcta" : "incorrecta", Toast.LENGTH_SHORT).show();
                     }
                 }
                 break;
@@ -210,7 +227,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    public void Escuchar(View view){
+    public void Escuchar(View view) {
         Intent intentActionRecognizeSpeech = new Intent(
                 RecognizerIntent.ACTION_RECOGNIZE_SPEECH
         );
@@ -219,7 +236,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
         try {
             startActivityForResult(intentActionRecognizeSpeech, RECOGNIZE_SPEECH_ACTIVITY);
-        } catch(ActivityNotFoundException a){
+        } catch (ActivityNotFoundException a) {
             Toast.makeText(this, "Tu dispositivo no soporta reconocimiento de voz", Toast.LENGTH_SHORT).show();
         }
 

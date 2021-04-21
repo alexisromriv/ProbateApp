@@ -8,7 +8,6 @@ import android.util.Log;
 import java.util.Locale;
 
 // Código extraido de https://github.com/NickHub4017/MB/blob/master/app/src/main/java/moba/moba/TTSManager.java
-
 public class TTSManager {
     private TextToSpeech mTts = null;
     private boolean isLoaded = false;
@@ -28,6 +27,7 @@ public class TTSManager {
             if (status == TextToSpeech.SUCCESS) {
                 int result = mTts.setLanguage(spanish);
                 isLoaded = true;
+                Log.e("error", "Inicializado");
 
                 if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                     Log.e("error", "This Language is not supported");
