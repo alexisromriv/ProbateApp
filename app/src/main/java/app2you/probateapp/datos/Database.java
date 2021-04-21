@@ -365,6 +365,9 @@ public class Database {
     }
 
     private void cargarUsuarios() {
+
+
+
         usuarios.add(new Usuario(1, "Alexis", "Romero", "alexis", "123", cursos.get(0)));
         usuarios.add(new Usuario(2, "Gabriel", "Ithurralde", "gabriel", "123", cursos.get(0)));
         usuarios.add(new Usuario(3, "Pabla", "Agorio", "pabla", "123", cursos.get(0)));
