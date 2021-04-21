@@ -24,12 +24,17 @@ public class Principal extends AppCompatActivity {
 
     ArrayList<Materias> mismateriasl;
     List<Materia> misMateriasPosta;
+    //int idparametro;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+
+
+        //Bundle parametro = getIntent().getExtras();
+        //idparametro = parametro.getInt("posUsuario") ;
 
 
         ArrayList<String> nombreMaterias = new ArrayList<>();

@@ -29,7 +29,7 @@
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="@string/email"
+        android:hint="@string/nombreUsuario"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
