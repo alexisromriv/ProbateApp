@@ -11,8 +11,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         card_view:cardCornerRadius="4dp"
-        card_view:cardUseCompatPadding="true"
-        android:onClick="onClick" >
+        card_view:cardUseCompatPadding="true">
 
         <TextView
             android:id="@+id/tvTemaItem"

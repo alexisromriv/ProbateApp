@@ -21,7 +21,7 @@ import app2you.probateapp.entidades.Tema;
 import app2you.probateapp.entidades.Usuario;
 
 
-public class SeleccionTemaActivity extends AppCompatActivity  {
+public class SeleccionTemaActivity extends AppCompatActivity implements TemasAdapter.OnTemaListener {
     List<Tema> temas;
     RecyclerView recyclerTemas;
     Materia materia;
@@ -40,7 +40,7 @@ public class SeleccionTemaActivity extends AppCompatActivity  {
             tvMateriaTemas.setText(materia.getNombre());
             recyclerTemas = (RecyclerView) findViewById(R.id.recyclerTemas);
             recyclerTemas.setLayoutManager(new LinearLayoutManager(this));
-            TemasAdapter temasAdapter = new TemasAdapter(temas);
+            TemasAdapter temasAdapter = new TemasAdapter(temas, this);
             recyclerTemas.setAdapter(temasAdapter);
         } catch (Exception ex) {}
 
@@ -49,14 +49,19 @@ public class SeleccionTemaActivity extends AppCompatActivity  {
 
     public void onClick(View v){
         try {
-            Tema tema = temas.get(0);
-            Intent intent = new Intent(SeleccionTemaActivity.this, TriviaActivity.class);
-            intent.putExtra("tema", tema);
-            startActivity(intent);
+
         }catch (Exception ex) {
 
         }
 
+    }
+
+    @Override
+    public void onTemaClick(int position) {
+        Tema tema = temas.get(position);
+        Intent intent = new Intent(SeleccionTemaActivity.this, TriviaActivity.class);
+        intent.putExtra("tema", tema);
+        startActivity(intent);
     }
 }
 

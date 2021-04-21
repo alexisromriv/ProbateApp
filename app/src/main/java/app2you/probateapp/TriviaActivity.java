@@ -57,7 +57,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
         ttsManager = new TTSManager();
         ttsManager.init(this);
 
-        tvTema = findViewById(R.id.tvTema);
+        tvTema = findViewById(R.id.tvTemaTrivia);
         tvPregunta = findViewById(R.id.tvPregunta);
         tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta1));
         tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta2));
@@ -80,6 +80,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void mostrarPregunta(){
+
         tvTema.setText(trivia.getTema().getNombre());
         tvPregunta.setText(trivia.getPreguntaActual().getTitulo());
         for (TextView tv : tvRespuestas) {
