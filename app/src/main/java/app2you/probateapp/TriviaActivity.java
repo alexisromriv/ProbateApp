@@ -13,7 +13,10 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
@@ -31,22 +34,19 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
     private TextView tvTema;
     private TextView tvPregunta;
-    private TextView tvRespuesta1;
-    private TextView tvRespuesta2;
-    private TextView tvRespuesta3;
+    private List<TextView> tvRespuestas = new ArrayList<>();
 
     private Trivia trivia;
     private Tema tema;
     private Pregunta pregunta;
-    private TextView acertTextView;
-
 
     private boolean modoOral = false;
     private boolean leyendo = false;
 
 
-
     private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
+
+    private static final int FACTOR_TIEMPO_LECTURA = 110;
 
 
     @Override
@@ -54,166 +54,119 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trivia);
 
-        tvTema = findViewById(R.id.tvTema);
-        tvPregunta = findViewById(R.id.tvPregunta);
-        tvRespuesta1 = findViewById(R.id.tvRespuesta1);
-        tvRespuesta2 = findViewById(R.id.tvRespuesta2);
-        tvRespuesta3 = findViewById(R.id.tvRespuesta3);
-        tvRespuesta1.setOnClickListener(this);
-        tvRespuesta2.setOnClickListener(this);
-        tvRespuesta3.setOnClickListener(this);
+        Intent intent = getIntent();
+        tema = (Tema) intent.getSerializableExtra("tema");
+        trivia = new Trivia(tema);
 
         ttsManager = new TTSManager();
         ttsManager.init(this);
 
+        tvTema = findViewById(R.id.tvTema);
+        tvPregunta = findViewById(R.id.tvPregunta);
+        tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta1));
+        tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta2));
+        tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta3));
 
-        try {
-            Intent intent = getIntent();
-            tema = (Tema) intent.getSerializableExtra("tema");
-
-            trivia = new Trivia(tema);
-            init();
-
-        } catch (Exception ex) {
-
+        for (TextView tv : tvRespuestas) {
+            tv.setOnClickListener(this);
         }
 
+        siguientePregunta();
     }
 
-    private void init() {
+    private void siguientePregunta() {
         pregunta = trivia.siguiente();
+        mostrarPregunta();
+        if (modoOral) {
+          leerPregunta();
+          escucharRespuesta();
+        }
+    }
+
+    private void mostrarPregunta(){
         tvTema.setText(tema.getNombre());
         tvPregunta.setText(pregunta.getTitulo());
-        tvRespuesta1.setBackgroundColor(Color.parseColor("#ffffff"));
-        tvRespuesta2.setBackgroundColor(Color.parseColor("#ffffff"));
-        tvRespuesta3.setBackgroundColor(Color.parseColor("#ffffff"));
-        tvRespuesta1.setText(pregunta.getRespuestas().get(0).getTitulo() + "(" + pregunta.getRespuestas().get(0).getPalabraClave() + ") " + pregunta.getRespuestas().get(0).isCorrecta());
-        tvRespuesta2.setText(pregunta.getRespuestas().get(1).getTitulo() + "(" + pregunta.getRespuestas().get(1).getPalabraClave() + ") " + pregunta.getRespuestas().get(1).isCorrecta());
-        tvRespuesta3.setText(pregunta.getRespuestas().get(2).getTitulo() + "(" + pregunta.getRespuestas().get(2).getPalabraClave() + ") " + pregunta.getRespuestas().get(2).isCorrecta());
-        tvRespuesta1.setAlpha(1);
-        tvRespuesta2.setAlpha(1);
-        tvRespuesta3.setAlpha(1);
-        if (pregunta.getRespuestas().get(0).isCorrecta()) {
-            acertTextView = tvRespuesta1;
+        for (TextView tv : tvRespuestas) {
+            tv.setBackgroundColor(Color.parseColor("#ffffff"));
+            tv.setAlpha(1);
+            Respuesta respuesta = pregunta.getRespuestas().get(tvRespuestas.indexOf(tv));
+            tv.setText(respuesta.getTitulo() + "(" + respuesta.getPalabraClave() + ") " + respuesta.isCorrecta());
         }
-        if (pregunta.getRespuestas().get(1).isCorrecta()) {
-            acertTextView = tvRespuesta2;
-        }
-        if (pregunta.getRespuestas().get(2).isCorrecta()) {
-            acertTextView = tvRespuesta3;
-        }
+    }
 
-        if (modoOral) {
-            leyendo = true;
-            new Handler().postDelayed(new Runnable() {
-                public void run() {
-                    ttsManager.initQueue(pregunta.getTitulo());
-                    ttsManager.addQueue(pregunta.getRespuestas().get(0).getTitulo());
-                    ttsManager.addQueue(pregunta.getRespuestas().get(1).getTitulo());
-                    ttsManager.addQueue(pregunta.getRespuestas().get(2).getTitulo());
-                }
-            }, 1000);
+    private void leerPregunta(){
+        leyendo = true;
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                ttsManager.initQueue(pregunta.getTitulo());
+                ttsManager.addQueue(pregunta.getRespuestas().get(0).getTitulo());
+                ttsManager.addQueue(pregunta.getRespuestas().get(1).getTitulo());
+                ttsManager.addQueue(pregunta.getRespuestas().get(2).getTitulo());
+            }
+        }, 1000);
+    }
 
-            new Handler().postDelayed(new Runnable() {
-                public void run() {
-                    leyendo = false;
-                    Escuchar(null);
-                }
-            }, calcularTiempoLectura());
-        }
+    private void escucharRespuesta(){
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                leyendo = false;
+                Escuchar(null);
+            }
+        }, calcularTiempoLectura());
     }
 
     private int calcularTiempoLectura() {
-        return
-                (pregunta.getTitulo().length() +
-                pregunta.getRespuestas().get(0).getTitulo().length() +
-                pregunta.getRespuestas().get(1).getTitulo().length() +
-                pregunta.getRespuestas().get(2).getTitulo().length()) * 110;
+        int cantidadCaracteres = pregunta.getTitulo().length();
+        cantidadCaracteres += pregunta.getRespuestas().get(0).getTitulo().length();
+        cantidadCaracteres += pregunta.getRespuestas().get(1).getTitulo().length();
+        cantidadCaracteres += pregunta.getRespuestas().get(2).getTitulo().length();
+        return cantidadCaracteres * FACTOR_TIEMPO_LECTURA;
     }
 
 
     @Override
     public void onClick(View v) {
-        if (leyendo){
+        if (leyendo) {
             return;
         }
-        tvRespuesta1.setAlpha(.5f);
-        tvRespuesta2.setAlpha(.5f);
-        tvRespuesta3.setAlpha(.5f);
-        v.setAlpha(1);
 
-        Respuesta respuestaSeleccionada = null;
         switch (v.getId()) {
             case R.id.tvRespuesta1:
-                respuestaSeleccionada = this.pregunta.getRespuestas().get(0);
+                responder(pregunta.getRespuestas().get(0));
                 break;
 
             case R.id.tvRespuesta2:
-                respuestaSeleccionada = this.pregunta.getRespuestas().get(1);
+                responder(pregunta.getRespuestas().get(1));
                 break;
 
             case R.id.tvRespuesta3:
-                respuestaSeleccionada = this.pregunta.getRespuestas().get(2);
+                responder(pregunta.getRespuestas().get(2));
                 break;
         }
-
-        acertTextView.setBackgroundColor(Color.parseColor("#28A744"));
-
-        if (trivia.responder(respuestaSeleccionada)) {
-            Toast.makeText(this, "correcta", Toast.LENGTH_SHORT).show();
-        } else {
-            v.setBackgroundColor(Color.parseColor("#D43341"));
-            Toast.makeText(this, "incorrecta", Toast.LENGTH_SHORT).show();
-        }
-
-
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                TriviaActivity.this.init();
-            }
-        }, 3000);
     }
 
     private void responder(Respuesta respuesta) {
-
-        tvRespuesta1.setAlpha(.5f);
-        tvRespuesta2.setAlpha(.5f);
-        tvRespuesta3.setAlpha(.5f);
-
-        if (pregunta.getRespuestas().get(0).getPalabraClave() == respuesta.getPalabraClave()) {
-            tvRespuesta1.setAlpha(1);
-        }
-        if (pregunta.getRespuestas().get(1).getPalabraClave() == respuesta.getPalabraClave()) {
-            tvRespuesta2.setAlpha(1);
-        }
-        if (pregunta.getRespuestas().get(2).getPalabraClave() == respuesta.getPalabraClave()) {
-            tvRespuesta3.setAlpha(1);
+        for (TextView tv : tvRespuestas) {
+            tv.setAlpha(.5f);
         }
 
+        for (Respuesta r : pregunta.getRespuestas()) {
+            if (r.isCorrecta()) {
+                tvRespuestas.get(pregunta.getRespuestas().indexOf(r)).setBackgroundColor(Color.parseColor("#28A744"));
+            }
+        }
 
-        acertTextView.setBackgroundColor(Color.parseColor("#28A744"));
-
-        if (trivia.responder(respuesta)) {
-            Toast.makeText(this, "correcta", Toast.LENGTH_SHORT).show();
-        } else {
-            if (pregunta.getRespuestas().get(0).getPalabraClave() == respuesta.getPalabraClave()) {
-                tvRespuesta1.setBackgroundColor(Color.parseColor("#D43341"));
-            }
-            if (pregunta.getRespuestas().get(1).getPalabraClave() == respuesta.getPalabraClave()) {
-                tvRespuesta2.setBackgroundColor(Color.parseColor("#D43341"));
-            }
-            if (pregunta.getRespuestas().get(2).getPalabraClave() == respuesta.getPalabraClave()) {
-                tvRespuesta3.setBackgroundColor(Color.parseColor("#D43341"));
-            }
-            Toast.makeText(this, "incorrecta", Toast.LENGTH_SHORT).show();
+        TextView tvSeleccionado = tvRespuestas.get(pregunta.getRespuestas().indexOf(respuesta));
+        tvSeleccionado.setAlpha(1);
+        if (!trivia.responder(respuesta)) {
+            tvSeleccionado.setBackgroundColor(Color.parseColor("#D43341"));
         }
 
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                TriviaActivity.this.init();
+                TriviaActivity.this.siguientePregunta();
             }
         }, 3000);
-
     }
 
     @Override
