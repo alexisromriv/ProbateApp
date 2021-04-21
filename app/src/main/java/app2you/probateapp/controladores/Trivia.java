@@ -56,6 +56,11 @@ public class Trivia {
         return  null;
     }
 
+    public Tema getTema() {
+        return tema;
+    }
 
-
+    public Pregunta getPreguntaActual() {
+        return preguntaActual;
+    }
 }

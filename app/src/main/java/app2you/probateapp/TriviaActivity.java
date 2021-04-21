@@ -34,8 +34,6 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     private static final int FACTOR_TIEMPO_LECTURA = 110;
 
     private Trivia trivia;
-    private Tema tema;
-    private Pregunta pregunta;
 
     private boolean modoOral = false;
     private boolean leyendo = false;
@@ -54,8 +52,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_trivia);
 
         Intent intent = getIntent();
-        tema = (Tema) intent.getSerializableExtra("tema");
-        trivia = new Trivia(tema);
+        trivia = new Trivia((Tema) intent.getSerializableExtra("tema"));
 
         ttsManager = new TTSManager();
         ttsManager.init(this);
@@ -74,7 +71,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void siguientePregunta() {
-        pregunta = trivia.siguiente();
+        trivia.siguiente();
         mostrarPregunta();
         if (modoOral) {
           leerPregunta();
@@ -83,12 +80,12 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void mostrarPregunta(){
-        tvTema.setText(tema.getNombre());
-        tvPregunta.setText(pregunta.getTitulo());
+        tvTema.setText(trivia.getTema().getNombre());
+        tvPregunta.setText(trivia.getPreguntaActual().getTitulo());
         for (TextView tv : tvRespuestas) {
             tv.setBackgroundColor(Color.parseColor("#ffffff"));
             tv.setAlpha(1);
-            Respuesta respuesta = pregunta.getRespuestas().get(tvRespuestas.indexOf(tv));
+            Respuesta respuesta = trivia.getPreguntaActual().getRespuestas().get(tvRespuestas.indexOf(tv));
             tv.setText(respuesta.getTitulo() + "(" + respuesta.getPalabraClave() + ") " + respuesta.isCorrecta());
         }
     }
@@ -97,10 +94,10 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
         leyendo = true;
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                ttsManager.initQueue(pregunta.getTitulo());
-                ttsManager.addQueue(pregunta.getRespuestas().get(0).getTitulo());
-                ttsManager.addQueue(pregunta.getRespuestas().get(1).getTitulo());
-                ttsManager.addQueue(pregunta.getRespuestas().get(2).getTitulo());
+                ttsManager.initQueue(trivia.getPreguntaActual().getTitulo());
+                ttsManager.addQueue(trivia.getPreguntaActual().getRespuestas().get(0).getTitulo());
+                ttsManager.addQueue(trivia.getPreguntaActual().getRespuestas().get(1).getTitulo());
+                ttsManager.addQueue(trivia.getPreguntaActual().getRespuestas().get(2).getTitulo());
             }
         }, 1000);
     }
@@ -115,10 +112,10 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private int calcularTiempoLectura() {
-        int cantidadCaracteres = pregunta.getTitulo().length();
-        cantidadCaracteres += pregunta.getRespuestas().get(0).getTitulo().length();
-        cantidadCaracteres += pregunta.getRespuestas().get(1).getTitulo().length();
-        cantidadCaracteres += pregunta.getRespuestas().get(2).getTitulo().length();
+        int cantidadCaracteres = trivia.getPreguntaActual().getTitulo().length();
+        for (Respuesta r: trivia.getPreguntaActual().getRespuestas()) {
+            cantidadCaracteres += r.getTitulo().length();
+        }
         return cantidadCaracteres * FACTOR_TIEMPO_LECTURA;
     }
 
@@ -131,15 +128,15 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
         switch (v.getId()) {
             case R.id.tvRespuesta1:
-                responder(pregunta.getRespuestas().get(0));
+                responder(trivia.getPreguntaActual().getRespuestas().get(0));
                 break;
 
             case R.id.tvRespuesta2:
-                responder(pregunta.getRespuestas().get(1));
+                responder(trivia.getPreguntaActual().getRespuestas().get(1));
                 break;
 
             case R.id.tvRespuesta3:
-                responder(pregunta.getRespuestas().get(2));
+                responder(trivia.getPreguntaActual().getRespuestas().get(2));
                 break;
         }
     }
@@ -149,13 +146,13 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
             tv.setAlpha(.5f);
         }
 
-        for (Respuesta r : pregunta.getRespuestas()) {
+        for (Respuesta r : trivia.getPreguntaActual().getRespuestas()) {
             if (r.isCorrecta()) {
-                tvRespuestas.get(pregunta.getRespuestas().indexOf(r)).setBackgroundColor(Color.parseColor("#28A744"));
+                tvRespuestas.get(trivia.getPreguntaActual().getRespuestas().indexOf(r)).setBackgroundColor(Color.parseColor("#28A744"));
             }
         }
 
-        TextView tvSeleccionado = tvRespuestas.get(pregunta.getRespuestas().indexOf(respuesta));
+        TextView tvSeleccionado = tvRespuestas.get(trivia.getPreguntaActual().getRespuestas().indexOf(respuesta));
         tvSeleccionado.setAlpha(1);
         if (!trivia.responder(respuesta)) {
             tvSeleccionado.setBackgroundColor(Color.parseColor("#D43341"));
@@ -176,7 +173,6 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
                 if (resultCode == RESULT_OK && null != data) {
                     ArrayList<String> speech = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     String strSpeech2Text = speech.get(0);
-                    Toast.makeText(this, strSpeech2Text, Toast.LENGTH_SHORT).show();
                     Respuesta respuesta = trivia.obtenerRespuestaPorVoz(strSpeech2Text);
                     if (respuesta == null) {
                         Toast.makeText(this, "Respuesta no reconocida", Toast.LENGTH_SHORT).show();
