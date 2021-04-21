@@ -30,11 +30,8 @@ import app2you.probateapp.entidades.Usuario;
 
 
 public class TriviaActivity extends AppCompatActivity implements View.OnClickListener {
-    private TTSManager ttsManager = null;
-
-    private TextView tvTema;
-    private TextView tvPregunta;
-    private List<TextView> tvRespuestas = new ArrayList<>();
+    private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
+    private static final int FACTOR_TIEMPO_LECTURA = 110;
 
     private Trivia trivia;
     private Tema tema;
@@ -44,9 +41,11 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     private boolean leyendo = false;
 
 
-    private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
+    private TTSManager ttsManager = null;
 
-    private static final int FACTOR_TIEMPO_LECTURA = 110;
+    private TextView tvTema;
+    private TextView tvPregunta;
+    private List<TextView> tvRespuestas = new ArrayList<>();
 
 
     @Override
