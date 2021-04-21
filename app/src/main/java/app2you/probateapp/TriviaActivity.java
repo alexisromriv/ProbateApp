@@ -42,6 +42,9 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
 
     private boolean modoOral = false;
+    private boolean leyendo = false;
+
+
 
     private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
 
@@ -100,21 +103,24 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
             acertTextView = tvRespuesta3;
         }
 
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                ttsManager.initQueue(pregunta.getTitulo());
-                ttsManager.addQueue(pregunta.getRespuestas().get(0).getTitulo());
-                ttsManager.addQueue(pregunta.getRespuestas().get(1).getTitulo());
-                ttsManager.addQueue(pregunta.getRespuestas().get(2).getTitulo());
-            }
-        }, 1000);
+        if (modoOral) {
+            leyendo = true;
+            new Handler().postDelayed(new Runnable() {
+                public void run() {
+                    ttsManager.initQueue(pregunta.getTitulo());
+                    ttsManager.addQueue(pregunta.getRespuestas().get(0).getTitulo());
+                    ttsManager.addQueue(pregunta.getRespuestas().get(1).getTitulo());
+                    ttsManager.addQueue(pregunta.getRespuestas().get(2).getTitulo());
+                }
+            }, 1000);
 
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                Escuchar(null);
-            }
-        }, calcularTiempoLectura());
-
+            new Handler().postDelayed(new Runnable() {
+                public void run() {
+                    leyendo = false;
+                    Escuchar(null);
+                }
+            }, calcularTiempoLectura());
+        }
     }
 
     private int calcularTiempoLectura() {
@@ -128,7 +134,9 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-
+        if (leyendo){
+            return;
+        }
         tvRespuesta1.setAlpha(.5f);
         tvRespuesta2.setAlpha(.5f);
         tvRespuesta3.setAlpha(.5f);
@@ -167,6 +175,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void responder(Respuesta respuesta) {
+
         tvRespuesta1.setAlpha(.5f);
         tvRespuesta2.setAlpha(.5f);
         tvRespuesta3.setAlpha(.5f);
@@ -245,9 +254,9 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
-    public void CambiarModo(View view) {
+    public void cambiarModo(View view) {
         modoOral = !modoOral;
-        
+        Toast.makeText(this, "modo oral " + (modoOral ? "activado" : "desactivado"), Toast.LENGTH_SHORT).show();
     }
 
     @Override
