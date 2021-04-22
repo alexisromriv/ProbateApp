@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
 
@@ -12,72 +13,115 @@
         android:id="@+id/tvMateriaExamen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16dp" />
+        android:text="Exámen de Historia"
+        android:textSize="16dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvTemaExamen"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="¿Cuanto es 1 + 1?"
-        android:textSize="16dp" />
+        android:text="Inicio de Sumeria"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMateriaExamen" />
+
+
+    <TextView
+        android:id="@+id/tvStepExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1/20"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMateriaExamen" />
+
+    <Chronometer
+        android:id="@+id/chrExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/tvStepExamen"
+        app:layout_constraintTop_toBottomOf="@+id/tvMateriaExamen">
+
+    </Chronometer>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="00dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPreguntaExmen">
+
+
+        <RadioGroup
+            android:id="@+id/rgRespuestasExamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPreguntaExmen">
+
+            <RadioButton
+                android:id="@+id/rbRespuestaExamen1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Respuesta 1"
+                android:textSize="18dp"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/rbRespuestaExamen2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Respuesta 1"
+                android:textSize="18dp"></RadioButton>
+
+
+            <RadioButton
+                android:id="@+id/rbRespuestaExamen3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Respuesta 1"
+                android:textSize="18dp"></RadioButton>
+        </RadioGroup>
+
+    </ScrollView>
 
     <TextView
         android:id="@+id/tvPreguntaExmen"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¿Cuanto es 1 + 1?"
-        android:textSize="24dp" />
+        android:layout_marginTop="16dp"
+        android:text="Pregunta 1"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTemaExamen" />
 
+    <Button
+        android:id="@+id/btnAnterior"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="anterior"
+        android:text="Anterior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="OnClick" />
 
-    <RadioGroup
-        android:id="@+id/rgRespuestasExamen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RadioButton
-            android:id="@+id/rbRespuestaExamen1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></RadioButton>
-
-        <RadioButton
-            android:id="@+id/rbRespuestaExamen2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></RadioButton>
-
-
-        <RadioButton
-            android:id="@+id/rbRespuestaExamen3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></RadioButton>
-    </RadioGroup>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/btnSiguiente"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="98dp"
-            android:onClick="anterior"
-            android:text="Anterior"
-            tools:ignore="OnClick" />
-
-        <Button
-            android:id="@+id/btnAnterior"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="98dp"
-            android:onClick="siguiente"
-            android:text="Siguiente"
-            tools:ignore="OnClick" />
-    </LinearLayout>
-</LinearLayout>
+    <Button
+        android:id="@+id/btnSiguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="siguiente"
+        android:text="Siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="OnClick" />
+</androidx.constraintlayout.widget.ConstraintLayout>
