@@ -143,13 +143,13 @@ public class Database {
 
         List<Respuesta> respuestas8 = new ArrayList<>();
         respuestas8.add(new Respuesta("Democracia","Democracia",true));
-        respuestas8.add(new Respuesta("Oligarquia","Oligarquia",false));
+        respuestas8.add(new Respuesta("Oligarquía","Oligarquía",false));
         respuestas8.add(new Respuesta("Monarquía","Monarquía",false));
 
         List<Respuesta> respuestas9 = new ArrayList<>();
         respuestas9.add(new Respuesta("Baco","Baco",true));
         respuestas9.add(new Respuesta("Empedocles","Empedocles",false));
-        respuestas9.add(new Respuesta("ánforo","ánforo",false));
+        respuestas9.add(new Respuesta("Ánforo","ánforo",false));
 
         List<Respuesta> respuestas10 = new ArrayList<>();
         respuestas10.add(new Respuesta("Sócrates","Sócrates",true));
@@ -222,17 +222,17 @@ public class Database {
         respuestas23.add(new Respuesta("Oda a Afrodita"," Afrodita",false));
 
         List<Respuesta> respuestas24 = new ArrayList<>();
-        respuestas24.add(new Respuesta("PARTENIOS","PARTENIOS",true));
-        respuestas24.add(new Respuesta("MOTACES","MOTACES",false));
-        respuestas24.add(new Respuesta("ESPARTIATAS","ESPARTIATAS",false));
+        respuestas24.add(new Respuesta("Partenios","Partenios",true));
+        respuestas24.add(new Respuesta("Motaces","Motaces",false));
+        respuestas24.add(new Respuesta("Espartiatas","Espartiatas",false));
 
         List<Respuesta> respuestas25 = new ArrayList<>();
-        respuestas25.add(new Respuesta("HILOTAS","HILOTAS",true));
-        respuestas25.add(new Respuesta("ESPARTIATAS","ESPARTIATAS",false));
-        respuestas25.add(new Respuesta("PERIECOS","PERIECOS",false));
+        respuestas25.add(new Respuesta("Hilotas","Hilotas",true));
+        respuestas25.add(new Respuesta("Espartiatas","Espartiatas",false));
+        respuestas25.add(new Respuesta("Periecos","Periecos",false));
 
         List<Respuesta> respuestas26 = new ArrayList<>();
-        respuestas26.add(new Respuesta("UN PUERTO","PUERTO",false));
+        respuestas26.add(new Respuesta("Un puerto","puerto",false));
         respuestas26.add(new Respuesta("Una montaña","montaña",false));
         respuestas26.add(new Respuesta("Un ágora","ágora",true));
 
@@ -259,7 +259,7 @@ public class Database {
         List<Respuesta> respuestas31 = new ArrayList<>();
         respuestas31.add(new Respuesta("Demócrito","Demócrito",true));
         respuestas31.add(new Respuesta("Anaxímenes","Anaxímenes",false));
-        respuestas31.add(new Respuesta("ninguno de los anteriores","ninguno",false));
+        respuestas31.add(new Respuesta("Ninguno de los anteriores","ninguno",false));
 
         List<Respuesta> respuestas32 = new ArrayList<>();
         respuestas32.add(new Respuesta("Demócrito","Demócrito",true));
@@ -272,19 +272,19 @@ public class Database {
         respuestas33.add(new Respuesta("Pitágoras","Pitágoras",false));
 
         List<Respuesta> respuestas34 = new ArrayList<>();
-        respuestas34.add(new Respuesta("una escuela de filosofía y una secta religiosa"," escuela",true));
-        respuestas34.add(new Respuesta("una escuela de investigación cienÂ­tífica","investigación",false));
-        respuestas34.add(new Respuesta("todas las anteriores","todas",false));
+        respuestas34.add(new Respuesta("Una escuela de filosofía y una secta religiosa"," escuela",true));
+        respuestas34.add(new Respuesta("Una escuela de investigación cienÂ­tífica","investigación",false));
+        respuestas34.add(new Respuesta("Todas las anteriores","todas",false));
 
         List<Respuesta> respuestas35 = new ArrayList<>();
-        respuestas35.add(new Respuesta("la virtud es una consecuencia de la naturaleza","naturaleza",true));
-        respuestas35.add(new Respuesta("la virtud es una consecuencia de la voluntad de los dioses","dioses",false));
-        respuestas35.add(new Respuesta("en la práctica moral es fundamental el conocimiento","conocimiento",false));
+        respuestas35.add(new Respuesta("La virtud es una consecuencia de la naturaleza","naturaleza",true));
+        respuestas35.add(new Respuesta("La virtud es una consecuencia de la voluntad de los dioses","dioses",false));
+        respuestas35.add(new Respuesta("En la práctica moral es fundamental el conocimiento","conocimiento",false));
 
         List<Respuesta> respuestas36 = new ArrayList<>();
-        respuestas36.add(new Respuesta("la escuela de Elea","Elea",true));
-        respuestas36.add(new Respuesta("la escuela socrática","socrática",true));
-        respuestas36.add(new Respuesta("el orfismo","orfismo",false));
+        respuestas36.add(new Respuesta("La escuela de Elea","Elea",true));
+        respuestas36.add(new Respuesta("La escuela socrática","socrática",true));
+        respuestas36.add(new Respuesta("El orfismo","orfismo",false));
 
         List<Respuesta> respuestas37 = new ArrayList<>();
         respuestas37.add(new Respuesta("Jenófanes de Colofón","Jenófanes",false));
