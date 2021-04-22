@@ -134,6 +134,8 @@ public class ExamenActivity extends AppCompatActivity {
     public void finalizar(View view) {
         try {
             examen.finalizar();
+            Intent intent = new Intent(this, ResultadoExamenActivity.class);
+            startActivity(intent);
         } catch (Exception ex) {
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
