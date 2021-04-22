@@ -4,36 +4,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
+import java.security.spec.ECField;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-
-import app2you.probateapp.controladores.Autenticacion;
 import app2you.probateapp.controladores.Examen;
 import app2you.probateapp.entidades.Materia;
-import app2you.probateapp.entidades.Pregunta;
 import app2you.probateapp.entidades.Respuesta;
-import app2you.probateapp.entidades.RespuestaAlumno;
-import app2you.probateapp.entidades.Tema;
-import app2you.probateapp.entidades.Usuario;
+import app2you.probateapp.entidades.PreguntaConRespuesta;
 
 
 public class ExamenActivity extends AppCompatActivity {
     Examen examen;
     Materia materia;
-    private List<RespuestaAlumno> respuestas;
-    int preguntaIndex = 0;
     int temaIndex = 0;
-    int preguntasLength = 0;
 
     private TextView tvPregunta;
     private TextView tvMateriaExamen;
@@ -44,6 +35,10 @@ public class ExamenActivity extends AppCompatActivity {
     private RadioButton rbRespuestaExamen2;
     private RadioButton rbRespuestaExamen3;
     private Chronometer chrExamen;
+
+    private Button btnFinalizar;
+    private Button btnSiguiente;
+    private Button btnAnterior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,96 +53,89 @@ public class ExamenActivity extends AppCompatActivity {
         rbRespuestaExamen1 = (RadioButton) findViewById(R.id.rbRespuestaExamen1);
         rbRespuestaExamen2 = (RadioButton) findViewById(R.id.rbRespuestaExamen2);
         rbRespuestaExamen3 = (RadioButton) findViewById(R.id.rbRespuestaExamen3);
+        btnAnterior = (Button) findViewById(R.id.btnAnterior);
+        btnFinalizar = (Button) findViewById(R.id.btnFinalizar);
+        btnSiguiente = (Button) findViewById(R.id.btnSiguiente);
         chrExamen = (Chronometer) findViewById(R.id.chrExamen);
-
 
         try {
             Intent intent = getIntent();
-
             materia = (Materia) intent.getSerializableExtra("materia");
+
+            examen = new Examen(materia);
+
             tvMateriaExamen.setText(materia.getNombre());
 
-            respuestas = new ArrayList<>();
-            for (Tema t : materia.getTemas()) {
-                for (Pregunta p : t.getPreguntas()) {
-                    respuestas.add(new RespuestaAlumno(p, null));
-                    preguntasLength++;
-                }
-            }
-            
             temaIndex = 0;
-            preguntaIndex = 0;
-
 
             chrExamen.setBase(SystemClock.elapsedRealtime());
             chrExamen.start();
-            setPregunta();
+            setPregunta(examen.siguiente());
         } catch (Exception ex) {
         }
     }
 
 
-    private void setPregunta() {
+    private void setPregunta(PreguntaConRespuesta pr) {
+        tvPregunta.setText(pr.getPregunta().getTitulo());
+        tvTema.setText(pr.getPregunta().getTema().getNombre());
+        rbRespuestaExamen1.setText(pr.getPregunta().getRespuestas().get(0).getTitulo());
+        rbRespuestaExamen2.setText(pr.getPregunta().getRespuestas().get(1).getTitulo());
+        rbRespuestaExamen3.setText(pr.getPregunta().getRespuestas().get(2).getTitulo());
+        tvStepExamen.setText(examen.getPaso() + " / " + examen.cantidadPreguntas());
 
-        Pregunta p = respuestas.get(preguntaIndex).getPregunta();
-        tvPregunta.setText(p.getTitulo());
+        btnAnterior.setVisibility(View.INVISIBLE);
+        btnSiguiente.setVisibility(View.VISIBLE);
+        btnFinalizar.setVisibility(View.INVISIBLE);
 
+        if (examen.getPaso() > 1) {
+            btnAnterior.setVisibility(View.VISIBLE);
+        }
 
-        rbRespuestaExamen1.setText(p.getRespuestas().get(0).getTitulo());
-        rbRespuestaExamen2.setText(p.getRespuestas().get(1).getTitulo());
-        rbRespuestaExamen3.setText(p.getRespuestas().get(2).getTitulo());
+        if (examen.getPaso() == examen.cantidadPreguntas()) {
+            btnFinalizar.setVisibility(View.VISIBLE);
+            btnSiguiente.setVisibility(View.INVISIBLE);
+        }
 
-        Respuesta seleccionada = respuestas.get(preguntaIndex).getRespuestaSeleccionada();
+        seleccionarCheckbox();
+    }
+
+    private void seleccionarCheckbox() {
+        Respuesta seleccionada = examen.getPregunta().getRespuestaSeleccionada();
+        int seleccionadaIndex = examen.getPregunta().getPregunta().getRespuestas().indexOf(seleccionada);
         rgRespuestasExamen.clearCheck();
-        if (seleccionada == p.getRespuestas().get(0)) {
-            rbRespuestaExamen1.setChecked(true);
-        }
-        if (seleccionada == p.getRespuestas().get(1)) {
-            rbRespuestaExamen2.setChecked(true);
-        }
-        if (seleccionada == p.getRespuestas().get(2)) {
-            rbRespuestaExamen3.setChecked(true);
-        }
-
-        tvStepExamen.setText(preguntaIndex + " / " + preguntasLength);
-
+        rbRespuestaExamen1.setChecked(seleccionadaIndex == 0);
+        rbRespuestaExamen2.setChecked(seleccionadaIndex == 1);
+        rbRespuestaExamen3.setChecked(seleccionadaIndex == 2);
     }
 
     public void siguiente(View view) {
         seleccionarRespuesta();
-
-        if (preguntaIndex == materia.getTemas().get(temaIndex).getPreguntas().size() - 1 && temaIndex < materia.getTemas().size()) {
-            temaIndex++;
-            preguntaIndex = 0;
-        }
-
-        if (preguntaIndex < materia.getTemas().get(temaIndex).getPreguntas().size()) {
-            preguntaIndex++;
-            setPregunta();
-        }
+        setPregunta(examen.siguiente());
     }
 
     public void anterior(View view) {
         seleccionarRespuesta();
-        if (preguntaIndex == 0 && temaIndex > 0) {
-            temaIndex--;
-            preguntaIndex = materia.getTemas().get(temaIndex).getPreguntas().size() - 1;
-        }
-        if (preguntaIndex > 0) {
-            preguntaIndex--;
-            setPregunta();
-        }
+        setPregunta(examen.anterior());
     }
 
     private void seleccionarRespuesta() {
         if (rbRespuestaExamen1.isChecked()) {
-            respuestas.get(preguntaIndex).setRespuestaSeleccionada(respuestas.get(preguntaIndex).getPregunta().getRespuestas().get(0));
+            examen.seleccionar(0);
         }
         if (rbRespuestaExamen2.isChecked()) {
-            respuestas.get(preguntaIndex).setRespuestaSeleccionada(respuestas.get(preguntaIndex).getPregunta().getRespuestas().get(1));
+            examen.seleccionar(1);
         }
         if (rbRespuestaExamen3.isChecked()) {
-            respuestas.get(preguntaIndex).setRespuestaSeleccionada(respuestas.get(preguntaIndex).getPregunta().getRespuestas().get(2));
+            examen.seleccionar(2);
+        }
+    }
+
+    public void finalizar(View view) {
+        try {
+            examen.finalizar();
+        } catch (Exception ex) {
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -2,11 +2,11 @@ package app2you.probateapp.entidades;
 
 import java.io.Serializable;
 
-public class RespuestaAlumno implements Serializable {
+public class PreguntaConRespuesta implements Serializable {
    private Pregunta pregunta;
    private Respuesta respuestaSeleccionada;
 
-    public RespuestaAlumno(Pregunta pregunta, Respuesta respuestaSeleccionada) {
+    public PreguntaConRespuesta(Pregunta pregunta, Respuesta respuestaSeleccionada) {
         this.pregunta = pregunta;
         this.respuestaSeleccionada = respuestaSeleccionada;
     }
