@@ -46,18 +46,13 @@ public class Database {
     }
 
     private void cargarCursos() {
-        List<Materia> materias1 = new ArrayList<>();
-        materias1.add(materias.get(0));
-        materias1.add(materias.get(1));
-        materias1.add(materias.get(8));
-
-        cursos.add(new Curso(1, "Curso 1", institutos.get(0), materias1));
-        cursos.add(new Curso(2,"Historia",institutos.get(0),materias1));
-        cursos.add(new Curso(3,"Mate",institutos.get(0),materias1));
-        cursos.add(new Curso(4,"Materia3",institutos.get(0),materias1));
-        cursos.add(new Curso(5,"Materia5",institutos.get(0),materias1));
-        cursos.add(new Curso(6,"Otro curso",institutos.get(0),materias1));
-        cursos.add(new Curso(7,"Historia Antigua",institutos.get(0),materias1));
+        cursos.add(new Curso(1, "Curso 1", institutos.get(0), materias));
+        cursos.add(new Curso(2,"Historia",institutos.get(0),materias));
+        cursos.add(new Curso(3,"Mate",institutos.get(0),materias));
+        cursos.add(new Curso(4,"Materia3",institutos.get(0),materias));
+        cursos.add(new Curso(5,"Materia5",institutos.get(0),materias));
+        cursos.add(new Curso(6,"Otro curso",institutos.get(0),materias));
+        cursos.add(new Curso(7,"Historia Antigua",institutos.get(0),materias));
 
     }
 
@@ -87,21 +82,12 @@ public class Database {
     }
 
     private void cargarMaterias() {
-        List<Tema> temas1 = new ArrayList<>();
-        temas1.add(temas.get(0));
-        temas1.add(temas.get(1));
-        temas1.add(temas.get(2));
-        temas1.add(temas.get(3));
-        //materias.add(new Materia("Imperio Macedonio", "1.jpg", temas1));
-        materias.add(new Materia("Sumeria","sumeria", temas1));
-        materias.add(new Materia("Imperio Egipcio","egipcio", temas1));
-        materias.add(new Materia("Imperio Romano","0", temas1));
-        materias.add(new Materia("Matera","0", temas1));
-        materias.add(new Materia("Termo","0", temas1));
-        materias.add(new Materia("Bombilla","0", temas1));
-        materias.add(new Materia("Macedonio","Alejandro-Magno--644x362.jpg", temas1));
-        materias.add(new Materia("Imperio Persa","42ac50930e30898f1faa16d46b2bbc09.jpg", temas1));
-        materias.add(new Materia("Cultura Griega","partenon", temas1));
+        materias.add(new Materia("Sumeria","sumeria", temas));
+        materias.add(new Materia("Imperio Egipcio","egipcio", temas));
+        materias.add(new Materia("Imperio Romano","0", temas));
+        materias.add(new Materia("Macedonio","Alejandro-Magno--644x362.jpg", temas));
+        materias.add(new Materia("Imperio Persa","42ac50930e30898f1faa16d46b2bbc09.jpg", temas));
+        materias.add(new Materia("Cultura Griega","partenon", temas));
     }
 
 
@@ -365,9 +351,6 @@ public class Database {
     }
 
     private void cargarUsuarios() {
-
-
-
         usuarios.add(new Usuario(1, "Alexis", "Romero", "alexis", "123", cursos.get(0)));
         usuarios.add(new Usuario(2, "Gabriel", "Ithurralde", "gabriel", "123", cursos.get(0)));
         usuarios.add(new Usuario(3, "Pabla", "Agorio", "pabla", "123", cursos.get(0)));
