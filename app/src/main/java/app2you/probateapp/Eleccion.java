@@ -55,8 +55,7 @@ public class Eleccion extends AppCompatActivity {
 
     public void sendexam(View view) {
         // Do something in response to button click
-        Intent intent = new Intent(this, ExamenActivity.class);
-        intent.putExtra("PosMateria", posicionparametro);
+        Intent intent = new Intent(this, ExamenPreview.class);
         intent.putExtra("materia", estaMateria);
         startActivity(intent);
 
