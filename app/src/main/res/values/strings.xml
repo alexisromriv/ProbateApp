@@ -50,4 +50,5 @@
     <string name="Olvidodecontraseña">¿Olvidaste tu contraseña?</string>
     <string name="Registrousuario">¿Nuevo por aquí? Click para registrarse</string>
     <string name="nombreUsuario">usuario</string>
+    <string name="preguntaEleccion">¿Cómo te querés probar?</string>
 </resources>

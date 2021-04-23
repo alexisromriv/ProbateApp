@@ -58,6 +58,57 @@ public class Database {
 
     private  void cargarTemas() {
 
+        List<Pregunta> preguntasInicioSumeria= new ArrayList<>();
+        for (int i=0;i<6; i++){
+            preguntasInicioSumeria.add(preguntas.get(i));
+        }
+
+        List<Pregunta> preguntasFinSumeria= new ArrayList<>();
+        for (int i=6;i<10; i++){
+            preguntasFinSumeria.add(preguntas.get(i));
+        }
+
+        List<Pregunta> preguntasComienzoImperioRomano= new ArrayList<>();
+        for (int i=10;i<14; i++){
+            preguntasComienzoImperioRomano.add(preguntas.get(i));
+        }
+
+        List<Pregunta> preguntasSituacionImperioRomano= new ArrayList<>();
+        for (int i=14;i<18; i++){
+            preguntasSituacionImperioRomano.add(preguntas.get(i));
+        }
+
+        List<Pregunta> preguntasCaidaImperioRomano= new ArrayList<>();
+        for (int i=18;i<22; i++){
+            preguntasCaidaImperioRomano.add(preguntas.get(i));
+        }
+
+        List<Pregunta> preguntasTutankamon= new ArrayList<>();
+        for (int i=22;i<26; i++){
+            preguntasTutankamon.add(preguntas.get(i));
+        }
+
+        List<Pregunta> preguntasNefertiti= new ArrayList<>();
+        for (int i=26;i<30; i++){
+            preguntasNefertiti.add(preguntas.get(i));
+        }
+
+        List<Pregunta> preguntasRomuloRemo= new ArrayList<>();
+        for (int i=30;i<34; i++){
+            preguntasRomuloRemo.add(preguntas.get(i));
+        }
+
+        List<Pregunta> preguntasAlejandroMagno= new ArrayList<>();
+        for (int i=34;i<38; i++){
+            preguntasAlejandroMagno.add(preguntas.get(i));
+        }
+
+        List<Pregunta> preguntasConstantinoElGrande= new ArrayList<>();
+        for (int i=38;i<43; i++){
+            preguntasConstantinoElGrande.add(preguntas.get(i));
+        }
+
+
         temas.add(new Tema("Inicio de Sumeria", preguntas));
         temas.add(new Tema("Fin de Sumeria", preguntas));
         temas.add(new Tema("Comienzo del Imperio romano", preguntas));
@@ -68,16 +119,16 @@ public class Database {
         temas.add(new Tema("Romulo y Remo", preguntas));
         temas.add(new Tema("Alejandro Magno", preguntas));
         temas.add(new Tema("Constantino el grande", preguntas));
-        temas.add(new Tema("Caligula", preguntas));
-        temas.add(new Tema("Alejandro Magno", preguntas));
-        temas.add(new Tema("filósofos Griegos", preguntas));
-        temas.add(new Tema("conquista Europea", preguntas));
-        temas.add(new Tema("armamento romano", preguntas));
-        temas.add(new Tema("Mitología y Cultura Romana", preguntas));
-        temas.add(new Tema("Percia Vs. Grecia", preguntas));
-        temas.add(new Tema("Geografía antigua", preguntas));
-        temas.add(new Tema("Filósofos Griegos", preguntas));
-        temas.add(new Tema("Estados Antiguos", preguntas));
+        //temas.add(new Tema("Caligula", preguntas));
+        //temas.add(new Tema("Alejandro Magno", preguntas));
+        //temas.add(new Tema("filósofos Griegos", preguntas));
+        //temas.add(new Tema("conquista Europea", preguntas));
+        //temas.add(new Tema("armamento romano", preguntas));
+        //temas.add(new Tema("Mitología y Cultura Romana", preguntas));
+        //temas.add(new Tema("Percia Vs. Grecia", preguntas));
+        //temas.add(new Tema("Geografía antigua", preguntas));
+        //temas.add(new Tema("Filósofos Griegos", preguntas));
+        //temas.add(new Tema("Estados Antiguos", preguntas));
 
     }
 
@@ -89,7 +140,6 @@ public class Database {
         materias.add(new Materia("Imperio Persa","42ac50930e30898f1faa16d46b2bbc09.jpg", temas));
         materias.add(new Materia("Cultura Griega","partenon", temas));
     }
-
 
     private void cargarPreguntas() {
         List<Respuesta> respuestas1 = new ArrayList<>();
