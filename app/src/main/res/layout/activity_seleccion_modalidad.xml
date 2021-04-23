@@ -4,31 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f3f3f3"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".TriviaActivity">
 
     <TextView
+        style="@style/h1"
         android:id="@+id/tvMateriaTemas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textColor="#000000"
-        android:textSize="32dp"></TextView>
+        android:textColor="@color/white"
+        android:text="Cultura Griega"></TextView>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/subtitle"
         android:layout_marginTop="10dp"
-        android:text="Selecciona un tema para probarte"
-        android:textSize="16dp"></TextView>
+        android:textColor="@color/white"
+        android:text="Selecciona un tema para probarte"></TextView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerTemas"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </androidx.recyclerview.widget.RecyclerView>
 
 
