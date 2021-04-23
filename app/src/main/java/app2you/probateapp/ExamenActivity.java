@@ -68,10 +68,12 @@ public class ExamenActivity extends AppCompatActivity {
 
             temaIndex = 0;
 
+            
             chrExamen.setBase(SystemClock.elapsedRealtime());
             chrExamen.start();
             setPregunta(examen.siguiente());
         } catch (Exception ex) {
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -133,8 +135,10 @@ public class ExamenActivity extends AppCompatActivity {
 
     public void finalizar(View view) {
         try {
+            seleccionarRespuesta();
             examen.finalizar();
             Intent intent = new Intent(this, ResultadoExamenActivity.class);
+            intent.putExtra("examen", examen);
             startActivity(intent);
         } catch (Exception ex) {
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();

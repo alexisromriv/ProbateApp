@@ -111,14 +111,15 @@ public class Database {
 
         temas.add(new Tema("Inicio de Sumeria", preguntasInicioSumeria));
         temas.add(new Tema("Fin de Sumeria", preguntasFinSumeria));
-        temas.add(new Tema("Comienzo del Imperio romano", preguntasComienzoImperioRomano));
-        temas.add(new Tema("Situación del imperio romano", preguntasSituacionImperioRomano));
-        temas.add(new Tema("Caída del imperio romano", preguntasCaidaImperioRomano));
-        temas.add(new Tema("Tutankamon", preguntasTutankamon));
-        temas.add(new Tema("Nefertiti", preguntasNefertiti));
-        temas.add(new Tema("Romulo y Remo", preguntasRomuloRemo));
-        temas.add(new Tema("Alejandro Magno", preguntasAlejandroMagno));
-        temas.add(new Tema("Constantino el grande", preguntasConstantinoElGrande));
+        //temas.add(new Tema("Comienzo del Imperio romano", preguntasComienzoImperioRomano));
+        //temas.add(new Tema("Situación del imperio romano", preguntasSituacionImperioRomano));
+        //temas.add(new Tema("Caída del imperio romano", preguntasCaidaImperioRomano));
+        //temas.add(new Tema("Tutankamon", preguntasTutankamon));
+        //temas.add(new Tema("Nefertiti", preguntasNefertiti));
+        //temas.add(new Tema("Romulo y Remo", preguntasRomuloRemo));
+        //temas.add(new Tema("Alejandro Magno", preguntasAlejandroMagno));
+        //temas.add(new Tema("Constantino el grande", preguntasConstantinoElGrande));
+
         //temas.add(new Tema("Caligula", preguntas));
         //temas.add(new Tema("Alejandro Magno", preguntas));
         //temas.add(new Tema("filósofos Griegos", preguntas));

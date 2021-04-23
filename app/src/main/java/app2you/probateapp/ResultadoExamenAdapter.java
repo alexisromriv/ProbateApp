@@ -63,25 +63,24 @@ public class ResultadoExamenAdapter extends RecyclerView.Adapter<ResultadoExamen
             tvPregunta.setText(pregunta.getPregunta().getTitulo());
 
             List<Respuesta> respuestas = pregunta.getPregunta().getRespuestas();
-            tvRespuesta1.setText(respuestas.get(0).getTitulo());
-            tvRespuesta2.setText(respuestas.get(1).getTitulo());
-            tvRespuesta3.setText(respuestas.get(2).getTitulo());
+
+
+
+            tvPregunta.setTextColor(pregunta.getRespuestaSeleccionada().isCorrecta() ? Color.GREEN : Color.RED);
+
+            for (int i = 0; i < 3 ; i++) {
+                tvRespuestas.get(i).setText(respuestas.get(i).getTitulo());
+                tvRespuestas.get(i).setAlpha(.5f);
+                tvRespuestas.get(i).setTextSize(16);
+                tvRespuestas.get(i).setTextColor(Color.BLACK);
+                if (pregunta.getPregunta().getRespuestas().get(i).isCorrecta()) {
+                    tvRespuestas.get(i).setTextColor(Color.GREEN);
+                }
+            }
 
             int selectionIndex = pregunta.getPregunta().getRespuestas().indexOf(pregunta.getRespuestaSeleccionada());
             tvRespuestas.get(selectionIndex).setAlpha(1);
-            tvRespuestas.get(selectionIndex).setTextSize(18);
-            tvPregunta.setTextColor(pregunta.getRespuestaSeleccionada().isCorrecta() ? Color.GREEN : Color.RED);
-
-            if (pregunta.getPregunta().getRespuestas().get(0).isCorrecta()) {
-                tvRespuestas.get(0).setTextColor(Color.GREEN);
-            }
-            if (pregunta.getPregunta().getRespuestas().get(1).isCorrecta()) {
-                tvRespuestas.get(1).setTextColor(Color.GREEN);
-            }
-            if (pregunta.getPregunta().getRespuestas().get(2).isCorrecta()) {
-                tvRespuestas.get(2).setTextColor(Color.GREEN);
-            }
-
+            tvRespuestas.get(selectionIndex).setTextSize(24);
             if (!pregunta.getRespuestaSeleccionada().isCorrecta()) {
                 tvRespuestas.get(selectionIndex).setTextColor(Color.RED);
             }

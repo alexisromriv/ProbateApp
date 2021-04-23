@@ -43,13 +43,15 @@ public class ResultadoExamenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resultado_examen);
 
         rvRespuestas = (RecyclerView)findViewById(R.id.rvRespuestas);
-        Materia materia = Database.getInstance().getMaterias().get(0);
+        /*Materia materia = Database.getInstance().getMaterias().get(0);
         Examen examen = new Examen(materia);
         for (PreguntaConRespuesta pr : examen.getRespondidas()) {
             examen.siguiente();
             int randomNum = ThreadLocalRandom.current().nextInt(0, 3);
             examen.seleccionar(randomNum);
-        }
+        }*/
+        Intent intent = getIntent();
+        Examen examen = (Examen) intent.getSerializableExtra("examen");
         rvRespuestas.setLayoutManager(new LinearLayoutManager(this));
         ResultadoExamenAdapter adapter = new ResultadoExamenAdapter(examen.getRespondidas());
         rvRespuestas.setAdapter(adapter);
