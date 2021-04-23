@@ -1,6 +1,9 @@
 package app2you.probateapp.controladores;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import app2you.probateapp.entidades.Materia;
@@ -9,46 +12,60 @@ import app2you.probateapp.entidades.Respuesta;
 import app2you.probateapp.entidades.PreguntaConRespuesta;
 import app2you.probateapp.entidades.Tema;
 
-public class Examen {
+public class Examen implements Serializable {
+    private static int PREGUNTAS_POR_TEMA = 5;
+    private static double FACTOR_DURACION_EXAMEN = 1.3;
+
     private Materia materia;
     private List<PreguntaConRespuesta> respondidas = new ArrayList<>();
     private int preguntaIndex = -1;
     private double duracionEstimada = 0;
     private int duracion = 0;
+    private long start = 0;
+    private long end = 0;
+
 
     public Examen(Materia materia) {
         this.materia = materia;
         for (Tema tema : materia.getTemas()) {
-            for (Pregunta pregunta : tema.getPreguntas()) {
+            Collections.shuffle(tema.getPreguntas());
+            List<Pregunta> preguntasTema = tema.getPreguntas();
+            if (preguntasTema.size() > PREGUNTAS_POR_TEMA) {
+                preguntasTema = preguntasTema.subList(0, PREGUNTAS_POR_TEMA);
+            }
+
+            for (Pregunta pregunta : preguntasTema) {
                 pregunta.setTema(tema);
                 respondidas.add(new PreguntaConRespuesta(pregunta, null));
             }
         }
-        this.duracionEstimada = cantidadPreguntas() * 1.3;
+        this.duracionEstimada = cantidadPreguntas() * FACTOR_DURACION_EXAMEN;
     }
 
     public void iniciar() {
+        start = System.currentTimeMillis();
 
     }
 
     public void finalizar() throws Exception {
         if (getPreguntasRestantes() != 0) {
-            throw new Exception("Hay " + getPreguntasRestantes() + " sin responder");
+            throw new Exception("Quedan " + getPreguntasRestantes() + " preguntas sin responder");
         }
+        end = System.currentTimeMillis();
     }
 
-    private int getPreguntasRestantes(){
+    private int getPreguntasRestantes() {
         int restantes = 0;
-        for (PreguntaConRespuesta pr: respondidas) {
+        for (PreguntaConRespuesta pr : respondidas) {
             if (pr.getRespuestaSeleccionada() == null) {
-                restantes ++;
+                restantes++;
             }
         }
         return restantes;
     }
 
     public PreguntaConRespuesta siguiente() {
-        if (preguntaIndex < cantidadPreguntas() -1) {
+        if (preguntaIndex < cantidadPreguntas() - 1) {
             preguntaIndex++;
         }
         return respondidas.get(preguntaIndex);
@@ -70,14 +87,19 @@ public class Examen {
         return respondidas;
     }
 
-    public int getPaso(){
+    public int getPaso() {
         return this.preguntaIndex + 1;
     }
-    public int cantidadPreguntas(){
+
+    public int cantidadPreguntas() {
         return this.getRespondidas().size();
     }
 
-    public PreguntaConRespuesta getPregunta(){
+    public PreguntaConRespuesta getPregunta() {
         return this.respondidas.get(preguntaIndex);
+    }
+
+    public long duracion() {
+        return (end - start);
     }
 }
