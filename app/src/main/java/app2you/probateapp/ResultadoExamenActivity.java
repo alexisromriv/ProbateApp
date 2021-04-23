@@ -13,44 +13,47 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import app2you.probateapp.controladores.Examen;
+import app2you.probateapp.datos.Database;
 import app2you.probateapp.entidades.Materia;
+import app2you.probateapp.entidades.Pregunta;
 import app2you.probateapp.entidades.PreguntaConRespuesta;
 import app2you.probateapp.entidades.Respuesta;
+import app2you.probateapp.entidades.Tema;
 
 
 public class ResultadoExamenActivity extends AppCompatActivity {
-    ExpandableListView elvCorreccion;
     List<String> listGroup = new ArrayList<>();
     HashMap<String, ArrayList<String>> listChild = new HashMap<>();
     ResultadoExamenAdapter adapter;
+    RecyclerView rvRespuestas;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado_examen);
 
-        elvCorreccion = findViewById(R.id.elvCorreccion);
-
-        for (int g = 0; g<= 10; g++) {
-            listGroup.add("Group " + g);
-            ArrayList<String> arrayList = new ArrayList<>();
-            for (int c= 0; c <= 5; c++){
-                arrayList.add("Item " + c);
-            }
-            listChild.put(listGroup.get(g), arrayList);
+        rvRespuestas = (RecyclerView)findViewById(R.id.rvRespuestas);
+        Materia materia = Database.getInstance().getMaterias().get(0);
+        Examen examen = new Examen(materia);
+        for (PreguntaConRespuesta pr : examen.getRespondidas()) {
+            examen.siguiente();
+            int randomNum = ThreadLocalRandom.current().nextInt(0, 3);
+            examen.seleccionar(randomNum);
         }
-
-        adapter = new ResultadoExamenAdapter(listGroup, listChild);
-        elvCorreccion.setAdapter(adapter);
-
+        rvRespuestas.setLayoutManager(new LinearLayoutManager(this));
+        ResultadoExamenAdapter adapter = new ResultadoExamenAdapter(examen.getRespondidas());
+        rvRespuestas.setAdapter(adapter);
     }
-
 
 
 }

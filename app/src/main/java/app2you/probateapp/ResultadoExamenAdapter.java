@@ -1,91 +1,94 @@
 package app2you.probateapp;
 
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-public class ResultadoExamenAdapter extends BaseExpandableListAdapter {
-    List<String> listGroup;
-    HashMap<String, ArrayList<String>> listChild;
+import app2you.probateapp.entidades.PreguntaConRespuesta;
+import app2you.probateapp.entidades.Respuesta;
 
-    public ResultadoExamenAdapter(List<String> listGroup, HashMap<String, ArrayList<String>> listChild) {
-        this.listGroup = listGroup;
-        this.listChild = listChild;
+public class ResultadoExamenAdapter extends RecyclerView.Adapter<ResultadoExamenAdapter.ViewHolderResultadoExamen> {
+    List<PreguntaConRespuesta> preguntas;
+
+    public ResultadoExamenAdapter(List<PreguntaConRespuesta> preguntas) {
+        this.preguntas = preguntas;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolderResultadoExamen onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.correccion_item, null, false);
+        view.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.WRAP_CONTENT));
+        return new ViewHolderResultadoExamen(view);
     }
 
     @Override
-    public int getGroupCount() {
-        return listGroup.size();
+    public void onBindViewHolder(@NonNull ViewHolderResultadoExamen holder, int position) {
+        holder.asignarDatos(preguntas.get(position));
     }
 
     @Override
-    public int getChildrenCount(int groupPosition) {
-        return listChild.get(listGroup.get(groupPosition)).size();
+    public int getItemCount() {
+        return preguntas.size();
     }
 
-    @Override
-    public Object getGroup(int groupPosition) {
-        return listGroup.get(groupPosition);
-    }
+    public class ViewHolderResultadoExamen extends RecyclerView.ViewHolder {
+        TextView tvPregunta;
+        List<TextView> tvRespuestas = new ArrayList<>();
+        TextView tvRespuesta1;
+        TextView tvRespuesta2;
+        TextView tvRespuesta3;
 
-    @Override
-    public Object getChild(int groupPosition, int childPosition) {
-        return listChild.get(listGroup.get(groupPosition)).get(childPosition);
-    }
 
-    @Override
-    public long getGroupId(int groupPosition) {
-        return 0;
-    }
+        public ViewHolderResultadoExamen(@NonNull View itemView) {
+            super(itemView);
+            tvPregunta = itemView.findViewById(R.id.tvPreguntaItem);
+            tvRespuesta1 = itemView.findViewById(R.id.tvRespuestaItem1);
+            tvRespuesta2 = itemView.findViewById(R.id.tvRespuestaItem2);
+            tvRespuesta3 = itemView.findViewById(R.id.tvRespuestaItem3);
+            tvRespuestas.add(tvRespuesta1);
+            tvRespuestas.add(tvRespuesta2);
+            tvRespuestas.add(tvRespuesta3);
+        }
 
-    @Override
-    public long getChildId(int groupPosition, int childPosition) {
-        return 0;
-    }
+        public void asignarDatos(PreguntaConRespuesta pregunta) {
+            tvPregunta.setText(pregunta.getPregunta().getTitulo());
 
-    @Override
-    public boolean hasStableIds() {
-        return false;
-    }
+            List<Respuesta> respuestas = pregunta.getPregunta().getRespuestas();
+            tvRespuesta1.setText(respuestas.get(0).getTitulo());
+            tvRespuesta2.setText(respuestas.get(1).getTitulo());
+            tvRespuesta3.setText(respuestas.get(2).getTitulo());
 
-    @Override
-    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        convertView = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_expandable_list_item_1, parent, false);
-        TextView textView = convertView.findViewById(android.R.id.text1);
-        String sGroup = String.valueOf(getGroupId(groupPosition));
-        textView.setText(sGroup);
-        textView.setTypeface(null, Typeface.BOLD);
-        textView.setTextColor(Color.BLUE);
-        return convertView;
-    }
+            int selectionIndex = pregunta.getPregunta().getRespuestas().indexOf(pregunta.getRespuestaSeleccionada());
+            tvRespuestas.get(selectionIndex).setAlpha(1);
+            tvRespuestas.get(selectionIndex).setTextSize(18);
+            tvPregunta.setTextColor(pregunta.getRespuestaSeleccionada().isCorrecta() ? Color.GREEN : Color.RED);
 
-    @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, final ViewGroup parent) {
-        convertView = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_selectable_list_item, parent, false);
-        TextView textView = convertView.findViewById(android.R.id.text1);
-        final String sChild = String.valueOf(getChild(groupPosition, childPosition));
-        textView.setText(sChild);
-        textView.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-               // Toast.makeText(parent.getContext(), sChild, Toast.LENGTH_SHORT).show();
+            if (pregunta.getPregunta().getRespuestas().get(0).isCorrecta()) {
+                tvRespuestas.get(0).setTextColor(Color.GREEN);
             }
-        });
-        return convertView;
+            if (pregunta.getPregunta().getRespuestas().get(1).isCorrecta()) {
+                tvRespuestas.get(1).setTextColor(Color.GREEN);
+            }
+            if (pregunta.getPregunta().getRespuestas().get(2).isCorrecta()) {
+                tvRespuestas.get(2).setTextColor(Color.GREEN);
+            }
+
+            if (!pregunta.getRespuestaSeleccionada().isCorrecta()) {
+                tvRespuestas.get(selectionIndex).setTextColor(Color.RED);
+            }
+
+
+
+        }
     }
 
-    @Override
-    public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return false;
-    }
 }
