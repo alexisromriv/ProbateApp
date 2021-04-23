@@ -135,9 +135,9 @@ public class Database {
     private void cargarMaterias() {
         materias.add(new Materia("Sumeria","sumeria", temas));
         materias.add(new Materia("Imperio Egipcio","egipcio", temas));
-        materias.add(new Materia("Imperio Romano","0", temas));
-        materias.add(new Materia("Macedonio","Alejandro-Magno--644x362.jpg", temas));
-        materias.add(new Materia("Imperio Persa","42ac50930e30898f1faa16d46b2bbc09.jpg", temas));
+        materias.add(new Materia("Imperio Romano","imperio_romano", temas));
+        materias.add(new Materia("Macedonio","macedonio", temas));
+        materias.add(new Materia("Imperio Persa","imperio_persa", temas));
         materias.add(new Materia("Cultura Griega","partenon", temas));
     }
 
