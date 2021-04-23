@@ -1,70 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".Eleccion">
 
-    <TextView
-        android:id="@+id/textMateria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/cultura_griega"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageMateria" />
+    <androidx.cardview.widget.CardView style="@style/card">
 
-    <ImageView
-        android:id="@+id/imageMateria"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="52dp"
-        android:backgroundTint="?attr/colorControlHighlight"
-        app:layout_constraintBottom_toTopOf="@+id/textMateria"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/partenon"
-        android:contentDescription="TODO" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp">
 
-    <Button
-        android:id="@+id/triviabutton"
-        android:layout_width="0dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="85dp"
-        android:onClick="sendpage"
-        android:text="@string/trivia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMateria" />
+            <ImageView
+                android:id="@+id/imageMateria"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:backgroundTint="?attr/colorControlHighlight"
+                android:contentDescription="TODO"
+                app:layout_constraintBottom_toTopOf="@+id/textMateria"
+                app:srcCompat="@drawable/partenon" />
 
-    <Button
-        android:id="@+id/examenbutton"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/boton"
-        android:onClick="sendexam"
-        android:text="@string/examen"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/triviabutton" />
+            <TextView
+                android:id="@+id/textMateria"
+                style="@style/h1"
+                android:text="@string/cultura_griega"
+                android:textAlignment="center" />
 
-    <TextView
-        android:id="@+id/preguntaEleccion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/preguntaEleccion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMateria" />
+            <TextView
+                android:id="@+id/preguntaEleccion"
+                style="@style/h3"
+                android:text="¿Cómo quieres probarte?"
+                android:textAlignment="center" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/triviabutton"
+                style="@style/button"
+                android:layout_marginTop="32dp"
+                android:onClick="sendpage"
+                android:text="@string/trivia"
+                app:layout_constraintTop_toBottomOf="@+id/textMateria" />
+
+            <Button
+                android:id="@+id/examenbutton"
+                style="@style/button.buttonSecondary"
+                android:layout_marginTop="16dp"
+                android:onClick="sendexam"
+                android:text="@string/examen" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
