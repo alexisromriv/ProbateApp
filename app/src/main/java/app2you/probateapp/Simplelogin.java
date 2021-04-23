@@ -36,8 +36,8 @@ public class Simplelogin extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                 }
 
-                if (usr != null) {
-                    Toast.makeText(getApplicationContext(), "login succes luego se implementqra la navegacion hacia eln principal" ,Toast.LENGTH_LONG).show();
+                    if (usr != null) {
+                    //Toast.makeText(getApplicationContext(), "login succes luego se implementqra la navegacion hacia eln principal" ,Toast.LENGTH_LONG).show();
 
 
 
