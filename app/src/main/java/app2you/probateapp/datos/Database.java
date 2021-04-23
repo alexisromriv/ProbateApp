@@ -136,9 +136,9 @@ public class Database {
     private void cargarMaterias() {
         materias.add(new Materia("Sumeria","sumeria", temas));
         materias.add(new Materia("Imperio Egipcio","egipcio", temas));
-        materias.add(new Materia("Imperio Romano","0", temas));
-        materias.add(new Materia("Macedonio","Alejandro-Magno--644x362.jpg", temas));
-        materias.add(new Materia("Imperio Persa","42ac50930e30898f1faa16d46b2bbc09.jpg", temas));
+        materias.add(new Materia("Imperio Romano","imperio_romano", temas));
+        materias.add(new Materia("Macedonio","macedonio", temas));
+        materias.add(new Materia("Imperio Persa","imperio_persa", temas));
         materias.add(new Materia("Cultura Griega","partenon", temas));
     }
 
@@ -314,7 +314,7 @@ public class Database {
 
         List<Respuesta> respuestas34 = new ArrayList<>();
         respuestas34.add(new Respuesta("Una escuela de filosofía y una secta religiosa"," escuela",true));
-        respuestas34.add(new Respuesta("Una escuela de investigación cienÂ­tífica","investigación",false));
+        respuestas34.add(new Respuesta("Una escuela de investigación científica","investigación",false));
         respuestas34.add(new Respuesta("Todas las anteriores","todas",false));
 
         List<Respuesta> respuestas35 = new ArrayList<>();
@@ -369,7 +369,7 @@ public class Database {
         preguntas.add(new Pregunta("Que país actual está en territorio de la antigua Persia", respuestas7, null));
         preguntas.add(new Pregunta("Que forma de gobierno tuvo su origen en Grecia", respuestas8, null));
         preguntas.add(new Pregunta("Nombre del dios romano del vino", respuestas9, null));
-        preguntas.add(new Pregunta("Quien postuló -yo solo sé que no se nada-", respuestas10, null));
+        preguntas.add(new Pregunta("Quien postuló: yo solo sé que no sé nada", respuestas10, null));
         preguntas.add(new Pregunta("Emperador Persa que combatió contra el Rey Leónidas en la batalla de Termópilas", respuestas11, null));
         preguntas.add(new Pregunta("Nombre de la principal escuela filosófica griega", respuestas12, null));
         preguntas.add(new Pregunta("Nombre de los habitantes de la zona del imperio Romano que hoy es territorio Francés", respuestas13, null));

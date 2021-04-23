@@ -11,10 +11,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Eleccion"/>
+        android:theme="@style/AppThemeNoBar"
+        >
+        <activity android:name=".Eleccion"
 
-        <activity android:name=".Principal"/>
+            />
+
+        <activity android:name=".Principal"
+            android:theme="@style/AppTheme"/>
 
 
 
