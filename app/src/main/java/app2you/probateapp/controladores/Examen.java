@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import app2you.probateapp.entidades.Materia;
 import app2you.probateapp.entidades.Pregunta;
@@ -101,5 +102,17 @@ public class Examen implements Serializable {
 
     public long duracion() {
         return (end - start);
+    }
+
+    public int getAprobacion() {
+        return ThreadLocalRandom.current().nextInt(60, 80);
+    }
+
+    public double getDuracion() {
+        return Math.floor(cantidadPreguntas() * FACTOR_DURACION_EXAMEN);
+    }
+
+    public List<Tema> getTemas() {
+        return materia.getTemas();
     }
 }

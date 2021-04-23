@@ -44,6 +44,9 @@
         <activity android:name=".ResultadoExamenActivity">
 
         </activity>
+        <activity android:name=".ExamenPreview">
+
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
