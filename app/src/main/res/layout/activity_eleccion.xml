@@ -8,53 +8,49 @@
     android:padding="16dp"
     tools:context=".Eleccion">
 
-    <androidx.cardview.widget.CardView style="@style/card">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="32dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="32dp">
+        <ImageView
+            android:id="@+id/imageMateria"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:backgroundTint="?attr/colorControlHighlight"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toTopOf="@+id/textMateria"
+            app:srcCompat="@drawable/partenon" />
 
-            <ImageView
-                android:id="@+id/imageMateria"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:backgroundTint="?attr/colorControlHighlight"
-                android:contentDescription="TODO"
-                app:layout_constraintBottom_toTopOf="@+id/textMateria"
-                app:srcCompat="@drawable/partenon" />
+        <TextView
+            android:id="@+id/textMateria"
+            style="@style/h1"
+            android:text="@string/cultura_griega"
+            android:textAlignment="center" />
 
-            <TextView
-                android:id="@+id/textMateria"
-                style="@style/h1"
-                android:text="@string/cultura_griega"
-                android:textAlignment="center" />
+        <TextView
+            android:id="@+id/preguntaEleccion"
+            style="@style/h3"
+            android:text="¿Cómo quieres probarte?"
+            android:textAlignment="center" />
 
-            <TextView
-                android:id="@+id/preguntaEleccion"
-                style="@style/h3"
-                android:text="¿Cómo quieres probarte?"
-                android:textAlignment="center" />
+        <Button
+            android:id="@+id/triviabutton"
+            style="@style/button"
+            android:layout_marginTop="32dp"
+            android:onClick="sendpage"
+            android:text="@string/trivia"
+            app:layout_constraintTop_toBottomOf="@+id/textMateria" />
 
-            <Button
-                android:id="@+id/triviabutton"
-                style="@style/button"
-                android:layout_marginTop="32dp"
-                android:onClick="sendpage"
-                android:text="@string/trivia"
-                app:layout_constraintTop_toBottomOf="@+id/textMateria" />
+        <Button
+            android:id="@+id/examenbutton"
+            style="@style/button.buttonSecondary"
+            android:layout_marginTop="16dp"
+            android:onClick="sendexam"
+            android:text="@string/examen" />
 
-            <Button
-                android:id="@+id/examenbutton"
-                style="@style/button.buttonSecondary"
-                android:layout_marginTop="16dp"
-                android:onClick="sendexam"
-                android:text="@string/examen" />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
+    </LinearLayout>
 
 </LinearLayout>
