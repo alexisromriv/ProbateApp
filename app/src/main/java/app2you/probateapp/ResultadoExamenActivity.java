@@ -1,6 +1,7 @@
 package app2you.probateapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,11 +38,19 @@ public class ResultadoExamenActivity extends AppCompatActivity {
     ResultadoExamenAdapter adapter;
     RecyclerView rvRespuestas;
 
+    TextView tvMensajeResultado;
+    Button btnResultado;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado_examen);
+
+        tvMensajeResultado = findViewById(R.id.tvMensajeResultado);
+        btnResultado = findViewById(R.id.btnResultado);
+
+
 
         rvRespuestas = (RecyclerView)findViewById(R.id.rvRespuestas);
         /*Materia materia = Database.getInstance().getMaterias().get(0);
@@ -55,6 +65,17 @@ public class ResultadoExamenActivity extends AppCompatActivity {
         rvRespuestas.setLayoutManager(new LinearLayoutManager(this));
         ResultadoExamenAdapter adapter = new ResultadoExamenAdapter(examen.getRespondidas());
         rvRespuestas.setAdapter(adapter);
+        if (examen.cantidadAciertos() > 5){
+            tvMensajeResultado.setText("¡Felicitaciones! aprobaste el exámen");
+            tvMensajeResultado.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
+            btnResultado.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
+        } else {
+            tvMensajeResultado.setText("Lo sentimos, no lograste aprobar");
+            tvMensajeResultado.setBackgroundColor(ContextCompat.getColor(this, R.color.red));
+            btnResultado.setBackgroundColor(ContextCompat.getColor(this, R.color.red));
+        }
+
+
     }
 
 

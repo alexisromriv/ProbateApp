@@ -6,11 +6,9 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/card"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
-        card_view:cardCornerRadius="4dp"
         card_view:cardUseCompatPadding="true">
 
         <LinearLayout
@@ -21,42 +19,29 @@
 
             <TextView
                 android:id="@+id/tvPreguntaItem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pregunta"
-
-                android:textSize="16sp" />
+                style="@style/h3"
+                android:text="Pregunta" />
 
             <TextView
-                android:layout_marginTop="8dp"
                 android:id="@+id/tvRespuestaItem1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Respuesta 1"
+                style="@style/h5"
+                android:layout_marginTop="8dp"
                 android:alpha=".5"
-
-                android:textSize="16sp" />
+                android:text="Respuesta 1" />
 
             <TextView
-                android:layout_marginTop="4dp"
                 android:id="@+id/tvRespuestaItem2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/h5"
+                android:layout_marginTop="4dp"
                 android:alpha=".5"
-
-                android:text="Respuesta 3"
-
-                android:textSize="16sp" />
+                android:text="Respuesta 3" />
 
             <TextView
                 android:id="@+id/tvRespuestaItem3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/h5"
                 android:layout_marginTop="4dp"
                 android:alpha=".5"
-                android:text="Respuesta 2"
-
-                android:textSize="16sp" />
+                android:text="Respuesta 2" />
 
         </LinearLayout>
 

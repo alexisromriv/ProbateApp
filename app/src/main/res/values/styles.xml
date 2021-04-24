@@ -35,6 +35,9 @@
         <item name="android:background">@color/yellow</item>
         <item name="android:textColor">@color/black</item>
     </style>
+    <style name="button.buttonDanger" >
+        <item name="android:background">@color/red</item>
+    </style>
 
     <style name="h1">
         <item name="android:layout_width">match_parent</item>

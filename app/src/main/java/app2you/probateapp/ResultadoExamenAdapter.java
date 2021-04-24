@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -66,7 +67,7 @@ public class ResultadoExamenAdapter extends RecyclerView.Adapter<ResultadoExamen
 
 
 
-            tvPregunta.setTextColor(pregunta.getRespuestaSeleccionada().isCorrecta() ? Color.GREEN : Color.RED);
+            tvPregunta.setTextColor(pregunta.getRespuestaSeleccionada().isCorrecta() ? Color.parseColor("#198754") :Color.parseColor("#dc3545"));
 
             for (int i = 0; i < 3 ; i++) {
                 tvRespuestas.get(i).setText(respuestas.get(i).getTitulo());
@@ -74,7 +75,8 @@ public class ResultadoExamenAdapter extends RecyclerView.Adapter<ResultadoExamen
                 tvRespuestas.get(i).setTextSize(16);
                 tvRespuestas.get(i).setTextColor(Color.BLACK);
                 if (pregunta.getPregunta().getRespuestas().get(i).isCorrecta()) {
-                    tvRespuestas.get(i).setTextColor(Color.GREEN);
+                    tvRespuestas.get(i).setTextColor(Color.parseColor("#198754"));
+
                 }
             }
 
@@ -82,7 +84,7 @@ public class ResultadoExamenAdapter extends RecyclerView.Adapter<ResultadoExamen
             tvRespuestas.get(selectionIndex).setAlpha(1);
             tvRespuestas.get(selectionIndex).setTextSize(24);
             if (!pregunta.getRespuestaSeleccionada().isCorrecta()) {
-                tvRespuestas.get(selectionIndex).setTextColor(Color.RED);
+                tvRespuestas.get(selectionIndex).setTextColor(Color.parseColor("#dc3545"));
             }
 
 

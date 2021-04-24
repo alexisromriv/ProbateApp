@@ -24,6 +24,7 @@ public class Examen implements Serializable {
     private int duracion = 0;
     private long start = 0;
     private long end = 0;
+    private  int aprobacion;
 
 
     public Examen(Materia materia) {
@@ -41,6 +42,7 @@ public class Examen implements Serializable {
             }
         }
         this.duracionEstimada = cantidadPreguntas() * FACTOR_DURACION_EXAMEN;
+        aprobacion = ThreadLocalRandom.current().nextInt(60, 80);
     }
 
     public void iniciar() {
@@ -84,6 +86,14 @@ public class Examen implements Serializable {
         this.respondidas.get(preguntaIndex).setRespuestaSeleccionada(resp);
     }
 
+    public boolean aprobado(){
+        double porcentajeAciertos =  cantidadAciertos() * cantidadPreguntas() / 100;
+        double porcentajeAprobacion = getAprobacion() / 100;
+        boolean aprobado = porcentajeAciertos >= porcentajeAprobacion;
+        return aprobado;
+
+    }
+
     public List<PreguntaConRespuesta> getRespondidas() {
         return respondidas;
     }
@@ -105,7 +115,8 @@ public class Examen implements Serializable {
     }
 
     public int getAprobacion() {
-        return ThreadLocalRandom.current().nextInt(60, 80);
+        return aprobacion;
+
     }
 
     public double getDuracion() {
@@ -114,5 +125,15 @@ public class Examen implements Serializable {
 
     public List<Tema> getTemas() {
         return materia.getTemas();
+    }
+
+    public int cantidadAciertos(){
+        int cantidad = 0;
+        for (PreguntaConRespuesta pr: respondidas) {
+            if (pr.getRespuestaSeleccionada().isCorrecta()){
+                cantidad++;
+            }
+        }
+        return cantidad;
     }
 }
