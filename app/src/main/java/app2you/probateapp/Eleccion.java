@@ -13,33 +13,21 @@ import app2you.probateapp.entidades.Materia;
 import app2you.probateapp.entidades.Usuario;
 
 public class Eleccion extends AppCompatActivity {
-
-    int posicionparametro;
-    private Materia estaMateria;
+    Materia materia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eleccion);
 
-        Bundle parametro = getIntent().getExtras();
-        posicionparametro = parametro.getInt("PosMateria");
-
-
-        Usuario usr = null;
-        try {
-            usr = new Autenticacion().login("alexis", "123");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        estaMateria = usr.getCurso().getMaterias().get(posicionparametro);
+        materia = (Materia) getIntent().getSerializableExtra("materia");
 
         TextView tvNombre = findViewById(R.id.textMateria);
         ImageView ivMateria = findViewById(R.id.imageMateria);
 
-        tvNombre.setText(estaMateria.getNombre());
+        tvNombre.setText(materia.getNombre());
 
-        int id = getResources().getIdentifier(estaMateria.getImagen(), "drawable", getPackageName());
+        int id = getResources().getIdentifier(materia.getImagen(), "drawable", getPackageName());
         ivMateria.setImageResource(id);
 
 
@@ -48,15 +36,14 @@ public class Eleccion extends AppCompatActivity {
     public void sendpage(View view) {
         // Do something in response to button click
         Intent intent = new Intent(this, SeleccionTemaActivity.class);
-        intent.putExtra("PosMateria", posicionparametro);
-        intent.putExtra("materia", estaMateria);
+        intent.putExtra("materia", materia);
         startActivity(intent);
     }
 
     public void sendexam(View view) {
         // Do something in response to button click
         Intent intent = new Intent(this, ExamenPreview.class);
-        intent.putExtra("materia", estaMateria);
+        intent.putExtra("materia", materia);
         startActivity(intent);
 
     }

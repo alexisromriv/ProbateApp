@@ -37,22 +37,22 @@ public class Principal extends AppCompatActivity {
 
 
         Bundle parametro = getIntent().getExtras();
-        idparametro = parametro.getInt("posUsuario") ;
+        idparametro = parametro.getInt("posUsuario");
         Usuario usr = null;
         ArrayList<Usuario> lisUsuario = (ArrayList<Usuario>) Database.getInstance().getUsuarios();
 
-            for(Usuario usu : lisUsuario) {
-                if(usu.getId() == idparametro) {
-                    usr = usu;
-                }
+        for (Usuario usu : lisUsuario) {
+            if (usu.getId() == idparametro) {
+                usr = usu;
             }
+        }
 
         ArrayList<String> nombreMaterias = new ArrayList<>();
 
         misMateriasPosta = usr.getCurso().getMaterias();
 
 
-        for (Materia unaMateria:misMateriasPosta){
+        for (Materia unaMateria : misMateriasPosta) {
             nombreMaterias.add(unaMateria.getNombre());
         }
 
@@ -63,15 +63,16 @@ public class Principal extends AppCompatActivity {
         listamaterias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Intent intent = new Intent(Principal.this, Eleccion.class );
-            intent.putExtra("Materia",misMateriasPosta.get(position).getNombre());
-            intent.putExtra("Image",misMateriasPosta.get(position).getImagen());
-            intent.putExtra("PosMateria",position);
-            startActivity(intent);
+                Intent intent = new Intent(Principal.this, Eleccion.class);
+                intent.putExtra("Materia", misMateriasPosta.get(position).getNombre());
+                intent.putExtra("Image", misMateriasPosta.get(position).getImagen());
+                intent.putExtra("PosMateria", position);
+                intent.putExtra("materia", misMateriasPosta.get(position));
+                startActivity(intent);
             }
         });
         TextView tvNombre = findViewById(R.id.hola);
-        tvNombre.setText("Hola "+usr.getNombre()+"!!!");
+        tvNombre.setText("Hola " + usr.getNombre() + "!!!");
 
     }
 
@@ -82,15 +83,15 @@ public class Principal extends AppCompatActivity {
 
 
     @Override
-            public boolean onCreateOptionsMenu(Menu menu) {
-                getMenuInflater().inflate(R.menu.menu_opciones, menu);
-                return super.onCreateOptionsMenu(menu);
-            }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_opciones, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.salir:
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);

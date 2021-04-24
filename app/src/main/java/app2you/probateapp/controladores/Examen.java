@@ -15,7 +15,7 @@ import app2you.probateapp.entidades.Tema;
 
 public class Examen implements Serializable {
     private static int PREGUNTAS_POR_TEMA = 5;
-    private static double FACTOR_DURACION_EXAMEN = 1.3;
+    private static double FACTOR_DURACION_EXAMEN = 2.3;
 
     private Materia materia;
     private List<PreguntaConRespuesta> respondidas = new ArrayList<>();
