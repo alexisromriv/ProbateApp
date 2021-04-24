@@ -111,25 +111,25 @@ public class Database {
 
         temas.add(new Tema("Inicio de Sumeria", preguntasInicioSumeria));
         temas.add(new Tema("Fin de Sumeria", preguntasFinSumeria));
-        //temas.add(new Tema("Comienzo del Imperio romano", preguntasComienzoImperioRomano));
-        //temas.add(new Tema("Situación del imperio romano", preguntasSituacionImperioRomano));
-        //temas.add(new Tema("Caída del imperio romano", preguntasCaidaImperioRomano));
-        //temas.add(new Tema("Tutankamon", preguntasTutankamon));
-        //temas.add(new Tema("Nefertiti", preguntasNefertiti));
-        //temas.add(new Tema("Romulo y Remo", preguntasRomuloRemo));
-        //temas.add(new Tema("Alejandro Magno", preguntasAlejandroMagno));
-        //temas.add(new Tema("Constantino el grande", preguntasConstantinoElGrande));
+        temas.add(new Tema("Comienzo del Imperio romano", preguntasComienzoImperioRomano));
+        temas.add(new Tema("Situación del imperio romano", preguntasSituacionImperioRomano));
+        temas.add(new Tema("Caída del imperio romano", preguntasCaidaImperioRomano));
+        temas.add(new Tema("Tutankamon", preguntasTutankamon));
+        temas.add(new Tema("Nefertiti", preguntasNefertiti));
+        temas.add(new Tema("Romulo y Remo", preguntasRomuloRemo));
+        temas.add(new Tema("Alejandro Magno", preguntasAlejandroMagno));
+        temas.add(new Tema("Constantino el grande", preguntasConstantinoElGrande));
 
-        //temas.add(new Tema("Caligula", preguntas));
-        //temas.add(new Tema("Alejandro Magno", preguntas));
-        //temas.add(new Tema("filósofos Griegos", preguntas));
-        //temas.add(new Tema("conquista Europea", preguntas));
-        //temas.add(new Tema("armamento romano", preguntas));
-        //temas.add(new Tema("Mitología y Cultura Romana", preguntas));
-        //temas.add(new Tema("Percia Vs. Grecia", preguntas));
-        //temas.add(new Tema("Geografía antigua", preguntas));
-        //temas.add(new Tema("Filósofos Griegos", preguntas));
-        //temas.add(new Tema("Estados Antiguos", preguntas));
+        temas.add(new Tema("Caligula", preguntas));
+        temas.add(new Tema("Alejandro Magno", preguntas));
+        temas.add(new Tema("filósofos Griegos", preguntas));
+        temas.add(new Tema("conquista Europea", preguntas));
+        temas.add(new Tema("armamento romano", preguntas));
+        temas.add(new Tema("Mitología y Cultura Romana", preguntas));
+        temas.add(new Tema("Percia Vs. Grecia", preguntas));
+        temas.add(new Tema("Geografía antigua", preguntas));
+        temas.add(new Tema("Filósofos Griegos", preguntas));
+        temas.add(new Tema("Estados Antiguos", preguntas));
 
     }
 
@@ -379,7 +379,7 @@ public class Database {
         preguntas.add(new Pregunta("¿Qué famoso teorema matemático establece que -en un triángulo rectángulo, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los dos catetos-?", respuestas17, null));
         preguntas.add(new Pregunta("¿Cuál de los siguientes dioses de la mitología griega era el dios del cielo y el trueno?", respuestas18, null));
         preguntas.add(new Pregunta("¿Cuál de los siguientes no fue un famoso escultor de la antigua Grecia?", respuestas19, null));
-        preguntas.add(new Pregunta("¿Quién es conocido como -El padre de la medicina-?", respuestas20, null));
+        preguntas.add(new Pregunta("¿Quién es conocido como: El padre de la medicina?", respuestas20, null));
         preguntas.add(new Pregunta("¿Cuál fue el resultado final de la Batalla de Corinto?", respuestas21, null));
         preguntas.add(new Pregunta("Según el mito, ¿en qué derivó el rapto (o fuga) de Helena de Esparta?", respuestas22, null));
         preguntas.add(new Pregunta("¿De qué obra literaria Aquiles es principal protagonista?", respuestas23, null));
