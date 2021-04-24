@@ -190,7 +190,7 @@ public class Database {
         List<Respuesta> respuestas9 = new ArrayList<>();
         respuestas9.add(new Respuesta("Baco","Baco",true));
         respuestas9.add(new Respuesta("Empedocles","Empedocles",false));
-        respuestas9.add(new Respuesta("Ánforo","ánforo",false));
+        respuestas9.add(new Respuesta("Anforo","ánforo",false));
 
         List<Respuesta> respuestas10 = new ArrayList<>();
         respuestas10.add(new Respuesta("Sócrates","Sócrates",true));
