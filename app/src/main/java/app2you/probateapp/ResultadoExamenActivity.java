@@ -67,11 +67,11 @@ public class ResultadoExamenActivity extends AppCompatActivity {
         rvRespuestas.setAdapter(adapter);
         if (examen.cantidadAciertos() > 5){
             tvMensajeResultado.setText("¡Felicitaciones! aprobaste el exámen");
-            tvMensajeResultado.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
+            tvMensajeResultado.setTextColor(ContextCompat.getColor(this, R.color.green));
             btnResultado.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
         } else {
             tvMensajeResultado.setText("Lo sentimos, no lograste aprobar");
-            tvMensajeResultado.setBackgroundColor(ContextCompat.getColor(this, R.color.red));
+            tvMensajeResultado.setTextColor(ContextCompat.getColor(this, R.color.red));
             btnResultado.setBackgroundColor(ContextCompat.getColor(this, R.color.red));
         }
 
