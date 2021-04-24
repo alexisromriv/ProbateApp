@@ -19,26 +19,25 @@
 
             <TextView
                 android:id="@+id/tvPreguntaItem"
-                style="@style/h3"
+                style="@style/h4"
                 android:text="Pregunta" />
 
             <TextView
                 android:id="@+id/tvRespuestaItem1"
-                style="@style/h5"
+                style="@style/subtitle"
                 android:layout_marginTop="8dp"
                 android:alpha=".5"
                 android:text="Respuesta 1" />
 
             <TextView
                 android:id="@+id/tvRespuestaItem2"
-                style="@style/h5"
-                android:layout_marginTop="4dp"
+                style="@style/subtitle"                android:layout_marginTop="4dp"
                 android:alpha=".5"
                 android:text="Respuesta 3" />
 
             <TextView
                 android:id="@+id/tvRespuestaItem3"
-                style="@style/h5"
+                style="@style/subtitle"
                 android:layout_marginTop="4dp"
                 android:alpha=".5"
                 android:text="Respuesta 2" />

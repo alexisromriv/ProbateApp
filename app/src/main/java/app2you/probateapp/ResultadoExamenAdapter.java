@@ -65,10 +65,6 @@ public class ResultadoExamenAdapter extends RecyclerView.Adapter<ResultadoExamen
 
             List<Respuesta> respuestas = pregunta.getPregunta().getRespuestas();
 
-
-
-            tvPregunta.setTextColor(pregunta.getRespuestaSeleccionada().isCorrecta() ? Color.parseColor("#198754") :Color.parseColor("#dc3545"));
-
             for (int i = 0; i < 3 ; i++) {
                 tvRespuestas.get(i).setText(respuestas.get(i).getTitulo());
                 tvRespuestas.get(i).setAlpha(.5f);
@@ -81,10 +77,13 @@ public class ResultadoExamenAdapter extends RecyclerView.Adapter<ResultadoExamen
             }
 
             int selectionIndex = pregunta.getPregunta().getRespuestas().indexOf(pregunta.getRespuestaSeleccionada());
-            tvRespuestas.get(selectionIndex).setAlpha(1);
-            tvRespuestas.get(selectionIndex).setTextSize(24);
+            TextView tvRespuesta = tvRespuestas.get(selectionIndex);
+            tvRespuesta.setAlpha(1);
             if (!pregunta.getRespuestaSeleccionada().isCorrecta()) {
-                tvRespuestas.get(selectionIndex).setTextColor(Color.parseColor("#dc3545"));
+                tvRespuesta.setTextColor(Color.parseColor("#dc3545"));
+                tvRespuesta.setText(tvRespuesta.getText() + " (incorrecto)");
+            } else {
+                tvRespuesta.setText(tvRespuesta.getText() + " (correcto)");
             }
 
 
