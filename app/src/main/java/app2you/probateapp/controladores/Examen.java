@@ -42,7 +42,8 @@ public class Examen implements Serializable {
             }
         }
         this.duracionEstimada = cantidadPreguntas() * FACTOR_DURACION_EXAMEN;
-        aprobacion = ThreadLocalRandom.current().nextInt(60, 80);
+        //aprobacion = ThreadLocalRandom.current().nextInt(60, 70);
+        aprobacion = 70;
     }
 
     public void iniciar() {
@@ -87,8 +88,8 @@ public class Examen implements Serializable {
     }
 
     public boolean aprobado(){
-        double porcentajeAciertos =  cantidadAciertos() * cantidadPreguntas() / 100;
-        double porcentajeAprobacion = getAprobacion() / 100;
+        double porcentajeAciertos =  (double) cantidadAciertos() * 100 / (double) cantidadPreguntas();
+        double porcentajeAprobacion = (double) getAprobacion() ;
         boolean aprobado = porcentajeAciertos >= porcentajeAprobacion;
         return aprobado;
 
