@@ -10,26 +10,22 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/h5"
         android:text="Exámen de"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/tvMateriaPreview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/h2"
         android:text="Cultura Griega"
-        android:textSize="24sp"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"></TextView>
 
     <TextView
         android:id="@+id/tvAprobacionPreview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/h3"
         android:layout_marginTop="16dp"
         android:text="Porcentaje de aprobación: %60"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,24 +33,21 @@
 
     <TextView
         android:id="@+id/tvDuracionPreview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/h3"
         android:text="Duración estimada: %60"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAprobacionPreview"></TextView>
 
     <TextView
         android:id="@+id/tvTemasPreview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/h3"
         android:text="Cantidad de temas: 5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDuracionPreview"></TextView>
 
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/button"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:text="Comenzar"
