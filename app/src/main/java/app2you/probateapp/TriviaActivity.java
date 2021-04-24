@@ -46,6 +46,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     private TextView tvTema;
     private TextView tvPregunta;
     private List<TextView> tvRespuestas = new ArrayList<>();
+    private List<TextView> tvClaves = new ArrayList<>();
 
     private ImageView ivAudioOn;
     private ImageView ivAudioOff;
@@ -67,6 +68,9 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
         tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta1));
         tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta2));
         tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta3));
+        tvClaves.add((TextView)findViewById(R.id.tvClave1));
+        tvClaves.add((TextView)findViewById(R.id.tvClave2));
+        tvClaves.add((TextView)findViewById(R.id.tvClave3));
 
         ivAudioOn = findViewById(R.id.ivAudioOn);
         ivAudioOff = findViewById(R.id.ivAudioOff);
@@ -98,7 +102,15 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
             tv.setBackgroundColor(Color.parseColor("#ffffff"));
             tv.setAlpha(1);
             Respuesta respuesta = trivia.getPreguntaActual().getRespuestas().get(tvRespuestas.indexOf(tv));
-            tv.setText(respuesta.getTitulo() + "(" + respuesta.getPalabraClave() + ") " + respuesta.isCorrecta());
+            tv.setText(respuesta.getTitulo());
+            tvClaves.get(tvRespuestas.indexOf(tv)).setText(respuesta.getPalabraClave());
+        }
+        mostrarClaves();
+    }
+
+    private void mostrarClaves(){
+        for (TextView tv: tvClaves) {
+            //tv.setVisibility(modoOral ? View.VISIBLE : View.INVISIBLE);
         }
     }
 
@@ -237,6 +249,8 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
             ivAudioOff.setVisibility(View.VISIBLE);
             ivAudioOn.setVisibility(View.INVISIBLE);
         }
+        mostrarClaves();
+
         Toast.makeText(this, "Modo oral " + (modoOral ? "encendido" : "apagado"), Toast.LENGTH_SHORT).show();
     }
 
