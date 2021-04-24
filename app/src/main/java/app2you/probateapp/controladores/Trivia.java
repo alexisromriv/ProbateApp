@@ -9,16 +9,35 @@ import app2you.probateapp.entidades.Respuesta;
 import app2you.probateapp.entidades.Tema;
 
 public class Trivia {
-    private Tema tema;
-    private Pregunta preguntaActual;
-
+    private Tema tema =null;
+    private Pregunta preguntaActual = null;
+    private List<Pregunta> respondidas = new ArrayList<>();
     public Trivia(Tema tema) {
         this.tema = tema;
     }
 
     public Pregunta siguiente(){
+        if (finalizado()){
+            return preguntaActual;
+        }
+
         preguntaActual = obtenerPreguntaAleatoria();
+        while (fueRespondida(preguntaActual)) {
+            preguntaActual  = obtenerPreguntaAleatoria();
+        }
         return preguntaActual;
+    }
+    private boolean  fueRespondida(Pregunta pregunta){
+        for (Pregunta p: respondidas) {
+            if (p.equals(pregunta)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean finalizado(){
+        return respondidas.size() == tema.getPreguntas().size();
     }
 
     private Pregunta obtenerPreguntaAleatoria(){
@@ -28,6 +47,7 @@ public class Trivia {
     }
 
     public boolean responder(Respuesta respuesta) {
+        respondidas.add(preguntaActual);
         return respuesta.isCorrecta();
     }
 

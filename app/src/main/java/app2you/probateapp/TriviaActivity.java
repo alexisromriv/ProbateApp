@@ -86,6 +86,13 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void siguientePregunta() {
+        if (trivia.finalizado()) {
+            //Intent intent = new Intent(TriviaActivity.this, ResultadoTriviaActivity.class);
+            //intent.putExtra("trivia", trivia);
+            //startActivity(intent);
+            return;    
+        }
+        
         trivia.siguiente();
         mostrarPregunta();
         if (modoOral) {
