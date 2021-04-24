@@ -6,55 +6,60 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
 
     <TextView
         android:id="@+id/tvMateriaExamen"
-        android:layout_width="match_parent"
+        style="@style/h5"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Exámen de Historia"
-        android:textSize="16dp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+
+    <Chronometer
+        android:id="@+id/chrExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvStepExamen"
+        app:layout_constraintTop_toTopOf="parent"></Chronometer>
+
+    <TextView
+        android:id="@+id/tvStepExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginStart="336dp"
+        android:text="1/20"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvTemaExamen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/h3"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/white"
         android:text="Inicio de Sumeria"
-        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMateriaExamen" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-
-    <TextView
-        android:id="@+id/tvStepExamen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1/20"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMateriaExamen" />
-
-    <Chronometer
-        android:id="@+id/chrExamen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@id/tvStepExamen"
-        app:layout_constraintTop_toBottomOf="@+id/tvMateriaExamen">
-
-    </Chronometer>
 
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="00dp"
+        android:background="@color/white"
+        android:padding="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPreguntaExmen">
 
@@ -71,7 +76,6 @@
                 android:id="@+id/rbRespuestaExamen1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="Respuesta 1"
                 android:textSize="18dp"></RadioButton>
 
@@ -97,18 +101,18 @@
 
     <TextView
         android:id="@+id/tvPreguntaExmen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/h2"
         android:layout_marginTop="16dp"
         android:text="Pregunta 1"
-        android:textSize="24dp"
+        android:background="@color/white"
+        android:padding="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTemaExamen" />
 
     <Button
         android:id="@+id/btnAnterior"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/button"
+        android:layout_width="wrap_content"
         android:onClick="anterior"
         android:text="Anterior"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -117,17 +121,18 @@
 
     <Button
         android:id="@+id/btnSiguiente"
+        style="@style/button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:onClick="siguiente"
         android:text="Siguiente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="OnClick" />
+
     <Button
         android:id="@+id/btnFinalizar"
+        style="@style/button.buttonSecondary"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:onClick="finalizar"
         android:text="Finalizar"
         app:layout_constraintBottom_toBottomOf="parent"
