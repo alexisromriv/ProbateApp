@@ -31,15 +31,17 @@
 
     <string-array name="institutos">
         <item>Instituto</item>
-        <item>Instituto_12</item>
-        <item>Instituto_H</item>
+        <item>Faculltad Humanidades</item>
+        <item>Facultad de Ciencias</item>
+        <item>IMM</item>
 
     </string-array>
 
     <string-array name="cursos">
         <item>Curso</item>
-        <item>Cultura Griega</item>
-        <item>Cultura Persa</item>
+        <item>Historia</item>
+        <item>Historia Antigua</item>
+        <item>Filosofía</item>
 
     </string-array>
     <string name="trivia">TRIVIA</string>
