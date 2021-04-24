@@ -120,16 +120,16 @@ public class Database {
         temas.add(new Tema("Alejandro Magno", preguntasAlejandroMagno));
         temas.add(new Tema("Constantino el grande", preguntasConstantinoElGrande));
 
-        temas.add(new Tema("Caligula", preguntas));
-        temas.add(new Tema("Alejandro Magno", preguntas));
-        temas.add(new Tema("filósofos Griegos", preguntas));
-        temas.add(new Tema("conquista Europea", preguntas));
-        temas.add(new Tema("armamento romano", preguntas));
-        temas.add(new Tema("Mitología y Cultura Romana", preguntas));
-        temas.add(new Tema("Percia Vs. Grecia", preguntas));
-        temas.add(new Tema("Geografía antigua", preguntas));
-        temas.add(new Tema("Filósofos Griegos", preguntas));
-        temas.add(new Tema("Estados Antiguos", preguntas));
+        //temas.add(new Tema("Caligula", preguntas));
+        //temas.add(new Tema("Alejandro Magno", preguntas));
+        //temas.add(new Tema("filósofos Griegos", preguntas));
+        //temas.add(new Tema("conquista Europea", preguntas));
+        //temas.add(new Tema("armamento romano", preguntas));
+        //temas.add(new Tema("Mitología y Cultura Romana", preguntas));
+        //temas.add(new Tema("Percia Vs. Grecia", preguntas));
+        //temas.add(new Tema("Geografía antigua", preguntas));
+        //temas.add(new Tema("Filósofos Griegos", preguntas));
+        //temas.add(new Tema("Estados Antiguos", preguntas));
 
     }
 
