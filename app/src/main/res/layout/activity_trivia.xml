@@ -10,12 +10,43 @@
     tools:context=".TriviaActivity">
 
 
-    <TextView
-        style="@style/subtitle"
-        android:layout_marginTop="10dp"
-        android:text="Filósofos griegos"
-        android:textColor="@color/white"
-        android:id="@+id/tvTemaTrivia"></TextView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvTemaTrivia"
+            style="@style/subtitle"
+            android:layout_width="wrap_content"
+            android:text="Filósofos griegos"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        <ImageView
+            android:id="@+id/ivAudioOn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:onClick="cambiarModo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/presence_audio_online" />
+
+        <ImageView
+            android:id="@+id/ivAudioOff"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:onClick="cambiarModo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/presence_audio_away" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
     <TextView
         style="@style/h2"
@@ -52,22 +83,5 @@
             android:padding="16dp"
             android:text="Platón"/>
     </androidx.cardview.widget.CardView>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Escuchar"
-        android:onClick="Escuchar">
-    </Button>
-
-    <Button
-        android:id="@+id/btnModoOral"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Activar modo oral"
-        android:onClick="cambiarModo">
-    </Button>
-
-
 
 </LinearLayout>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,9 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     private TextView tvPregunta;
     private List<TextView> tvRespuestas = new ArrayList<>();
 
+    private ImageView ivAudioOn;
+    private ImageView ivAudioOff;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +67,12 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
         tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta1));
         tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta2));
         tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta3));
+
+        ivAudioOn = findViewById(R.id.ivAudioOn);
+        ivAudioOff = findViewById(R.id.ivAudioOff);
+
+        ivAudioOn.setVisibility(View.INVISIBLE);
+        ivAudioOff.setVisibility(View.VISIBLE);
 
         for (TextView tv : tvRespuestas) {
             tv.setOnClickListener(this);
@@ -219,10 +229,15 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     public void cambiarModo(View view) {
         modoOral = !modoOral;
         if (modoOral){
+            ivAudioOn.setVisibility(View.VISIBLE);
+            ivAudioOff.setVisibility(View.INVISIBLE);
             leerPregunta();
             escucharRespuesta();
+        } else {
+            ivAudioOff.setVisibility(View.VISIBLE);
+            ivAudioOn.setVisibility(View.INVISIBLE);
         }
-        Toast.makeText(this, "modo oral " + (modoOral ? "activado" : "desactivado"), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Modo oral " + (modoOral ? "encendido" : "apagado"), Toast.LENGTH_SHORT).show();
     }
 
     private void reproducir(final String texto, int delay) {
