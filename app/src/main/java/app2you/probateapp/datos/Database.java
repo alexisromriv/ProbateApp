@@ -148,8 +148,8 @@ public class Database {
 
     private void cargarPreguntas() {
         List<Respuesta> respuestas1 = new ArrayList<>();
-        respuestas1.add(new Respuesta("Aristóteles","Aristóteles",true));
         respuestas1.add(new Respuesta("Demóstenes","Demóstenes",false));
+        respuestas1.add(new Respuesta("Aristóteles","Aristóteles",true));
         respuestas1.add(new Respuesta("Sócrates","Sócrates",false));
 
         List<Respuesta> respuestas2 = new ArrayList<>();
@@ -158,18 +158,18 @@ public class Database {
         respuestas2.add(new Respuesta("Calístenes","Calístenes",false));
 
         List<Respuesta> respuestas3 = new ArrayList<>();
-        respuestas3.add(new Respuesta("Adriano","Adriano",true));
         respuestas3.add(new Respuesta("Poncio Pilatos","Pilatos",false));
+        respuestas3.add(new Respuesta("Adriano","Adriano",true));
         respuestas3.add(new Respuesta("Julio César","César",false));
 
         List<Respuesta> respuestas4 = new ArrayList<>();
-        respuestas4.add(new Respuesta("Gladio","Gladio",true));
         respuestas4.add(new Respuesta("Katana","Katana",false));
         respuestas4.add(new Respuesta("Espadus","Espadus",false));
+        respuestas4.add(new Respuesta("Gladio","Gladio",true));
 
         List<Respuesta> respuestas5 = new ArrayList<>();
-        respuestas5.add(new Respuesta("Esculapio o Asclepio","Asclepio",true));
         respuestas5.add(new Respuesta("Epitafio","Epitafio",false));
+        respuestas5.add(new Respuesta("Esculapio o Asclepio","Asclepio",true));
         respuestas5.add(new Respuesta("Hipócrates","Hipócrates",false));
 
         List<Respuesta> respuestas6 = new ArrayList<>();
@@ -188,14 +188,15 @@ public class Database {
         respuestas8.add(new Respuesta("Monarquía","Monarquía",false));
 
         List<Respuesta> respuestas9 = new ArrayList<>();
+        respuestas9.add(new Respuesta("Anforo","ánforo",false));
         respuestas9.add(new Respuesta("Baco","Baco",true));
         respuestas9.add(new Respuesta("Empedocles","Empedocles",false));
-        respuestas9.add(new Respuesta("Anforo","ánforo",false));
 
         List<Respuesta> respuestas10 = new ArrayList<>();
+        respuestas10.add(new Respuesta("Aristóteles","Aristóteles",false));
         respuestas10.add(new Respuesta("Sócrates","Sócrates",true));
         respuestas10.add(new Respuesta("Platón","Platón",false));
-        respuestas10.add(new Respuesta("Aristóteles","Aristóteles",false));
+
 
         List<Respuesta> respuestas11 = new ArrayList<>();
         respuestas11.add(new Respuesta("Jerjes","Jerjes",true));
@@ -203,9 +204,9 @@ public class Database {
         respuestas11.add(new Respuesta("Abdul Al Hassim","Hassim",false));
 
         List<Respuesta> respuestas12 = new ArrayList<>();
+        respuestas12.add(new Respuesta("Sophia Philo","Sophia",false));
         respuestas12.add(new Respuesta("La Academia"," Academia",true));
         respuestas12.add(new Respuesta("Philos","Philos",false));
-        respuestas12.add(new Respuesta("Sophia Philo","Sophia",false));
 
         List<Respuesta> respuestas13 = new ArrayList<>();
         respuestas13.add(new Respuesta("Galos","Galos",true));
@@ -268,9 +269,9 @@ public class Database {
         respuestas24.add(new Respuesta("Espartiatas","Espartiatas",false));
 
         List<Respuesta> respuestas25 = new ArrayList<>();
+        respuestas25.add(new Respuesta("Periecos","Periecos",false));
         respuestas25.add(new Respuesta("Hilotas","Hilotas",true));
         respuestas25.add(new Respuesta("Espartiatas","Espartiatas",false));
-        respuestas25.add(new Respuesta("Periecos","Periecos",false));
 
         List<Respuesta> respuestas26 = new ArrayList<>();
         respuestas26.add(new Respuesta("Un puerto","puerto",false));
@@ -303,8 +304,8 @@ public class Database {
         respuestas31.add(new Respuesta("Ninguno de los anteriores","ninguno",false));
 
         List<Respuesta> respuestas32 = new ArrayList<>();
-        respuestas32.add(new Respuesta("Demócrito","Demócrito",true));
         respuestas32.add(new Respuesta("Empédocles","Empédocles",false));
+        respuestas32.add(new Respuesta("Demócrito","Demócrito",true));
         respuestas32.add(new Respuesta("Heráclito","Heráclito",false));
 
         List<Respuesta> respuestas33 = new ArrayList<>();
