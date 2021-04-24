@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class Registro extends AppCompatActivity {
 
@@ -36,6 +37,7 @@ public class Registro extends AppCompatActivity {
     public void sendpage (View view) {
         // Do something in response to button click
         Intent intent = new Intent(this, Simplelogin.class);
+        Toast.makeText(getApplicationContext(), "Su registro se realizó exitosamente" ,Toast.LENGTH_LONG).show();
         startActivity(intent);
 
 
