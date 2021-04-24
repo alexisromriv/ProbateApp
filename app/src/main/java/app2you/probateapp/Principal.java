@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,6 +95,7 @@ public class Principal extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.salir:
                 Intent intent = new Intent(this, MainActivity.class);
+                Toast.makeText(getApplicationContext(), "Hasta luego!!" ,Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 break;
 
