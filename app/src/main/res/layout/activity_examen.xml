@@ -4,55 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/tvMateriaExamen"
-        style="@style/h5"
-        android:layout_width="200dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Exámen de Historia"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <Chronometer
-        android:id="@+id/chrExamen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/tvStepExamen"
-        app:layout_constraintTop_toTopOf="parent"></Chronometer>
-
-    <TextView
-        android:id="@+id/tvStepExamen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:layout_marginStart="336dp"
-        android:text="1/20"
-        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvMateriaExamen"
+            style="@style/h5"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Exámen de Historia"
+            android:textColor="@color/white" />
+
+        <Chronometer
+            android:id="@+id/chrExamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/tvStepExamen"
+            app:layout_constraintTop_toTopOf="parent"></Chronometer>
+
+        <TextView
+            android:id="@+id/tvStepExamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1/20"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <TextView
         android:id="@+id/tvTemaExamen"
         style="@style/h3"
         android:layout_marginTop="32dp"
-        android:textColor="@color/white"
         android:text="Inicio de Sumeria"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
 
 
     <ScrollView
@@ -103,9 +106,9 @@
         android:id="@+id/tvPreguntaExmen"
         style="@style/h2"
         android:layout_marginTop="16dp"
-        android:text="Pregunta 1"
         android:background="@color/white"
         android:padding="16dp"
+        android:text="Pregunta 1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTemaExamen" />
 
