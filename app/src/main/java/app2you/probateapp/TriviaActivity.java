@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import org.w3c.dom.Text;
 
@@ -123,7 +124,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        if (leyendo) {
+        if (modoOral) {
             return;
         }
 
@@ -149,15 +150,19 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
         for (Respuesta r : trivia.getPreguntaActual().getRespuestas()) {
             if (r.isCorrecta()) {
-                tvRespuestas.get(trivia.getPreguntaActual().getRespuestas().indexOf(r)).setBackgroundColor(Color.parseColor("#28A744"));
+                tvRespuestas.get(trivia.getPreguntaActual().getRespuestas().indexOf(r)).setBackgroundColor(ContextCompat.getColor(this, R.color.green));
             }
         }
 
         TextView tvSeleccionado = tvRespuestas.get(trivia.getPreguntaActual().getRespuestas().indexOf(respuesta));
         tvSeleccionado.setAlpha(1);
         if (!trivia.responder(respuesta)) {
-            tvSeleccionado.setBackgroundColor(Color.parseColor("#D43341"));
+            tvSeleccionado.setBackgroundColor(ContextCompat.getColor(this, R.color.red));
         }
+        if (modoOral){
+            ttsManager.addQueue(respuesta.isCorrecta() ? "¡Correcto!": "Incorrecto");
+        }
+
 
         new Handler().postDelayed(new Runnable() {
             public void run() {
@@ -176,6 +181,14 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
                     String strSpeech2Text = speech.get(0);
                     Respuesta respuesta = trivia.obtenerRespuestaPorVoz(strSpeech2Text);
                     if (respuesta == null) {
+                        ttsManager.addQueue("Repita su respuesta");
+                        new Handler().postDelayed(new Runnable() {
+                            public void run() {
+                                leerPregunta();
+                                escucharRespuesta();
+                            }
+                        }, 1000);
+
                         Toast.makeText(this, "Respuesta no reconocida", Toast.LENGTH_SHORT).show();
                     } else {
                         responder(respuesta);
@@ -205,7 +218,19 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
     public void cambiarModo(View view) {
         modoOral = !modoOral;
+        if (modoOral){
+            leerPregunta();
+            escucharRespuesta();
+        }
         Toast.makeText(this, "modo oral " + (modoOral ? "activado" : "desactivado"), Toast.LENGTH_SHORT).show();
+    }
+
+    private void reproducir(final String texto, int delay) {
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                ttsManager.initQueue(texto);
+            }
+        }, delay);
     }
 
     @Override
