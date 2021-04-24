@@ -39,6 +39,8 @@ public class ResultadoExamenActivity extends AppCompatActivity {
     RecyclerView rvRespuestas;
 
     TextView tvMensajeResultado;
+    TextView tvTiempoResolucion;
+    TextView tvAciertos;
     Button btnResultado;
 
 
@@ -49,13 +51,14 @@ public class ResultadoExamenActivity extends AppCompatActivity {
 
         tvMensajeResultado = findViewById(R.id.tvMensajeResultado);
         btnResultado = findViewById(R.id.btnResultado);
-
-
+        tvTiempoResolucion = findViewById(R.id.tvTiempoResolucion);
+        tvAciertos = findViewById(R.id.tvAciertos);
 
         rvRespuestas = (RecyclerView)findViewById(R.id.rvRespuestas);
 
         Intent intent = getIntent();
         Examen examen = (Examen) intent.getSerializableExtra("examen");
+        long tiempoResolucion = (long)intent.getExtras().get("tiempoResolucion");
         rvRespuestas.setLayoutManager(new LinearLayoutManager(this));
         ResultadoExamenAdapter adapter = new ResultadoExamenAdapter(examen.getRespondidas());
         rvRespuestas.setAdapter(adapter);
@@ -68,6 +71,9 @@ public class ResultadoExamenActivity extends AppCompatActivity {
             tvMensajeResultado.setTextColor(ContextCompat.getColor(this, R.color.red));
             btnResultado.setBackgroundColor(ContextCompat.getColor(this, R.color.red));
         }
+
+        tvTiempoResolucion.setText("Tiempo de resolución: "+ tiempoResolucion);
+        tvAciertos.setText("Aciertos: " + examen.cantidadAciertos() + " - Errores: " + (examen.cantidadPreguntas() - examen.cantidadAciertos()));
 
 
     }

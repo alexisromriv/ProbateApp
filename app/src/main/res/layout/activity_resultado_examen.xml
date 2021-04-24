@@ -68,6 +68,23 @@
 
         </androidx.cardview.widget.CardView>
 
+        <TextView
+            style="@style/h4"
+            android:text="Correción"
+            android:layout_marginTop="16dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvTiempoResolucion"
+            style="@style/h5"
+            android:text="Tiempo de Resolución: 30min"
+            android:layout_marginTop="8dp"></TextView>
+        <TextView
+            android:id="@+id/tvAciertos"
+            style="@style/h5"
+            android:layout_marginTop="4dp"
+            android:text="Aciertos: 10 - Errores: 0"></TextView>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvRespuestas"
             android:layout_width="match_parent"

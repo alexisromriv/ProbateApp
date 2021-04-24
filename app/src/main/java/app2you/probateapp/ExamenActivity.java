@@ -139,6 +139,7 @@ public class ExamenActivity extends AppCompatActivity {
             examen.finalizar();
             Intent intent = new Intent(this, ResultadoExamenActivity.class);
             intent.putExtra("examen", examen);
+            intent.putExtra("tiempoResolucion", examen.tiempoResolucion());
             startActivity(intent);
         } catch (Exception ex) {
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();

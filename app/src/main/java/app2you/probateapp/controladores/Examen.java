@@ -27,6 +27,7 @@ public class Examen implements Serializable {
     private  int aprobacion;
 
 
+
     public Examen(Materia materia) {
         this.materia = materia;
         for (Tema tema : materia.getTemas()) {
@@ -111,9 +112,6 @@ public class Examen implements Serializable {
         return this.respondidas.get(preguntaIndex);
     }
 
-    public long duracion() {
-        return (end - start);
-    }
 
     public int getAprobacion() {
         return aprobacion;
@@ -136,5 +134,9 @@ public class Examen implements Serializable {
             }
         }
         return cantidad;
+    }
+
+    public long tiempoResolucion(){
+        return ((end - start) / 1000) / 60 ;
     }
 }
