@@ -34,6 +34,7 @@ import app2you.probateapp.entidades.Usuario;
 public class TriviaActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
     private static final int FACTOR_TIEMPO_LECTURA = 110;
+    private static final int TIEMPO_ESPERA_RESPUESTA = 4000;
 
     private Trivia trivia;
 
@@ -90,6 +91,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
             //Intent intent = new Intent(TriviaActivity.this, ResultadoTriviaActivity.class);
             //intent.putExtra("trivia", trivia);
             //startActivity(intent);
+            Toast.makeText(this, "Trivia finalzado", Toast.LENGTH_SHORT).show();
             return;    
         }
         
@@ -139,7 +141,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
                 leyendo = false;
                 Escuchar(null);
             }
-        }, calcularTiempoLectura());
+        }, calcularTiempoLectura() + TIEMPO_ESPERA_RESPUESTA);
     }
 
     private int calcularTiempoLectura() {
