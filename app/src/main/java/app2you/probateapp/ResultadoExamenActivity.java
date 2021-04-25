@@ -58,7 +58,7 @@ public class ResultadoExamenActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Examen examen = (Examen) intent.getSerializableExtra("examen");
-        long tiempoResolucion = (long)intent.getExtras().get("tiempoResolucion");
+        int tiempoResolucion = (int)intent.getExtras().get("tiempoResolucion");
         rvRespuestas.setLayoutManager(new LinearLayoutManager(this));
         ResultadoExamenAdapter adapter = new ResultadoExamenAdapter(examen.getRespondidas());
         rvRespuestas.setAdapter(adapter);
@@ -72,7 +72,7 @@ public class ResultadoExamenActivity extends AppCompatActivity {
             btnResultado.setBackgroundColor(ContextCompat.getColor(this, R.color.red));
         }
 
-        tvTiempoResolucion.setText("Tiempo de resolución: "+ tiempoResolucion);
+        tvTiempoResolucion.setText("Tiempo de resolución: "+ tiempoResolucion+ "min");
         tvAciertos.setText("Aciertos: " + examen.cantidadAciertos() + " - Errores: " + (examen.cantidadPreguntas() - examen.cantidadAciertos()));
 
 
