@@ -58,8 +58,10 @@
 
     <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         style="@style/card"
+
         android:layout_marginTop="24dp">
         <LinearLayout
+            android:id="@+id/llButton1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -75,13 +77,12 @@
                 android:textColor="#666"
                 android:text="(Platón)"/>
         </LinearLayout>
-
-        android:text="Platón"/>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         style="@style/card"
         android:layout_marginTop="24dp">
         <LinearLayout
+            android:id="@+id/llButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -103,6 +104,7 @@
         style="@style/card"
         android:layout_marginTop="24dp">
         <LinearLayout
+            android:id="@+id/llButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"

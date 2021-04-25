@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +49,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     private TextView tvPregunta;
     private List<TextView> tvRespuestas = new ArrayList<>();
     private List<TextView> tvClaves = new ArrayList<>();
+    private List<LinearLayout> llBotones = new ArrayList<>();
 
     private ImageView ivAudioOn;
     private ImageView ivAudioOff;
@@ -66,12 +68,15 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
         tvTema = findViewById(R.id.tvTemaTrivia);
         tvPregunta = findViewById(R.id.tvPregunta);
-        tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta1));
-        tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta2));
-        tvRespuestas.add((TextView)findViewById(R.id.tvRespuesta3));
-        tvClaves.add((TextView)findViewById(R.id.tvClave1));
-        tvClaves.add((TextView)findViewById(R.id.tvClave2));
-        tvClaves.add((TextView)findViewById(R.id.tvClave3));
+        tvRespuestas.add((TextView) findViewById(R.id.tvRespuesta1));
+        tvRespuestas.add((TextView) findViewById(R.id.tvRespuesta2));
+        tvRespuestas.add((TextView) findViewById(R.id.tvRespuesta3));
+        tvClaves.add((TextView) findViewById(R.id.tvClave1));
+        tvClaves.add((TextView) findViewById(R.id.tvClave2));
+        tvClaves.add((TextView) findViewById(R.id.tvClave3));
+        llBotones.add((LinearLayout) findViewById(R.id.llButton1));
+        llBotones.add((LinearLayout) findViewById(R.id.llButton2));
+        llBotones.add((LinearLayout) findViewById(R.id.llButton3));
 
         ivAudioOn = findViewById(R.id.ivAudioOn);
         ivAudioOff = findViewById(R.id.ivAudioOff);
@@ -79,8 +84,8 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
         ivAudioOn.setVisibility(View.INVISIBLE);
         ivAudioOff.setVisibility(View.VISIBLE);
 
-        for (TextView tv : tvRespuestas) {
-            tv.setOnClickListener(this);
+        for (LinearLayout ll : llBotones) {
+            ll.setOnClickListener(this);
         }
 
         siguientePregunta();
@@ -88,44 +93,37 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
     private void siguientePregunta() {
         if (trivia.finalizado()) {
-            if (modoOral){
+            if (modoOral) {
                 ttsManager.addQueue("¡Felicitaciones! respondiste todas las preguntas de este tema.");
             }
             Intent intent = new Intent(this, ResultadoTriviaActivity.class);
             intent.putExtra("trivia", trivia);
             startActivity(intent);
-            return;    
+            return;
         }
-        
+
         trivia.siguiente();
         mostrarPregunta();
         if (modoOral) {
-          leerPregunta();
-          escucharRespuesta();
+            leerPregunta();
+            escucharRespuesta();
         }
     }
 
-    private void mostrarPregunta(){
-
+    private void mostrarPregunta() {
         tvTema.setText(trivia.getTema().getNombre());
         tvPregunta.setText(trivia.getPreguntaActual().getTitulo());
-        for (TextView tv : tvRespuestas) {
-            tv.setBackgroundColor(Color.parseColor("#ffffff"));
-            tv.setAlpha(1);
-            Respuesta respuesta = trivia.getPreguntaActual().getRespuestas().get(tvRespuestas.indexOf(tv));
-            tv.setText(respuesta.getTitulo());
-            tvClaves.get(tvRespuestas.indexOf(tv)).setText(respuesta.getPalabraClave());
-        }
-        mostrarClaves();
-    }
-
-    private void mostrarClaves(){
-        for (TextView tv: tvClaves) {
-            //tv.setVisibility(modoOral ? View.VISIBLE : View.INVISIBLE);
+        for (int i = 0; i < 3; i++) {
+            llBotones.get(i).setBackgroundColor(ContextCompat.getColor(this, R.color.white));
+            tvRespuestas.get(i).setTextColor(ContextCompat.getColor(this, R.color.black));
+            tvClaves.get(i).setTextColor(ContextCompat.getColor(this, R.color.black));
+            llBotones.get(i).setAlpha(1);
+            tvRespuestas.get(i).setText(trivia.getPreguntaActual().getRespuestas().get(i).getTitulo());
+            tvClaves.get(i).setText(trivia.getPreguntaActual().getRespuestas().get(i).getPalabraClave());
         }
     }
 
-    private void leerPregunta(){
+    private void leerPregunta() {
         leyendo = true;
         new Handler().postDelayed(new Runnable() {
             public void run() {
@@ -137,7 +135,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
         }, 1000);
     }
 
-    private void escucharRespuesta(){
+    private void escucharRespuesta() {
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 leyendo = false;
@@ -148,7 +146,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
     private int calcularTiempoLectura() {
         int cantidadCaracteres = trivia.getPreguntaActual().getTitulo().length();
-        for (Respuesta r: trivia.getPreguntaActual().getRespuestas()) {
+        for (Respuesta r : trivia.getPreguntaActual().getRespuestas()) {
             cantidadCaracteres += r.getTitulo().length();
         }
         return cantidadCaracteres * FACTOR_TIEMPO_LECTURA;
@@ -162,46 +160,68 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         switch (v.getId()) {
-            case R.id.tvRespuesta1:
+            case R.id.llButton1:
                 responder(trivia.getPreguntaActual().getRespuestas().get(0));
                 break;
 
-            case R.id.tvRespuesta2:
+            case R.id.llButton2:
                 responder(trivia.getPreguntaActual().getRespuestas().get(1));
                 break;
 
-            case R.id.tvRespuesta3:
+            case R.id.llButton3:
                 responder(trivia.getPreguntaActual().getRespuestas().get(2));
                 break;
         }
     }
 
     private void responder(Respuesta respuesta) {
-        for (TextView tv : tvRespuestas) {
-            tv.setAlpha(.5f);
-        }
+        quitarOpacidad();
+        pintarRespuestaCorrecta();
 
-        for (Respuesta r : trivia.getPreguntaActual().getRespuestas()) {
-            if (r.isCorrecta()) {
-                tvRespuestas.get(trivia.getPreguntaActual().getRespuestas().indexOf(r)).setBackgroundColor(ContextCompat.getColor(this, R.color.green));
-            }
-        }
 
-        TextView tvSeleccionado = tvRespuestas.get(trivia.getPreguntaActual().getRespuestas().indexOf(respuesta));
-        tvSeleccionado.setAlpha(1);
+        int selectedIndex = trivia.getPreguntaActual().getRespuestas().indexOf(respuesta);
+
+        llBotones.get(selectedIndex).setAlpha(1);
+
         if (!trivia.responder(respuesta)) {
-            tvSeleccionado.setBackgroundColor(ContextCompat.getColor(this, R.color.red));
+            llBotones.get(selectedIndex).setBackgroundColor(ContextCompat.getColor(this, R.color.red));
+            tvRespuestas.get(selectedIndex).setTextColor(ContextCompat.getColor(this, R.color.white));
+            tvClaves.get(selectedIndex).setTextColor(ContextCompat.getColor(this, R.color.white));
         }
-        if (modoOral){
-            ttsManager.addQueue(respuesta.isCorrecta() ? "¡Correcto!": "Incorrecto");
+
+        if (modoOral) {
+            ttsManager.addQueue(respuesta.isCorrecta() ? "¡Correcto!" : "Incorrecto");
+            new Handler().postDelayed(new Runnable() {
+                public void run() {
+                    TriviaActivity.this.siguientePregunta();
+                }
+            }, 3000);
+        } else {
+            new Handler().postDelayed(new Runnable() {
+                public void run() {
+                    TriviaActivity.this.siguientePregunta();
+                }
+            }, 1500);
         }
 
 
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                TriviaActivity.this.siguientePregunta();
+    }
+
+    private void quitarOpacidad() {
+        for (LinearLayout ll : llBotones) {
+            ll.setAlpha(.5f);
+        }
+    }
+
+    private void pintarRespuestaCorrecta() {
+
+        for (int i = 0; i < 3; i++) {
+            if (trivia.getPreguntaActual().getRespuestas().get(i).isCorrecta()) {
+                llBotones.get(i).setBackgroundColor(ContextCompat.getColor(this, R.color.green));
+                tvRespuestas.get(i).setTextColor(ContextCompat.getColor(this, R.color.white));
+                tvClaves.get(i).setTextColor(ContextCompat.getColor(this, R.color.white));
             }
-        }, 3000);
+        }
     }
 
     @Override
@@ -251,7 +271,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
     public void cambiarModo(View view) {
         modoOral = !modoOral;
-        if (modoOral){
+        if (modoOral) {
             ivAudioOn.setVisibility(View.VISIBLE);
             ivAudioOff.setVisibility(View.INVISIBLE);
             leerPregunta();
@@ -260,8 +280,6 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
             ivAudioOff.setVisibility(View.VISIBLE);
             ivAudioOn.setVisibility(View.INVISIBLE);
         }
-        mostrarClaves();
-
         Toast.makeText(this, "Modo oral " + (modoOral ? "encendido" : "apagado"), Toast.LENGTH_SHORT).show();
     }
 
