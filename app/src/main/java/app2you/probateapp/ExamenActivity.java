@@ -81,9 +81,9 @@ public class ExamenActivity extends AppCompatActivity {
     private void setPregunta(PreguntaConRespuesta pr) {
         tvPregunta.setText(pr.getPregunta().getTitulo());
         tvTema.setText(pr.getPregunta().getTema().getNombre());
-        rbRespuestaExamen1.setText(pr.getPregunta().getRespuestas().get(0).getTitulo()+ pr.getPregunta().getRespuestas().get(0).isCorrecta());
-        rbRespuestaExamen2.setText(pr.getPregunta().getRespuestas().get(1).getTitulo()+ pr.getPregunta().getRespuestas().get(1).isCorrecta());
-        rbRespuestaExamen3.setText(pr.getPregunta().getRespuestas().get(2).getTitulo() + pr.getPregunta().getRespuestas().get(2).isCorrecta());
+        rbRespuestaExamen1.setText(pr.getPregunta().getRespuestas().get(0).getTitulo());
+        rbRespuestaExamen2.setText(pr.getPregunta().getRespuestas().get(1).getTitulo());
+        rbRespuestaExamen3.setText(pr.getPregunta().getRespuestas().get(2).getTitulo());
         tvStepExamen.setText(examen.getPaso() + " / " + examen.cantidadPreguntas());
 
         btnAnterior.setVisibility(View.INVISIBLE);
