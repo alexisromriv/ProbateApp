@@ -78,6 +78,11 @@ public class ResultadoExamenActivity extends AppCompatActivity {
 
     }
 
+    public void sendpage (View view) {
+        Intent intent = new Intent(this, Principal.class);
+        startActivity(intent);
+
+    }
 
 }
 

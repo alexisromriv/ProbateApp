@@ -37,16 +37,17 @@ public class Principal extends AppCompatActivity {
         setContentView(R.layout.activity_principal);
 
 
-        Bundle parametro = getIntent().getExtras();
-        idparametro = parametro.getInt("posUsuario");
-        Usuario usr = null;
-        ArrayList<Usuario> lisUsuario = (ArrayList<Usuario>) Database.getInstance().getUsuarios();
+//        Bundle parametro = getIntent().getExtras();
+//        idparametro = parametro.getInt("posUsuario");
+        Usuario usr = Autenticacion.usuariologeado();
 
-        for (Usuario usu : lisUsuario) {
-            if (usu.getId() == idparametro) {
-                usr = usu;
-            }
-        }
+//        ArrayList<Usuario> lisUsuario = (ArrayList<Usuario>) Database.getInstance().getUsuarios();
+//
+//        for (Usuario usu : lisUsuario) {
+//            if (usu.getId() == idparametro) {
+//                usr = usu;
+//            }
+//        }
 
         ArrayList<String> nombreMaterias = new ArrayList<>();
 

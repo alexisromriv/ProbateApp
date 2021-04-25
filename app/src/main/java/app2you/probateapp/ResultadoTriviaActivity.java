@@ -47,7 +47,11 @@ public class ResultadoTriviaActivity extends AppCompatActivity {
         //intent.putExtra("materia", null);
         startActivity(intent);
     }
+    public void sendpage (View view) {
+        Intent intent = new Intent(this, Principal.class);
+        startActivity(intent);
 
+    }
 
 }
 

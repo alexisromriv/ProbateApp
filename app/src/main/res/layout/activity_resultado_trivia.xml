@@ -93,6 +93,7 @@
     <Button
         android:id="@+id/btnResultado"
         style="@style/button"
+        android:onClick="sendpage"
         android:text="Ir a mis materias"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
