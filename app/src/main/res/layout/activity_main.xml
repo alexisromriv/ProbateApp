@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:elevation="16dp"
+    android:paddingTop="4dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
@@ -21,14 +22,16 @@
             android:layout_height="match_parent"
             android:background="@color/white"
             android:orientation="vertical"
-            android:padding="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:contentDescription="@string/todo"
                 app:srcCompat="@drawable/logo_probaate" />
 
@@ -50,7 +53,8 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
-                style="@style/h3"
+                style="@style/subtitle"
+                android:layout_marginBottom="8dp"
                 android:text="Comienza a practiar ahora mismo"
                 android:textAlignment="center"></TextView>
 
