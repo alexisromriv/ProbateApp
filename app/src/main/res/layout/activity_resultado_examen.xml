@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ResultadoExamenActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -61,6 +61,7 @@
                 <Button
                     android:id="@+id/btnResultado"
                     style="@style/button.buttonDanger"
+                    android:onClick="sendpage"
                     android:text="Ir a mis materias"></Button>
 
             </LinearLayout>
