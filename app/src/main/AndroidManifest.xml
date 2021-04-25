@@ -41,6 +41,9 @@
         <activity android:name=".ExamenActivity">
 
         </activity>
+        <activity android:name=".ResultadoTriviaActivity">
+
+        </activity>
         <activity android:name=".ResultadoExamenActivity">
 
         </activity>

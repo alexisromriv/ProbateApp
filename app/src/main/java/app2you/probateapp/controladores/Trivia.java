@@ -1,5 +1,6 @@
 package app2you.probateapp.controladores;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,10 +9,13 @@ import app2you.probateapp.entidades.Pregunta;
 import app2you.probateapp.entidades.Respuesta;
 import app2you.probateapp.entidades.Tema;
 
-public class Trivia {
+public class Trivia implements Serializable {
     private Tema tema =null;
     private Pregunta preguntaActual = null;
     private List<Pregunta> respondidas = new ArrayList<>();
+    private int aciertos = 0;
+    private int errores = 0;
+
     public Trivia(Tema tema) {
         this.tema = tema;
     }
@@ -48,6 +52,11 @@ public class Trivia {
 
     public boolean responder(Respuesta respuesta) {
         respondidas.add(preguntaActual);
+        if (respuesta.isCorrecta()) {
+            aciertos++;
+        } else {
+            errores++;
+        }
         return respuesta.isCorrecta();
     }
 
@@ -82,5 +91,13 @@ public class Trivia {
 
     public Pregunta getPreguntaActual() {
         return preguntaActual;
+    }
+
+    public int getCantidadAciertos() {
+        return aciertos;
+    }
+
+    public int getCantidadErrores() {
+        return errores;
     }
 }

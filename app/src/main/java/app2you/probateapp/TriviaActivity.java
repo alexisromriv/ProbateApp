@@ -88,10 +88,12 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
     private void siguientePregunta() {
         if (trivia.finalizado()) {
-            //Intent intent = new Intent(TriviaActivity.this, ResultadoTriviaActivity.class);
-            //intent.putExtra("trivia", trivia);
-            //startActivity(intent);
-            Toast.makeText(this, "Trivia finalzado", Toast.LENGTH_SHORT).show();
+            if (modoOral){
+                ttsManager.addQueue("¡Felicitaciones! respondiste todas las preguntas de este tema.");
+            }
+            Intent intent = new Intent(this, ResultadoTriviaActivity.class);
+            intent.putExtra("trivia", trivia);
+            startActivity(intent);
             return;    
         }
         
