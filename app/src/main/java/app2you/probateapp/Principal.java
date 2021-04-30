@@ -30,12 +30,15 @@ public class Principal extends AppCompatActivity {
     List<Materia> misMateriasPosta;
     int idparametro;
 
+    TextView tvCurso;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
+        tvCurso = findViewById(R.id.tvCurso);
 
 //        Bundle parametro = getIntent().getExtras();
 //        idparametro = parametro.getInt("posUsuario");
@@ -48,6 +51,8 @@ public class Principal extends AppCompatActivity {
 //                usr = usu;
 //            }
 //        }
+
+        tvCurso.setText(usr.getCurso().getNombre());
 
         ArrayList<String> nombreMaterias = new ArrayList<>();
 
