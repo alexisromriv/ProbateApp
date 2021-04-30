@@ -53,5 +53,10 @@ public class ResultadoTriviaActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        //no vuelve al login
+    }
+
 }
 

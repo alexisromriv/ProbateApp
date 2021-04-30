@@ -147,6 +147,11 @@ public class ExamenActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        //no vuelve al login
+    }
+
 
 }
 
