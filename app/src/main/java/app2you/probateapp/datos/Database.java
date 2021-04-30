@@ -417,9 +417,9 @@ public class Database {
         //------------------ IMMM -------------//
 
         List<Respuesta> respuestasIMM1 = new ArrayList<>();
-        respuestasIMM1.add(new Respuesta("Si un vehículo situado detrás del suyo ha comenzado la maniobra para adelantarlo a usted.", "Maniobra", false));
+        respuestasIMM1.add(new Respuesta("Si un vehículo situado detrás del suyo comenzó la maniobra para adelantarlo a usted.", "Maniobra", false));
         respuestasIMM1.add(new Respuesta("A un vehículo detenido momentáneamente en una cebra o cruce peatonal", "Cebra", false));
-        respuestasIMM1.add(new Respuesta("Se podrá adelantar por la derecha a un vehículo que haya indicado la intención de girar a la izquierda, con las debidas precauciones.", "Girar", true));
+        respuestasIMM1.add(new Respuesta("Se podrá adelantar por la derecha a un vehículo que haya indicado la intención de girar a la izquierda", "Girar", true));
 
         List<Respuesta> respuestasIMM2 = new ArrayList<>();
         respuestasIMM2.add(new Respuesta("Detención obligaroria", "Detención", true));
@@ -432,34 +432,34 @@ public class Database {
         respuestasIMM3.add(new Respuesta("Está permitido estacionar sobre ellas.", "aminore", false));
 
         List<Respuesta> respuestasIMM4 = new ArrayList<>();
-        respuestasIMM4.add(new Respuesta("Vehículos de hasta 9 pasajeros (incluido el conductor), camionetas y vehículos con el conductor), camionetas y vehículos con remolque, con un peso máx. Total de hasta 4000kg.", "Nueve", true));
+        respuestasIMM4.add(new Respuesta("Vehículos de hasta 9 pasajeros, vehículos con remolque, con un peso máx. Total de hasta 4000kg.", "Nueve", true));
         respuestasIMM4.add(new Respuesta("Motocicletas sin límite de cilindrada", "Motocicletas", false));
         respuestasIMM4.add(new Respuesta("Vehículos de hasta 18 pasajeros y camiones simples, pudiendo llevar remolque que no sobrepase los 1500kg", "Dieciocho", false));
 
         List<Respuesta> respuestasIMM5 = new ArrayList<>();
         respuestasIMM5.add(new Respuesta("Los automóviles no necesitan luces de marcha atrás", "Ninguna", false));
-        respuestasIMM5.add(new Respuesta("En los automóviles deben ser rojas y de mayor intensidad que las de posición). Se encuentran en la parte trasera del vehículo, y se encenderán al oprimir el pedal de freno.", "Rojas", false));
-        respuestasIMM5.add(new Respuesta("En automóviles deben ser de color blanca. Ubicado en la parte trasera, se encenderá únicamente al ponerse la marcha atrás.", "Blancas", true));
+        respuestasIMM5.add(new Respuesta("En automóviles deben ser rojas y de mayor intensidad que las de posición, se encenderán al oprimir el freno.", "Rojas", false));
+        respuestasIMM5.add(new Respuesta("En automóviles deben ser blancas. Se encenderá al ponerse la marcha atrás.", "Blancas", true));
 
         List<Respuesta> respuestasIMM6 = new ArrayList<>();
-        respuestasIMM6.add(new Respuesta("A) El conductor no deberá girar sobre la misma calzada en sentido opuesto, en las proximidades de curvas, puentes, túneles, estructuras elevadas, pasos a nivel, cimas de cuestas y cruces ferroviarios ni aun en los lugares permitidos cuando constituya un riesgo para la seguridad del tránsito y obstaculice la libre cieculacion", "A", true));
-        respuestasIMM6.add(new Respuesta("B) Para girar a la derecha, todo conductor debe previamente ubicarse en el carril de circulación de más a la izquierda, y poner las señales de giro obligatorio. Ingresará a la nueva vía, por el lado correspondiente a la circulación, en el carril de más a la izquierda, en su sentido de marcha.", "B", false));
-        respuestasIMM6.add(new Respuesta("C) Los cambios de dirección, disminución de velocidad y demás maniobras que alteran la marcha de un vehículo, serán reglamentaria y anticipadamente advertidas.. Se efectuarán aunque atentan contra la seguridad o la fluidez del tránsito.", "C", false));
+        respuestasIMM6.add(new Respuesta("A) No girar sobre la misma calzada en sentido opuesto, ni cerca de curvas, puentes, túneles, estructuras elevadas, pasos a nivel, cimas de cuestas y cruces ferroviarios ni aun en lugares permitidos cuando constituya un riesgo para la seguridad y obstaculice la libre circulacion", "A", true));
+        respuestasIMM6.add(new Respuesta("B) Para girar a la derecha, previamente ubicarse en el carril de circulación de más a la izquierda, y poner las señales de giro obligatorio. Ingresará a la nueva vía, por el lado correspondiente a la circulación, en el carril de más a la izquierda, en su sentido de marcha.", "B", false));
+        respuestasIMM6.add(new Respuesta("C) Cambios de dirección, disminución de velocidad y demás maniobras que alteran la marcha de un vehículo, serán reglamentaria y anticipadamente advertidas. Se efectuarán aunque atentan contra la seguridad o la fluidez del tránsito.", "C", false));
 
         List<Respuesta> respuestasIMM7 = new ArrayList<>();
-        respuestasIMM7.add(new Respuesta("Cuando dos vehículos se aproximan a una intersección no señalizada procedentes de vías diferentes, el conductor que observase a otro aproximarse por su derecha, cederá el paso.", "Derecha", true));
-        respuestasIMM7.add(new Respuesta("En aquellos cruces donde se hubiera determinado la preferencia de paso mediante los signos “PARE” y “CEDA EL PASO” igual regirá la norma establecida en el numeral anterior.", "PARE", false));
-        respuestasIMM7.add(new Respuesta("El conductor de un vehículo que cambia de dirección o de sentido de marcha, tiene preferencia de paso sobre los demás.", "Dirección", false));
+        respuestasIMM7.add(new Respuesta("Cuando dos vehículos se crucen en una intersección no señalizada, el conductor que observase a otro aproximarse por su derecha, cederá el paso.", "Derecha", true));
+        respuestasIMM7.add(new Respuesta("En cruces donde existan carteles de  “PARE” y “CEDA EL PASO” igual regirá la norma establecida en el numeral anterior.", "PARE", false));
+        respuestasIMM7.add(new Respuesta("El vehículo que cambia de dirección o de sentido de marcha, tiene preferencia de paso sobre los demás.", "Dirección", false));
 
         List<Respuesta> respuestasIMM8 = new ArrayList<>();
         respuestasIMM8.add(new Respuesta("A) Luz roja intermitente: los vehículos que la enfrenten deben detenerse inmediatamente antes de ella y el derecho a seguir queda sujeto a las normas que rigen después de haberse detenido en un signo de “PARE”.", "A", false));
-        respuestasIMM8.add(new Respuesta("B) Luz amarilla o ámbar continua: advierte al conductor que deberá tomar las precauciones necesarias para detenerse a menos que se encuentre en una zona de cruce o a una distancia tal, que su detención coloque en riesgo la seguridad del tránsito.", "B", false));
+        respuestasIMM8.add(new Respuesta("B) Luz amarilla o ámbar continua: el conductor que deberá tomar las precauciones necesarias para detenerse a menos que se encuentre en una zona de cruce o a una distancia tal, que su detención coloque en riesgo la seguridad del tránsito.", "B", false));
         respuestasIMM8.add(new Respuesta("C) Ambas opciones anteriores son correctas", "C", true));
 
         List<Respuesta> respuestasIMM9 = new ArrayList<>();
-        respuestasIMM9.add(new Respuesta("A) indica que se permite adelantar.", "A", false));
-        respuestasIMM9.add(new Respuesta("B) Separan los dos sentidos de circulación en calles y caminos. indica división de carriles. Se permite adelantar si hay visibilidad y el carril opuesto se encuentra desocupado en un espacio suficiente que permita una maniobra con seguridad.", "B", false));
-        respuestasIMM9.add(new Respuesta("C) Separan los dos sentidos de circulación en calles y caminos. No deben ser transpuestas o circular sobre ellas bajo ninguna circunstancia, ya que representan una separación física.", "C", true));
+        respuestasIMM9.add(new Respuesta("A) Indica que se permite adelantar.", "A", false));
+        respuestasIMM9.add(new Respuesta("B) Se permite adelantar si hay visibilidad y el carril opuesto se encuentra desocupado en un espacio suficiente", "B", false));
+        respuestasIMM9.add(new Respuesta("C) No deben ser transpuestas o circular sobre ellas bajo ninguna circunstancia, ya que representan una separación física.", "C", true));
 
         List<Respuesta> respuestasIMM10 = new ArrayList<>();
         respuestasIMM10.add(new Respuesta("Arrancar el motor pisando firmemente el acelerador", "Acelerador", false));
@@ -471,7 +471,7 @@ public class Database {
         preguntasIMM.add(new Pregunta("Señales de transito manuales. El agente de tránsito en posición de frente o espaldas significa:", respuestasIMM2, null));
         preguntasIMM.add(new Pregunta("Señalización horizontal. Las zonas o áreas neutrales:", respuestasIMM3, null));
         preguntasIMM.add(new Pregunta("Con una licencia categoría A estpy habilitado a conducir", respuestasIMM4, null));
-        preguntasIMM.add(new Pregunta("Luces. Para que su vehículo esté en condiciones reglamentarias debe tener en buen estado de funcionamiento sus luces, la luz de marcha atrás debe ser:", respuestasIMM5, null));
+        preguntasIMM.add(new Pregunta("Luces. Un vehículo en condiciones reglamentarias debe tener en buen funcionamiento sus luces, la de marcha atrás debe ser:", respuestasIMM5, null));
         preguntasIMM.add(new Pregunta("Giros. Cual de las soguientes afirmaciones es correcta:", respuestasIMM6, null));
         preguntasIMM.add(new Pregunta("Preferencias de paso. Indique la opción correcta", respuestasIMM7, null));
         preguntasIMM.add(new Pregunta("Semáforos. Indique la opción correcta.", respuestasIMM8, null));
