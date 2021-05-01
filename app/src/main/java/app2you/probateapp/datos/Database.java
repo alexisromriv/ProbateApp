@@ -422,7 +422,7 @@ public class Database {
         respuestasIMM1.add(new Respuesta("Se podrá adelantar por la derecha a un vehículo que haya indicado que girará a la izquierda", "Girar", true));
 
         List<Respuesta> respuestasIMM2 = new ArrayList<>();
-        respuestasIMM2.add(new Respuesta("Detención obligaroria", "Detención", true));
+        respuestasIMM2.add(new Respuesta("Detención obligatoria", "Detención", true));
         respuestasIMM2.add(new Respuesta("Avance", "Avance", false));
         respuestasIMM2.add(new Respuesta("Aminore", "Aminore", false));
 
@@ -432,9 +432,9 @@ public class Database {
         respuestasIMM3.add(new Respuesta("Está permitido estacionar sobre ellas.", "estacionar", false));
 
         List<Respuesta> respuestasIMM4 = new ArrayList<>();
-        respuestasIMM4.add(new Respuesta("Vehículos de hasta 9 pasajeros, vehículos con remolque, con un peso Total de hasta 4000kg.", "Nueve", true));
+        respuestasIMM4.add(new Respuesta("Vehículos de hasta 9 pasajeros, vehículos con remolque, con un peso Total de hasta 4000kg.", "9", true));
         respuestasIMM4.add(new Respuesta("Motocicletas sin límite de cilindrada", "Motocicletas", false));
-        respuestasIMM4.add(new Respuesta("Vehículos de hasta 18 pasajeros y camiones simples, pudiendo llevar remolque de hasta 1500kg", "Dieciocho", false));
+        respuestasIMM4.add(new Respuesta("Vehículos de hasta 18 pasajeros y camiones simples, pudiendo llevar remolque de hasta 1500kg", "18", false));
 
         List<Respuesta> respuestasIMM5 = new ArrayList<>();
         respuestasIMM5.add(new Respuesta("Los automóviles no necesitan luces de marcha atrás", "Ninguna", false));
@@ -452,9 +452,9 @@ public class Database {
         respuestasIMM7.add(new Respuesta("Vehículo que cambia de dirección o de sentido de marcha, tiene preferencia de paso", "Dirección", false));
 
         List<Respuesta> respuestasIMM8 = new ArrayList<>();
-        respuestasIMM8.add(new Respuesta("A) Roja intermitente: detenerse inmediatamente antes de ella y el derecho a seguir es igual que en un PARE.", "A", false));
-        respuestasIMM8.add(new Respuesta("B) Amarilla continua: tomar las precauciones para detenerse, sin bloquear el cruce, y sin provocar un riesgo en el tránsito.", "B", false));
-        respuestasIMM8.add(new Respuesta("C) Ambas opciones anteriores son correctas", "C", true));
+        respuestasIMM8.add(new Respuesta("A) Roja intermitente: detenerse inmediatamente antes de ella y el derecho a seguir es igual que en un PARE.", "detenerse", false));
+        respuestasIMM8.add(new Respuesta("B) Amarilla continua: tomar las precauciones para detenerse, sin bloquear el cruce, y sin provocar un riesgo en el tránsito.", "precaución", false));
+        respuestasIMM8.add(new Respuesta("C) Ambas opciones anteriores son correctas", "ambas", true));
 
         List<Respuesta> respuestasIMM9 = new ArrayList<>();
         respuestasIMM9.add(new Respuesta("A) Indica que se permite adelantar.", "A", false));
@@ -462,13 +462,13 @@ public class Database {
         respuestasIMM9.add(new Respuesta("C) Nunca deben ser transpuestas o circular sobre ellas, representan una separación física.", "C", true));
 
         List<Respuesta> respuestasIMM10 = new ArrayList<>();
-        respuestasIMM10.add(new Respuesta("Arrancar el motor acelerando firmemente", "Acelerador", false));
+        respuestasIMM10.add(new Respuesta("Arrancar el motor acelerando firmemente", "Acelerar", false));
         respuestasIMM10.add(new Respuesta("Usar primera para iniciar la marcha, pasar a segunda a los 2 segundos o seis metros aproximadamente", "Primera", true));
         respuestasIMM10.add(new Respuesta("Circular minimamente en cambios altos y con altas revoluciones", "Altas", false));
 
 
         preguntasIMM.add(new Pregunta("Se puede adelantar a otro vehículo:", respuestasIMM1, null));
-        preguntasIMM.add(new Pregunta("Señales de transito manuales. El agente de tránsito en posición de frente o espaldas significa:", respuestasIMM2, null));
+        preguntasIMM.add(new Pregunta("Señales de tránsito manuales. El agente de tránsito en posición de frente o espaldas significa:", respuestasIMM2, null));
         preguntasIMM.add(new Pregunta("Señalización horizontal. Las zonas o áreas neutrales:", respuestasIMM3, null));
         preguntasIMM.add(new Pregunta("Con una licencia categoría A estoy habilitado a conducir", respuestasIMM4, null));
         preguntasIMM.add(new Pregunta("En un vehículo en condiciones reglamentarias la luz de marcha atrás debe ser:", respuestasIMM5, null));
