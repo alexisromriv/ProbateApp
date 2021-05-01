@@ -417,9 +417,9 @@ public class Database {
         //------------------ IMMM -------------//
 
         List<Respuesta> respuestasIMM1 = new ArrayList<>();
-        respuestasIMM1.add(new Respuesta("Si un vehículo situado detrás del suyo comenzó la maniobra para adelantarlo a usted.", "Maniobra", false));
-        respuestasIMM1.add(new Respuesta("A un vehículo detenido momentáneamente en una cebra o cruce peatonal", "Cebra", false));
-        respuestasIMM1.add(new Respuesta("Se podrá adelantar por la derecha a un vehículo que haya indicado la intención de girar a la izquierda", "Girar", true));
+        respuestasIMM1.add(new Respuesta("Si un vehículo comienza a  adelantarlo a usted.", "Adelantado", false));
+        respuestasIMM1.add(new Respuesta("A un vehículo detenido en una cebra o cruce peatonal", "Cebra", false));
+        respuestasIMM1.add(new Respuesta("Se podrá adelantar por la derecha a un vehículo que haya indicado que girará a la izquierda", "Girar", true));
 
         List<Respuesta> respuestasIMM2 = new ArrayList<>();
         respuestasIMM2.add(new Respuesta("Detención obligaroria", "Detención", true));
@@ -427,55 +427,55 @@ public class Database {
         respuestasIMM2.add(new Respuesta("Aminore", "Aminore", false));
 
         List<Respuesta> respuestasIMM3 = new ArrayList<>();
-        respuestasIMM3.add(new Respuesta("Son líneas diagonales entre líneas continuas que sirven para separar carriles.", "detencion", true));
-        respuestasIMM3.add(new Respuesta("Está permitido circular sobre ellas.", "avance", false));
-        respuestasIMM3.add(new Respuesta("Está permitido estacionar sobre ellas.", "aminore", false));
+        respuestasIMM3.add(new Respuesta("Líneas diagonales entre líneas continuas, separan carriles", "separar", true));
+        respuestasIMM3.add(new Respuesta("Está permitido circular sobre ellas.", "circular", false));
+        respuestasIMM3.add(new Respuesta("Está permitido estacionar sobre ellas.", "estacionar", false));
 
         List<Respuesta> respuestasIMM4 = new ArrayList<>();
-        respuestasIMM4.add(new Respuesta("Vehículos de hasta 9 pasajeros, vehículos con remolque, con un peso máx. Total de hasta 4000kg.", "Nueve", true));
+        respuestasIMM4.add(new Respuesta("Vehículos de hasta 9 pasajeros, vehículos con remolque, con un peso Total de hasta 4000kg.", "Nueve", true));
         respuestasIMM4.add(new Respuesta("Motocicletas sin límite de cilindrada", "Motocicletas", false));
-        respuestasIMM4.add(new Respuesta("Vehículos de hasta 18 pasajeros y camiones simples, pudiendo llevar remolque que no sobrepase los 1500kg", "Dieciocho", false));
+        respuestasIMM4.add(new Respuesta("Vehículos de hasta 18 pasajeros y camiones simples, pudiendo llevar remolque de hasta 1500kg", "Dieciocho", false));
 
         List<Respuesta> respuestasIMM5 = new ArrayList<>();
         respuestasIMM5.add(new Respuesta("Los automóviles no necesitan luces de marcha atrás", "Ninguna", false));
-        respuestasIMM5.add(new Respuesta("En automóviles deben ser rojas y de mayor intensidad que las de posición, se encenderán al oprimir el freno.", "Rojas", false));
+        respuestasIMM5.add(new Respuesta("En automóviles deben ser rojas mas intensas que las de posición, se encenderán al oprimir el freno.", "Rojas", false));
         respuestasIMM5.add(new Respuesta("En automóviles deben ser blancas. Se encenderá al ponerse la marcha atrás.", "Blancas", true));
 
         List<Respuesta> respuestasIMM6 = new ArrayList<>();
-        respuestasIMM6.add(new Respuesta("A) No girar sobre la misma calzada en sentido opuesto, ni cerca de curvas, puentes, túneles, estructuras elevadas, pasos a nivel, cimas de cuestas y cruces ferroviarios ni aun en lugares permitidos cuando constituya un riesgo para la seguridad y obstaculice la libre circulacion", "A", true));
-        respuestasIMM6.add(new Respuesta("B) Para girar a la derecha, previamente ubicarse en el carril de circulación de más a la izquierda, y poner las señales de giro obligatorio. Ingresará a la nueva vía, por el lado correspondiente a la circulación, en el carril de más a la izquierda, en su sentido de marcha.", "B", false));
-        respuestasIMM6.add(new Respuesta("C) Cambios de dirección, disminución de velocidad y demás maniobras que alteran la marcha de un vehículo, serán reglamentaria y anticipadamente advertidas. Se efectuarán aunque atentan contra la seguridad o la fluidez del tránsito.", "C", false));
+        respuestasIMM6.add(new Respuesta("A) No girar en u, ni cerca de curvas, puentes, túneles, pasos a nivel, repechos", "A", true));
+        respuestasIMM6.add(new Respuesta("B) Para girar a la derecha, ubicarse en el carril de más a la izquierda, y poner las señales de giro.", "B", false));
+        respuestasIMM6.add(new Respuesta("C) Giros, frenados y otras maniobras, se efectuarán aunque perjudiquen la seguridad o la fluidez del tránsito.", "C", false));
 
         List<Respuesta> respuestasIMM7 = new ArrayList<>();
-        respuestasIMM7.add(new Respuesta("Cuando dos vehículos se crucen en una intersección no señalizada, el conductor que observase a otro aproximarse por su derecha, cederá el paso.", "Derecha", true));
-        respuestasIMM7.add(new Respuesta("En cruces donde existan carteles de  “PARE” y “CEDA EL PASO” igual regirá la norma establecida en el numeral anterior.", "PARE", false));
-        respuestasIMM7.add(new Respuesta("El vehículo que cambia de dirección o de sentido de marcha, tiene preferencia de paso sobre los demás.", "Dirección", false));
+        respuestasIMM7.add(new Respuesta("Vehículos que se cruzan en esquina no señalizada: ceder paso a quien viene por nuestra derecha.", "Derecha", true));
+        respuestasIMM7.add(new Respuesta("Cruces con carteles de PARE o CEDA EL PASO tendrá preferencia quien viene por nuestra derecha.", "PARE", false));
+        respuestasIMM7.add(new Respuesta("Vehículo que cambia de dirección o de sentido de marcha, tiene preferencia de paso", "Dirección", false));
 
         List<Respuesta> respuestasIMM8 = new ArrayList<>();
-        respuestasIMM8.add(new Respuesta("A) Luz roja intermitente: los vehículos que la enfrenten deben detenerse inmediatamente antes de ella y el derecho a seguir queda sujeto a las normas que rigen después de haberse detenido en un signo de “PARE”.", "A", false));
-        respuestasIMM8.add(new Respuesta("B) Luz amarilla o ámbar continua: el conductor que deberá tomar las precauciones necesarias para detenerse a menos que se encuentre en una zona de cruce o a una distancia tal, que su detención coloque en riesgo la seguridad del tránsito.", "B", false));
+        respuestasIMM8.add(new Respuesta("A) Roja intermitente: detenerse inmediatamente antes de ella y el derecho a seguir es igual que en un PARE.", "A", false));
+        respuestasIMM8.add(new Respuesta("B) Amarilla continua: tomar las precauciones para detenerse, sin bloquear el cruce, y sin provocar un riesgo en el tránsito.", "B", false));
         respuestasIMM8.add(new Respuesta("C) Ambas opciones anteriores son correctas", "C", true));
 
         List<Respuesta> respuestasIMM9 = new ArrayList<>();
         respuestasIMM9.add(new Respuesta("A) Indica que se permite adelantar.", "A", false));
-        respuestasIMM9.add(new Respuesta("B) Se permite adelantar si hay visibilidad y el carril opuesto se encuentra desocupado en un espacio suficiente", "B", false));
-        respuestasIMM9.add(new Respuesta("C) No deben ser transpuestas o circular sobre ellas bajo ninguna circunstancia, ya que representan una separación física.", "C", true));
+        respuestasIMM9.add(new Respuesta("B) Se permite adelantar si hay visibilidad y el carril opuesto está desocupado con espacio suficiente", "B", false));
+        respuestasIMM9.add(new Respuesta("C) Nunca deben ser transpuestas o circular sobre ellas, representan una separación física.", "C", true));
 
         List<Respuesta> respuestasIMM10 = new ArrayList<>();
-        respuestasIMM10.add(new Respuesta("Arrancar el motor pisando firmemente el acelerador", "Acelerador", false));
-        respuestasIMM10.add(new Respuesta("Usar primera solo para iniciar la marcha, pasar a seguna a los 2 segundos o seis metros aproximadamente", "Primera", true));
-        respuestasIMM10.add(new Respuesta("Circular lo menos posible en los cambios más ligeros y mantener altas las revoluciones", "Altas", false));
+        respuestasIMM10.add(new Respuesta("Arrancar el motor acelerando firmemente", "Acelerador", false));
+        respuestasIMM10.add(new Respuesta("Usar primera para iniciar la marcha, pasar a segunda a los 2 segundos o seis metros aproximadamente", "Primera", true));
+        respuestasIMM10.add(new Respuesta("Circular minimamente en cambios altos y con altas revoluciones", "Altas", false));
 
 
         preguntasIMM.add(new Pregunta("Se puede adelantar a otro vehículo:", respuestasIMM1, null));
         preguntasIMM.add(new Pregunta("Señales de transito manuales. El agente de tránsito en posición de frente o espaldas significa:", respuestasIMM2, null));
         preguntasIMM.add(new Pregunta("Señalización horizontal. Las zonas o áreas neutrales:", respuestasIMM3, null));
-        preguntasIMM.add(new Pregunta("Con una licencia categoría A estpy habilitado a conducir", respuestasIMM4, null));
-        preguntasIMM.add(new Pregunta("Luces. Un vehículo en condiciones reglamentarias debe tener en buen funcionamiento sus luces, la de marcha atrás debe ser:", respuestasIMM5, null));
-        preguntasIMM.add(new Pregunta("Giros. Cual de las soguientes afirmaciones es correcta:", respuestasIMM6, null));
+        preguntasIMM.add(new Pregunta("Con una licencia categoría A estoy habilitado a conducir", respuestasIMM4, null));
+        preguntasIMM.add(new Pregunta("En un vehículo en condiciones reglamentarias la luz de marcha atrás debe ser:", respuestasIMM5, null));
+        preguntasIMM.add(new Pregunta("Giros. Cual de las siguientes afirmaciones es correcta:", respuestasIMM6, null));
         preguntasIMM.add(new Pregunta("Preferencias de paso. Indique la opción correcta", respuestasIMM7, null));
         preguntasIMM.add(new Pregunta("Semáforos. Indique la opción correcta.", respuestasIMM8, null));
-        preguntasIMM.add(new Pregunta("Líneas centrales. Si hay  2 líneas centrales continuas:", respuestasIMM9, null));
+        preguntasIMM.add(new Pregunta("Líneas centrales. Si hay 2 líneas centrales continuas:", respuestasIMM9, null));
         preguntasIMM.add(new Pregunta("Para lograr una conducción ecológicamente eficiente es clave", respuestasIMM10, null));
 
     }
