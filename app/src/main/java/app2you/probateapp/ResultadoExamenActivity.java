@@ -38,10 +38,15 @@ public class ResultadoExamenActivity extends AppCompatActivity {
     ResultadoExamenAdapter adapter;
     RecyclerView rvRespuestas;
 
+
+    Materia materia;
+
+
     TextView tvMensajeResultado;
     TextView tvTiempoResolucion;
     TextView tvAciertos;
     Button btnResultado;
+
 
 
     @Override
@@ -54,10 +59,15 @@ public class ResultadoExamenActivity extends AppCompatActivity {
         tvTiempoResolucion = findViewById(R.id.tvTiempoResolucion);
         tvAciertos = findViewById(R.id.tvAciertos);
 
+
         rvRespuestas = (RecyclerView)findViewById(R.id.rvRespuestas);
 
         Intent intent = getIntent();
         Examen examen = (Examen) intent.getSerializableExtra("examen");
+        materia = (Materia) intent.getSerializableExtra("materia");
+        TextView tvNombre = findViewById(R.id.textMateria);
+        tvNombre.setText(materia.getNombre());
+
         int tiempoResolucion = (int)intent.getExtras().get("tiempoResolucion");
         rvRespuestas.setLayoutManager(new LinearLayoutManager(this));
         ResultadoExamenAdapter adapter = new ResultadoExamenAdapter(examen.getRespondidas());

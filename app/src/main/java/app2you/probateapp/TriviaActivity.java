@@ -262,6 +262,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
 
         try {
             startActivityForResult(intentActionRecognizeSpeech, RECOGNIZE_SPEECH_ACTIVITY);
+
         } catch (ActivityNotFoundException a) {
             Toast.makeText(this, "Tu dispositivo no soporta reconocimiento de voz", Toast.LENGTH_SHORT).show();
         }
@@ -280,7 +281,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
             ivAudioOff.setVisibility(View.VISIBLE);
             ivAudioOn.setVisibility(View.INVISIBLE);
         }
-        Toast.makeText(this, "Modo oral " + (modoOral ? "encendido" : "apagado"), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Modo oral " + (modoOral ? "encendido, \n Usa la palabra clave" : "apagado"), Toast.LENGTH_SHORT).show();
     }
 
     private void reproducir(final String texto, int delay) {

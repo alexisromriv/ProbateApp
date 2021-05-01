@@ -86,6 +86,8 @@ public class ExamenActivity extends AppCompatActivity {
         rbRespuestaExamen3.setText(pr.getPregunta().getRespuestas().get(2).getTitulo());
         tvStepExamen.setText(examen.getPaso() + " / " + examen.cantidadPreguntas());
 
+
+
         btnAnterior.setVisibility(View.INVISIBLE);
         btnSiguiente.setVisibility(View.VISIBLE);
         btnFinalizar.setVisibility(View.INVISIBLE);
@@ -141,6 +143,7 @@ public class ExamenActivity extends AppCompatActivity {
             intent.putExtra("examen", examen);
             int  millis = (int ) (SystemClock.elapsedRealtime() - chrExamen.getBase());
             intent.putExtra("tiempoResolucion", (millis / 1000) / 60);
+            intent.putExtra("materia", materia);
             startActivity(intent);
         } catch (Exception ex) {
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();

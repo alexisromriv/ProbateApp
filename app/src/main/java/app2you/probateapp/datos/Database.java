@@ -481,7 +481,7 @@ public class Database {
     }
 
     private void cargarUsuarios() {
-        usuarios.add(new Usuario(1, "Alexis", "Romero", "alexis@probateapp.com", "123", cursos.get(0)));
+        usuarios.add(new Usuario(1, "Alexis", "Romero", "alexis@probateapp.com", "123", cursos.get(6)));
         usuarios.add(new Usuario(2, "Gabriel", "Ithurralde", "gabriel@probateapp.com", "123", cursos.get(0)));
         usuarios.add(new Usuario(3, "Pabla", "Agorio", "pabla@probateapp.com", "123", cursos.get(0)));
         usuarios.add(new Usuario(4, "Evaluador", "b_IT", "evaluador@probateapp.com", "abc123", cursos.get(7)));
