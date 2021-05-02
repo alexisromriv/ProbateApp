@@ -136,6 +136,7 @@ public class TriviaActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void escucharRespuesta() {
+        Toast.makeText(this, "Esperando por respuesta" + calcularTiempoLectura() + TIEMPO_ESPERA_RESPUESTA +  "ms", Toast.LENGTH_SHORT).show();
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 leyendo = false;
