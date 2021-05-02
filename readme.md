@@ -1,5 +1,5 @@
 # Probate App
-By Up2You
+By App2You
 
 ## Autenticación
 
